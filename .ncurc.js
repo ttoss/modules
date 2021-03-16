@@ -1,1 +1,3 @@
-module.exports = require('./config/ncurc.config');
+module.exports = {
+  reject: ['husky'],
+};
