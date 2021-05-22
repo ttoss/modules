@@ -1,3 +1,4 @@
+import React from 'react';
 import { Meta } from '@storybook/react';
 
 import Login from './Login';
@@ -8,11 +9,7 @@ const LoginComponent: Meta = {
 };
 
 const Example = () => (
-  <Login
-    onSubmit={(email, password) =>
-      alert(`Email: ${email} |  Password: ${password} `)
-    }
-  />
+  <Login onSubmit={(data) => alert(JSON.stringify(data))} />
 );
 
 export default LoginComponent;
