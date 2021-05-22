@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Flex, Label, Button, Input, Image, Box, Link, Text } from 'theme-ui';
 import Form from '../Form/Form';
+import { useForm } from 'react-hook-form';
 
 import logo from '../../assets/logo-demo.png';
 
@@ -22,17 +23,28 @@ const LinkButton = ({ children }: LinkButtonProps) => {
   );
 };
 
+type Fields = {
+  email: string;
+  password: string;
+};
+
 type LoginProps = {
-  onSubmit: (email: string, password: string) => void;
+  onSubmit: (data: Fields) => void;
+  defaultValues?: Fields;
   urlLogo?: string;
 };
 
-const Login = ({ onSubmit, urlLogo }: LoginProps) => {
-  const [email, setEmail] = React.useState('rayza.ocr@gmail.com');
-  const [password, setPassword] = React.useState('123');
+const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, touchedFields },
+  } = useForm<Fields>({ defaultValues });
+
+  const onSubmitForm = (data: Fields) => onSubmit(data);
 
   return (
-    <Form onSubmit={(e) => e.preventDefault()}>
+    <Form onSubmit={handleSubmit(onSubmitForm)}>
       <Flex
         sx={{
           maxWidth: '400px',
@@ -57,21 +69,49 @@ const Login = ({ onSubmit, urlLogo }: LoginProps) => {
           LOGIN
         </Text>
         <Box sx={{ width: '100%', marginBottom: '24px' }}>
-          <Label htmlFor="e-mail">e-mail</Label>
-          <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+          <Label htmlFor="email">e-mail</Label>
+          <Input
+            role="email-input"
+            {...register('email', {
+              required: 'O campo e-mail precisa ser preenchido!',
+
+              pattern: {
+                message: 'E-mail inválido!',
+                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              },
+            })}
+          />
+          {errors.email && touchedFields.email && (
+            <Text sx={{ fontSize: '12px', color: 'red' }}>
+              {errors.email.message}
+            </Text>
+          )}
         </Box>
         <Box sx={{ width: '100%', marginBottom: '24px' }}>
           <Label htmlFor="password">senha</Label>
           <Input
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            aria-label="password"
+            // defaultValue={defaultValues?.password}
+            {...register('password', {
+              required: 'A senha é obrigatória!',
+              minLength: {
+                value: 4,
+                message: 'A senha precisa ter no mínimo 4 caracteres!',
+              },
+            })}
             type="password"
           />
+          {errors.password && touchedFields.password && (
+            <Text sx={{ fontSize: '12px', color: 'red' }}>
+              {errors.password.message}
+            </Text>
+          )}
         </Box>
 
         <Button
-          onClick={() => onSubmit(email, password)}
+          type="submit"
           sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
+          aria-label="submit-login"
         >
           Login
         </Button>
