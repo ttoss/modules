@@ -2,8 +2,7 @@ import * as React from 'react';
 import { Flex, Label, Button, Input, Image, Box, Link, Text } from 'theme-ui';
 import Form from '../Form/Form';
 import { useForm } from 'react-hook-form';
-
-import logo from '../../assets/logo-demo.png';
+import LogoDemo from '../../components/LogoDemo/index';
 
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
@@ -57,7 +56,11 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
           fontFamily: 'Arial',
         }}
       >
-        <Image src={urlLogo || logo} />
+        {urlLogo ? (
+          <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
+        ) : (
+          <LogoDemo />
+        )}
         <Text
           sx={{
             marginY: '24px',
@@ -90,8 +93,7 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
         <Box sx={{ width: '100%', marginBottom: '24px' }}>
           <Label htmlFor="password">senha</Label>
           <Input
-            aria-label="password"
-            // defaultValue={defaultValues?.password}
+            role="password"
             {...register('password', {
               required: 'A senha é obrigatória!',
               minLength: {
