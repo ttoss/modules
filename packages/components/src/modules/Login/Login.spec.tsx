@@ -13,9 +13,9 @@ const user = {
 
 describe('Login', async () => {
   test('Should not call the onSubmit function if click on the login button without filling in the fields ', () => {
-    const { getByLabelText } = render(<Login onSubmit={onSubmit} />);
+    const { getByRole } = render(<Login onSubmit={onSubmit} />);
 
-    userEvent.click(getByLabelText('submit-login'));
+    userEvent.click(getByRole('button'));
 
     expect(onSubmit).toHaveBeenCalledTimes(0);
   });
@@ -23,18 +23,18 @@ describe('Login', async () => {
   test('Should call the onSubmit function if click on the login button with filling in the fields ', async () => {
     const { getByLabelText, getByRole } = render(<Login onSubmit={onSubmit} />);
 
-    const emailInput = getByRole('email-input');
-    const password = getByRole('password');
-    const buttonSubmit = getByLabelText('submit-login');
+    const emailInput = getByLabelText('e-mail');
+    const password = getByLabelText('senha');
+    const buttonSubmit = getByRole('button');
 
     await act(async () => {
-      await userEvent.type(emailInput, user.email);
+      userEvent.type(emailInput, user.email);
 
-      await userEvent.type(password, user.password);
+      userEvent.type(password, user.password);
 
-      await userEvent.click(buttonSubmit);
+      userEvent.click(buttonSubmit);
     });
 
-    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledWith(user);
   });
 });

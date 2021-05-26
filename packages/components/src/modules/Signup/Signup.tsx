@@ -66,7 +66,6 @@ const Signup = ({ onSubmit, defaultValues, urlLogo }: SignupProps) => {
         <Button
           type="submit"
           sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
-          aria-label="submit-Signup"
         >
           Criar
         </Button>
