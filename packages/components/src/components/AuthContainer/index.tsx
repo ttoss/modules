@@ -6,17 +6,15 @@ import LogoDemo from '../../components/LogoDemo/index';
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
   href: string;
-  color?: string;
 };
 
-const LinkButton = ({ children, href, color }: LinkButtonProps) => {
+const LinkButton = ({ children, href }: LinkButtonProps) => {
   return (
     <Link
       sx={{
         marginTop: '24px',
         textDecoration: 'underline',
         cursor: 'pointer',
-        color,
       }}
       href={href}
     >
@@ -32,7 +30,6 @@ type AuthContainerProps = {
   links?: {
     label: string;
     href: string;
-    color?: string;
   }[];
 };
 
@@ -72,8 +69,8 @@ const AuthContainer = ({
         {title}
       </Text>
       {children}
-      {links?.map((link) => (
-        <LinkButton color={link.color} href={link.href}>
+      {links?.map((link, idx) => (
+        <LinkButton key={idx} href={link.href}>
           {link.label}
         </LinkButton>
       ))}

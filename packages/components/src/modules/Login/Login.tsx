@@ -1,26 +1,12 @@
 import * as React from 'react';
-import { Flex, Label, Button, Input, Image, Box, Link, Text } from 'theme-ui';
+import { Button, Input } from 'theme-ui';
 import Form from '../Form/Form';
 import { useForm } from 'react-hook-form';
-import LogoDemo from '../../components/LogoDemo/index';
+import { yupResolver } from '@hookform/resolvers/yup';
+import AuthContainer from '../../components/AuthContainer';
+import * as yup from 'yup';
 
-type LinkButtonProps = {
-  children: React.ReactNode | React.ReactNodeArray;
-};
-
-const LinkButton = ({ children }: LinkButtonProps) => {
-  return (
-    <Link
-      sx={{
-        marginTop: '24px',
-        textDecoration: 'underline',
-        cursor: 'pointer',
-      }}
-    >
-      {children}
-    </Link>
-  );
-};
+const { FormControl } = Form;
 
 type Fields = {
   email: string;
@@ -34,81 +20,51 @@ type LoginProps = {
 };
 
 const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .required('Custom required message')
+      .email('Custom email message'),
+    password: yup
+      .string()
+      .required()
+      .min(4, 'Custom min length message')
+      .trim(),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors, touchedFields },
-  } = useForm<Fields>({ defaultValues });
+  } = useForm<Fields>({ defaultValues, resolver: yupResolver(schema) });
 
   const onSubmitForm = (data: Fields) => onSubmit(data);
 
   return (
     <Form onSubmit={handleSubmit(onSubmitForm)}>
-      <Flex
-        sx={{
-          maxWidth: '400px',
-          width: '100%',
-          border: 'solid 2px #444',
-          padding: '32px',
-          flexDirection: 'column',
-          alignItems: 'center',
-          color: 'text',
-          fontFamily: 'Arial',
-        }}
+      <AuthContainer
+        links={[
+          { label: 'Criar Conta', href: '/' },
+          { label: 'Recuperar Senha', href: '/recovery-password' },
+        ]}
+        title="Login"
+        urlLogo={urlLogo}
       >
-        {urlLogo ? (
-          <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
-        ) : (
-          <LogoDemo />
-        )}
-        <Text
-          sx={{
-            marginY: '24px',
-            textAlign: 'center',
-            width: '100%',
-            fontWeight: 'bold',
-          }}
+        <FormControl
+          label="e-mail"
+          name="email"
+          errorMessage={touchedFields.email && errors.email?.message}
         >
-          LOGIN
-        </Text>
-        <Box sx={{ width: '100%', marginBottom: '24px' }}>
-          <Label htmlFor="email">e-mail</Label>
-          <Input
-            role="email-input"
-            {...register('email', {
-              required: 'O campo e-mail precisa ser preenchido!',
+          <Input id="email" {...register('email')} />
+        </FormControl>
 
-              pattern: {
-                message: 'E-mail inválido!',
-                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              },
-            })}
-          />
-          {errors.email && touchedFields.email && (
-            <Text sx={{ fontSize: '12px', color: 'red' }}>
-              {errors.email.message}
-            </Text>
-          )}
-        </Box>
-        <Box sx={{ width: '100%', marginBottom: '24px' }}>
-          <Label htmlFor="password">senha</Label>
-          <Input
-            role="password"
-            {...register('password', {
-              required: 'A senha é obrigatória!',
-              minLength: {
-                value: 4,
-                message: 'A senha precisa ter no mínimo 4 caracteres!',
-              },
-            })}
-            type="password"
-          />
-          {errors.password && touchedFields.password && (
-            <Text sx={{ fontSize: '12px', color: 'red' }}>
-              {errors.password.message}
-            </Text>
-          )}
-        </Box>
+        <FormControl
+          label="senha"
+          name="password"
+          errorMessage={touchedFields.password && errors.password?.message}
+        >
+          <Input id="password" {...register('password')} type="password" />
+        </FormControl>
 
         <Button
           type="submit"
@@ -117,10 +73,7 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
         >
           Login
         </Button>
-
-        <LinkButton>Recuperar senha</LinkButton>
-        <LinkButton>Criar conta</LinkButton>
-      </Flex>
+      </AuthContainer>
     </Form>
   );
 };
