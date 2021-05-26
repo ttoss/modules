@@ -16,8 +16,12 @@
  *
  */
 module.exports = {
-  plugins: ['formatjs', 'prettier'],
-  extends: ['plugin:prettier/recommended'],
+  env: {
+    browser: true,
+    'jest/globals': true,
+  },
+  plugins: ['formatjs', 'prettier', 'jest', 'jest-dom'],
+  extends: ['plugin:prettier/recommended', 'react-app/jest'],
   rules: {
     'formatjs/no-offset': 'error',
   },
