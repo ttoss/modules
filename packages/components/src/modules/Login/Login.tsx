@@ -69,6 +69,7 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
         <Button
           type="submit"
           sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
+          aria-label="submit-login"
         >
           Login
         </Button>
