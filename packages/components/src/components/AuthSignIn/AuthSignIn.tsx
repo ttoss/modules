@@ -1,25 +1,26 @@
 import * as React from 'react';
-import { Button, Input } from 'theme-ui';
-import Form from '../Form/Form';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import AuthContainer from '../../components/AuthContainer';
 import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { Button, Input } from 'theme-ui';
 
-const { FormControl } = Form;
+import Form from '../Form/Form';
+import AuthContainer from '../AuthContainer';
+
+const { FormItem } = Form;
 
 type Fields = {
   email: string;
   password: string;
 };
 
-type LoginProps = {
+type AuthSignInProps = {
   onSubmit: (data: Fields) => void;
   defaultValues?: Fields;
   urlLogo?: string;
 };
 
-const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
+const AuthSignIn = ({ onSubmit, defaultValues, urlLogo }: AuthSignInProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -50,21 +51,21 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
         title="Login"
         urlLogo={urlLogo}
       >
-        <FormControl
+        <FormItem
           label="e-mail"
           name="email"
           errorMessage={touchedFields.email && errors.email?.message}
         >
           <Input id="email" {...register('email')} />
-        </FormControl>
+        </FormItem>
 
-        <FormControl
+        <FormItem
           label="senha"
           name="password"
           errorMessage={touchedFields.password && errors.password?.message}
         >
           <Input id="password" {...register('password')} type="password" />
-        </FormControl>
+        </FormItem>
 
         <Button
           type="submit"
@@ -78,4 +79,4 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
   );
 };
 
-export default Login;
+export default AuthSignIn;

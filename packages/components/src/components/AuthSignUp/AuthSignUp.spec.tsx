@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render, act } from '../../testUtils';
 import userEvent from '@testing-library/user-event';
 
-import Signup from './Signup';
+import AuthSignUp from './AuthSignUp';
 
 const onSubmit = jest.fn();
 
@@ -13,7 +13,7 @@ const user = {
 
 describe('Signup', async () => {
   test('Should not call the onSubmit function if click on the Signup button without filling in the fields ', () => {
-    const { getByRole } = render(<Signup onSubmit={onSubmit} />);
+    const { getByRole } = render(<AuthSignUp onSubmit={onSubmit} />);
 
     userEvent.click(getByRole('button'));
 
@@ -22,7 +22,7 @@ describe('Signup', async () => {
 
   test('Should call the onSubmit function if click on the Signup button with filling in the fields ', async () => {
     const { getByLabelText, getByRole } = render(
-      <Signup onSubmit={onSubmit} />
+      <AuthSignUp onSubmit={onSubmit} />
     );
 
     const emailInput = getByLabelText('e-mail');
