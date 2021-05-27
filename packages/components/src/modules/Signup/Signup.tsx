@@ -13,13 +13,13 @@ type Fields = {
   password: string;
 };
 
-type LoginProps = {
+type SignupProps = {
   onSubmit: (data: Fields) => void;
   defaultValues?: Fields;
   urlLogo?: string;
 };
 
-const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
+const Signup = ({ onSubmit, defaultValues, urlLogo }: SignupProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -43,11 +43,8 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
   return (
     <Form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthContainer
-        links={[
-          { label: 'Criar Conta', href: '/' },
-          { label: 'Recuperar Senha', href: '/recovery-password' },
-        ]}
-        title="Login"
+        links={[{ label: 'Login', href: '/login' }]}
+        title="Criar Conta"
         urlLogo={urlLogo}
       >
         <FormControl
@@ -69,13 +66,12 @@ const Login = ({ onSubmit, defaultValues, urlLogo }: LoginProps) => {
         <Button
           type="submit"
           sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
-          aria-label="submit-login"
         >
-          Login
+          Criar
         </Button>
       </AuthContainer>
     </Form>
   );
 };
 
-export default Login;
+export default Signup;
