@@ -2,19 +2,14 @@ import * as React from 'react';
 
 import { Box, Label, Text } from '@theme-ui/components';
 
-type FormControlProps = {
+type FormItemProps = {
   children: React.ReactNode | React.ReactNodeArray;
   label: string;
   name: string;
   errorMessage?: string;
 };
 
-const FormControl = ({
-  children,
-  label,
-  name,
-  errorMessage,
-}: FormControlProps) => {
+const FormItem = ({ children, label, name, errorMessage }: FormItemProps) => {
   return (
     <Box sx={{ width: '100%', marginBottom: '24px' }}>
       <Label htmlFor={name}>{label}</Label>
@@ -36,11 +31,6 @@ const Form = (
   return <form {...props} />;
 };
 
-const FormItem = ({ children }: { children: React.ReactNode }) => {
-  return <Box>{children}</Box>;
-};
-
-Form.Item = FormItem;
-Form.FormControl = FormControl;
+Form.FormItem = FormItem;
 
 export default Form;

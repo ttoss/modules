@@ -18,7 +18,6 @@
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "postbuild": "yarn run extract",
     "test": "tsdx test --passWithNoTests",
-    "test-jest": "jest",
     "lint": "eslint src",
     "prepare": "tsdx build",
     "size": "size-limit",
