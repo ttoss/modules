@@ -4,12 +4,15 @@ import { Meta } from '@storybook/react';
 import AuthSignIn from './AuthSignIn';
 
 const AuthSignInComponent: Meta = {
-  title: 'Modules Authentication/AuthSignIn',
+  title: 'Modules Auth/AuthSignIn',
   component: AuthSignIn,
 };
 
 const Example = () => (
-  <AuthSignIn onSubmit={(data) => alert(JSON.stringify(data))} />
+  <AuthSignIn
+    onSignIn={(data) => alert(JSON.stringify(data))}
+    onSignUp={console.log}
+  />
 );
 
 export default AuthSignInComponent;

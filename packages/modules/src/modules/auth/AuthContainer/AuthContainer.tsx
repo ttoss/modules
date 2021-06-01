@@ -1,25 +1,22 @@
 import * as React from 'react';
-import { Flex, Image, Link, Text } from 'theme-ui';
+import { Button, Flex, Image, Text } from 'theme-ui';
 
-import LogoDemo from '../../components/LogoDemo/index';
+import LogoDemo from '../../../components/LogoDemo/index';
 
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
-  href: string;
+  onClick: () => void;
 };
 
-const LinkButton = ({ children, href }: LinkButtonProps) => {
+const LinkButton = ({ children, onClick }: LinkButtonProps) => {
   return (
-    <Link
-      sx={{
-        marginTop: '24px',
-        textDecoration: 'underline',
-        cursor: 'pointer',
-      }}
-      href={href}
+    <Button
+      as="a"
+      sx={{ color: 'black', cursor: 'pointer', marginTop: '24px' }}
+      onClick={onClick}
     >
       {children}
-    </Link>
+    </Button>
   );
 };
 
@@ -27,10 +24,10 @@ type AuthContainerProps = {
   children: React.ReactNode | React.ReactNodeArray;
   urlLogo?: string;
   title: string;
-  links?: {
+  links?: Array<{
     label: string;
-    href: string;
-  }[];
+    onClick: () => void;
+  }>;
 };
 
 const AuthContainer = ({
@@ -69,8 +66,8 @@ const AuthContainer = ({
         {title}
       </Text>
       {children}
-      {links?.map((link, idx) => (
-        <LinkButton key={idx} href={link.href}>
+      {links?.map((link) => (
+        <LinkButton key={link.label} onClick={link.onClick}>
           {link.label}
         </LinkButton>
       ))}

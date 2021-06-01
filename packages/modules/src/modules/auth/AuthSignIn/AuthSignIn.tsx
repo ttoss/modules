@@ -4,23 +4,26 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { Button, Input } from 'theme-ui';
 
-import Form from '../Form/Form';
-import AuthContainer from '../AuthContainer';
+import Form from '../../../components/Form/Form';
+import AuthContainer from '../AuthContainer/AuthContainer';
+
+import type { OnSignIn, OnSignInInput } from '../types';
 
 const { FormItem } = Form;
 
-type Fields = {
-  email: string;
-  password: string;
-};
-
 type AuthSignInProps = {
-  onSubmit: (data: Fields) => void;
-  defaultValues?: Fields;
+  onSignIn: OnSignIn;
+  onSignUp: () => void;
+  defaultValues?: OnSignInInput;
   urlLogo?: string;
 };
 
-const AuthSignIn = ({ onSubmit, defaultValues, urlLogo }: AuthSignInProps) => {
+const AuthSignIn = ({
+  onSignIn,
+  onSignUp,
+  defaultValues,
+  urlLogo,
+}: AuthSignInProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -37,16 +40,19 @@ const AuthSignIn = ({ onSubmit, defaultValues, urlLogo }: AuthSignInProps) => {
     register,
     handleSubmit,
     formState: { errors, touchedFields },
-  } = useForm<Fields>({ defaultValues, resolver: yupResolver(schema) });
+  } = useForm<OnSignInInput>({ defaultValues, resolver: yupResolver(schema) });
 
-  const onSubmitForm = (data: Fields) => onSubmit(data);
+  const onSubmitForm = (data: OnSignInInput) => onSignIn(data);
 
   return (
     <Form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthContainer
         links={[
-          { label: 'Criar Conta', href: '/' },
-          { label: 'Recuperar Senha', href: '/recovery-password' },
+          {
+            label: 'Criar Conta',
+            onClick: onSignUp,
+          },
+          // { label: 'Recuperar Senha', href: '/recovery-password' },
         ]}
         title="Login"
         urlLogo={urlLogo}
