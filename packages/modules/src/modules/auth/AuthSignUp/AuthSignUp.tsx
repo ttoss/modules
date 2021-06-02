@@ -47,13 +47,9 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
           <Input id="email" {...register('email')} />
         </Form.Field>
 
-        <FormItem
-          label="senha"
-          name="password"
-          errorMessage={touchedFields.password && errors.password?.message}
-        >
+        <Form.Field label="senha" name="password" formState={formState}>
           <Input id="password" {...register('password')} type="password" />
-        </FormItem>
+        </Form.Field>
 
         <Button
           type="submit"

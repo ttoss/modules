@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { ErrorMessage as HookFormErrorMessage } from '@hookform/error-message';
 import { FormState } from 'react-hook-form';
-import { Box, BoxProps, Label, Text, ThemeUIStyleObject } from 'theme-ui';
+import { Box, Label, Text, ThemeUIStyleObject } from 'theme-ui';
 
 const Form = ({
   children,
@@ -11,7 +11,7 @@ const Form = ({
 }: {
   children?: React.ReactNode;
   sx?: ThemeUIStyleObject;
-} & BoxProps) => {
+}) => {
   return (
     <Box as="form" {...props} sx={sx}>
       {children}
@@ -28,7 +28,7 @@ export const ErrorMessage = ({
 }) => {
   return (
     <HookFormErrorMessage
-      errors={formState.errors}
+      errors={formState?.errors}
       name={name}
       render={({ message, messages }) => {
         /**
@@ -69,7 +69,7 @@ const Field = ({
 }) => {
   return (
     <Box>
-      <Label>
+      <Label sx={{ display: 'flex', flexDirection: 'column' }}>
         {label && <Text as="span">{label}</Text>}
         {children}
       </Label>
