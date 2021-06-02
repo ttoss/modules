@@ -6,12 +6,16 @@ export const parameters = {
   actions: { argTypesRegex: '^on.*' },
 };
 
-import ModulesProvider from '../src/providers/ModulesProvider';
+import ProvidersUtils from '../src/ProvidersUtils';
+
+import { ModulesProvider } from '../src';
 
 export const decorators = [
-  Story => (
-    <ModulesProvider>
-      <Story />
-    </ModulesProvider>
+  (Story) => (
+    <ProvidersUtils>
+      <ModulesProvider>
+        <Story />
+      </ModulesProvider>
+    </ProvidersUtils>
   ),
 ];

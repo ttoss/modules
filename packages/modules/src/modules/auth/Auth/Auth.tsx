@@ -3,6 +3,8 @@ import { Auth as AmplifyAuth } from 'aws-amplify';
 import * as React from 'react';
 import { createMachine } from 'xstate';
 
+import { useNotifications } from '../../notifications';
+
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
 
@@ -46,8 +48,14 @@ export const AuthMachine = ({
 };
 
 const Auth = () => {
+  const { toast, setLoading } = useNotifications();
+
   const onSignIn = React.useCallback<OnSignIn>(({ email, password }) => {
-    AmplifyAuth.signIn(email, password).catch((err) => console.log(err));
+    setLoading(true);
+    AmplifyAuth.signIn(email, password)
+      .then(() => toast('Signed In'))
+      .catch((err) => toast(JSON.stringify(err, null, 2)))
+      .finally(() => setLoading(false));
   }, []);
 
   const onSignUp = React.useCallback<OnSignUp>(({ email, password }) => {

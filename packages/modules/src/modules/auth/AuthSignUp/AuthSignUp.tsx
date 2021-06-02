@@ -1,15 +1,14 @@
-import * as React from 'react';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Input } from 'theme-ui';
+import * as React from 'react';
 import { useForm } from 'react-hook-form';
+import { Button, Input } from 'theme-ui';
+import * as yup from 'yup';
 
-import Form from '../../../components/Form/Form';
+import { Form } from '../../forms';
+
 import AuthContainer from '../AuthContainer/AuthContainer';
 
 import type { OnSignUp, OnSignUpInput } from '../types';
-
-const { FormItem } = Form;
 
 type AuthSignUpProps = {
   onSignUp: OnSignUp;
@@ -30,28 +29,23 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
       .trim(),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, touchedFields },
-  } = useForm<OnSignUpInput>({ defaultValues, resolver: yupResolver(schema) });
+  const { register, handleSubmit, formState } = useForm<OnSignUpInput>({
+    defaultValues,
+    resolver: yupResolver(schema),
+  });
 
   const onSubmitForm = (data: OnSignUpInput) => onSignUp(data);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmitForm)}>
-      <AuthContainer
-        // links={[{ label: 'Login', href: '/login' }]}
-        title="Criar Conta"
-        urlLogo={urlLogo}
-      >
-        <FormItem
-          label="e-mail"
-          name="email"
-          errorMessage={touchedFields.email && errors.email?.message}
-        >
+    <AuthContainer
+      // links={[{ label: 'Login', href: '/login' }]}
+      title="Criar Conta"
+      urlLogo={urlLogo}
+    >
+      <Form onSubmit={handleSubmit(onSubmitForm)}>
+        <Form.Field label="e-mail" name="email" formState={formState}>
           <Input id="email" {...register('email')} />
-        </FormItem>
+        </Form.Field>
 
         <FormItem
           label="senha"
@@ -67,8 +61,8 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
         >
           Criar
         </Button>
-      </AuthContainer>
-    </Form>
+      </Form>
+    </AuthContainer>
   );
 };
 

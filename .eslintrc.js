@@ -10,19 +10,47 @@
  * - eslint-plugin-react-hooks
  * - eslint-plugin-react
  *
+ * Packages required by eslint-config-react-app/jest.
+ *
+ * - eslint-plugin-testing-library
+ *
  * Packages required by eslint-plugin-prettier
  *
  * - eslint-config-prettier
  *
  */
 module.exports = {
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     'jest/globals': true,
   },
-  plugins: ['formatjs', 'prettier', 'jest', 'jest-dom'],
-  extends: ['plugin:prettier/recommended', 'react-app/jest'],
+  plugins: [
+    '@typescript-eslint',
+    'formatjs',
+    'prettier',
+    'jest',
+    'jest-dom',
+    'react-app',
+    'plugin:jsx-a11y/recommended',
+  ],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+    'jsx-a11y',
+  ],
   rules: {
     'formatjs/no-offset': 'error',
   },
+  overrides: [
+    {
+      files: ['**/*.js', '**/*.jsx'],
+      rules: {
+        '@typescript-eslint': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/camelcase': 'off',
+      },
+    },
+  ],
 };

@@ -4,12 +4,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { Button, Input } from 'theme-ui';
 
-import Form from '../../../components/Form/Form';
+import { Form } from '../../forms';
+
 import AuthContainer from '../AuthContainer/AuthContainer';
 
 import type { OnSignIn, OnSignInInput } from '../types';
-
-const { FormItem } = Form;
 
 type AuthSignInProps = {
   onSignIn: OnSignIn;
@@ -36,11 +35,10 @@ const AuthSignIn = ({
       .trim(),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, touchedFields },
-  } = useForm<OnSignInInput>({ defaultValues, resolver: yupResolver(schema) });
+  const { register, handleSubmit, formState } = useForm<OnSignInInput>({
+    defaultValues,
+    resolver: yupResolver(schema),
+  });
 
   const onSubmitForm = (data: OnSignInInput) => onSignIn(data);
 
@@ -57,21 +55,13 @@ const AuthSignIn = ({
         title="Login"
         urlLogo={urlLogo}
       >
-        <FormItem
-          label="e-mail"
-          name="email"
-          errorMessage={touchedFields.email && errors.email?.message}
-        >
-          <Input id="email" {...register('email')} />
-        </FormItem>
+        <Form.Field label="e-mail" name="email" formState={formState}>
+          <Input {...register('email')} />
+        </Form.Field>
 
-        <FormItem
-          label="senha"
-          name="password"
-          errorMessage={touchedFields.password && errors.password?.message}
-        >
+        <Form.Field label="senha" name="password" formState={formState}>
           <Input id="password" {...register('password')} type="password" />
-        </FormItem>
+        </Form.Field>
 
         <Button
           type="submit"
