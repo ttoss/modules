@@ -13,7 +13,7 @@ import type { OnSignIn, OnSignInInput } from '../types';
 type AuthSignInProps = {
   onSignIn: OnSignIn;
   onSignUp: () => void;
-  defaultValues?: OnSignInInput;
+  defaultValues?: Partial<OnSignInInput>;
   urlLogo?: string;
 };
 

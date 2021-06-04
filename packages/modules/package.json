@@ -31,14 +31,14 @@
     "@xstate/react": "^1.3.3",
     "react-hook-form": "^7.6.4",
     "react-toastify": "^7.0.4",
+    "theme-ui": "^0.9.1",
     "xstate": "^4.19.2",
     "yup": "^0.32.9"
   },
   "peerDependencies": {
     "aws-amplify": "^4.0.3",
     "react": ">=16",
-    "react-intl": "^5.18.2",
-    "theme-ui": "^0.9.1"
+    "react-intl": "^5.18.2"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.10.1",

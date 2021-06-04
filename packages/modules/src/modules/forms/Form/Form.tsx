@@ -11,7 +11,7 @@ const Form = ({
 }: {
   children?: React.ReactNode;
   sx?: ThemeUIStyleObject;
-}) => {
+} & Record<string, any>) => {
   return (
     <Box as="form" {...props} sx={sx}>
       {children}
