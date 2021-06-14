@@ -77,7 +77,7 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
   }
 );
 
-export const Auth = () => {
+export const Auth = ({ onSuccessSignIn }: { onSuccessSignIn?: () => void }) => {
   const [state, send] = useMachine(authMachine);
 
   const { toast, setLoading } = useNotifications();
@@ -86,6 +86,9 @@ export const Auth = () => {
     try {
       setLoading(true);
       await AmplifyAuth.signIn(email, password);
+      if (onSuccessSignIn) {
+        onSuccessSignIn();
+      }
       toast('Signed In');
     } catch (error) {
       switch (error.code) {
