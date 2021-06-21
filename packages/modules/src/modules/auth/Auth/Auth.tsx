@@ -77,7 +77,11 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
   }
 );
 
-export const Auth = ({ onSuccessSignIn }: { onSuccessSignIn?: () => void }) => {
+export const Auth = ({
+  onSignIn: onSuccessSignIn,
+}: {
+  onSignIn?: () => void;
+}) => {
   const [state, send] = useMachine(authMachine);
 
   const { toast, setLoading } = useNotifications();
