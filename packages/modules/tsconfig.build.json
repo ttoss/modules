@@ -6,5 +6,10 @@
     "noEmit": false
   },
   "include": ["src/**/*"],
-  "exclude": ["**/*.stories.tsx", "**/*.spec.tsx"]
+  "exclude": [
+    "**/*.stories.tsx",
+    "**/*.spec.tsx",
+    "src/ProvidersUtils.tsx",
+    "src/testUtils.ts"
+  ]
 }

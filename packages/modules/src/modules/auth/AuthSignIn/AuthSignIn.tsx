@@ -4,23 +4,25 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { Button, Input } from 'theme-ui';
 
-import Form from '../Form/Form';
-import AuthContainer from '../AuthContainer';
+import { Form } from '../../forms';
 
-const { FormItem } = Form;
+import AuthContainer from '../AuthContainer/AuthContainer';
 
-type Fields = {
-  email: string;
-  password: string;
-};
+import type { OnSignIn, OnSignInInput } from '../types';
 
 type AuthSignInProps = {
-  onSubmit: (data: Fields) => void;
-  defaultValues?: Fields;
+  onSignIn: OnSignIn;
+  onSignUp: () => void;
+  defaultValues?: Partial<OnSignInInput>;
   urlLogo?: string;
 };
 
-const AuthSignIn = ({ onSubmit, defaultValues, urlLogo }: AuthSignInProps) => {
+const AuthSignIn = ({
+  onSignIn,
+  onSignUp,
+  defaultValues,
+  urlLogo,
+}: AuthSignInProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -33,39 +35,33 @@ const AuthSignIn = ({ onSubmit, defaultValues, urlLogo }: AuthSignInProps) => {
       .trim(),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, touchedFields },
-  } = useForm<Fields>({ defaultValues, resolver: yupResolver(schema) });
+  const { register, handleSubmit, formState } = useForm<OnSignInInput>({
+    defaultValues,
+    resolver: yupResolver(schema),
+  });
 
-  const onSubmitForm = (data: Fields) => onSubmit(data);
+  const onSubmitForm = (data: OnSignInInput) => onSignIn(data);
 
   return (
     <Form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthContainer
         links={[
-          { label: 'Criar Conta', href: '/' },
-          { label: 'Recuperar Senha', href: '/recovery-password' },
+          {
+            label: 'Criar Conta',
+            onClick: onSignUp,
+          },
+          // { label: 'Recuperar Senha', href: '/recovery-password' },
         ]}
         title="Login"
         urlLogo={urlLogo}
       >
-        <FormItem
-          label="e-mail"
-          name="email"
-          errorMessage={touchedFields.email && errors.email?.message}
-        >
-          <Input id="email" {...register('email')} />
-        </FormItem>
+        <Form.Field label="e-mail" name="email" formState={formState}>
+          <Input {...register('email')} />
+        </Form.Field>
 
-        <FormItem
-          label="senha"
-          name="password"
-          errorMessage={touchedFields.password && errors.password?.message}
-        >
+        <Form.Field label="senha" name="password" formState={formState}>
           <Input id="password" {...register('password')} type="password" />
-        </FormItem>
+        </Form.Field>
 
         <Button
           type="submit"

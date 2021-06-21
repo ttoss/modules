@@ -1,18 +1,17 @@
 import * as React from 'react';
 
-import { IntlProvider } from 'react-intl';
-import { ThemeProvider, Theme } from 'theme-ui';
+import { Theme, ThemeProvider } from 'theme-ui';
 
-import themeDefault from '../Theme/theme';
+import NotificationsProvider from '../modules/notifications/NotificationsProvider';
 
 const ModulesProvider: React.FC<{ theme?: Theme }> = ({
   children,
-  theme = themeDefault,
+  theme = {},
 }) => {
   return (
-    <IntlProvider locale="en">
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </IntlProvider>
+    <ThemeProvider theme={theme}>
+      <NotificationsProvider>{children}</NotificationsProvider>
+    </ThemeProvider>
   );
 };
 
