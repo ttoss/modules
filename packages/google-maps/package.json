@@ -1,0 +1,37 @@
+{
+  "name": "@ttoss/google-maps",
+  "version": "0.1.0",
+  "author": "Rayza Oliveira",
+  "license": "UNLICENSED",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/google-maps.esm.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "scripts": {
+    "extract": "formatjs extract \"src/**/*.{ts,tsx}\" --out-file i18n/lang.json",
+    "test": "tsdx test",
+    "build": "tsdx build --tsconfig tsconfig.build.json",
+    "postbuild": "yarn run extract",
+    "predeploy": "cd example && npm install && npm run build"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^7.0.0",
+    "@types/googlemaps": "^3.43.3",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
