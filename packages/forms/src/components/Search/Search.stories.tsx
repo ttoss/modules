@@ -22,11 +22,14 @@ export const Example = () => {
       search.setResults(
         names
           .filter((name) => name.toLowerCase().includes(query.toLowerCase()))
-          .map((n, idx) => ({
-            id: idx,
+          .map((n) => ({
+            id: n.toLowerCase(),
             value: n,
           }))
       );
+    },
+    onClickResult: (idResult) => {
+      alert(idResult);
     },
   });
 
