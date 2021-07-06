@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 
 import { useSearch } from '../../hooks/useSearch';
-import { Search } from '.';
+import { Search, Results } from '.';
 
 const SearchComponent: Meta = {
   title: 'Modules Components/Search',
@@ -11,7 +11,17 @@ const SearchComponent: Meta = {
 
 export default SearchComponent;
 
-const names = ['Rayza', 'Vitor', 'Pedro', 'Ennio'];
+const names = [
+  'Rayza',
+  'Vitor',
+  'Pedro',
+  'Ennio',
+  'Joao',
+  'Julia',
+  'Marcos',
+  'Carol',
+  'Mario',
+];
 
 export const Example = () => {
   const search = useSearch({
@@ -28,15 +38,17 @@ export const Example = () => {
           }))
       );
     },
-    onClickResult: (idResult) => {
-      alert(idResult);
-    },
   });
 
   return (
     <div>
       <pre>{JSON.stringify(names, undefined, 2)}</pre>
-      <Search {...search} />
+      <Search
+        {...search}
+        renderResults={
+          <Results results={search.results} onClickResult={(id) => alert(id)} />
+        }
+      />
     </div>
   );
 };
