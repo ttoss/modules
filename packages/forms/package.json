@@ -1,6 +1,10 @@
 {
   "name": "@ttoss/forms",
-  "author": "Rayza Oliveira",
+  "author": {
+    "name": "Rayza Oliveira",
+    "email": "rayza.ocr@gmail.com",
+    "url": "https://linktr.ee/oliveirarayza"
+  },
   "version": "0.1.0",
   "license": "UNLICENSED",
   "main": "dist/index.js",
