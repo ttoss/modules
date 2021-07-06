@@ -5349,6 +5349,17 @@
     "@types/react-test-renderer" ">=16.9.0"
     react-error-boundary "^3.1.0"
 
+"@testing-library/react-hooks@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-7.0.1.tgz#8429d8bf55bfe82e486bd582dd06457c2464900a"
+  integrity sha512-bpEQ2SHSBSzBmfJ437NmnP+oArQ7aVmmULiAp6Ag2rtyLBLPNFSMmgltUbFGmQOJdPWo4Ub31kpUC5T46zXNwQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@types/react" ">=16.9.0"
+    "@types/react-dom" ">=16.9.0"
+    "@types/react-test-renderer" ">=16.9.0"
+    react-error-boundary "^3.1.0"
+
 "@testing-library/react@^11.2.7":
   version "11.2.7"
   resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.2.7.tgz#b29e2e95c6765c815786c0bc1d5aed9cb2bf7818"
@@ -5539,6 +5550,11 @@
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+
+"@types/faker@^5.5.6":
+  version "5.5.6"
+  resolved "https://registry.yarnpkg.com/@types/faker/-/faker-5.5.6.tgz#039b700a9d8ad9150ecc842bf5e717e2027b6f75"
+  integrity sha512-UCRj0kLg4sXs2XFVm48OU/wIjyJZkpRkwxhRGVQb5l5GmemkeW22WTz9iiDhYPBUqTzDsIWzhFRuF/4DD5+q2Q==
 
 "@types/glob-base@^0.3.0":
   version "0.3.0"
@@ -9992,6 +10008,11 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
+
+faker@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/faker/-/faker-5.5.3.tgz#c57974ee484431b25205c2c8dc09fda861e51e0e"
+  integrity sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==
 
 fast-base64-decode@^1.0.0:
   version "1.0.0"
