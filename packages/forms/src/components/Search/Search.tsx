@@ -7,8 +7,8 @@ import searchFill from '@iconify/icons-eva/search-fill';
 
 import { Input, Box, Flex, Text } from 'theme-ui';
 
-import { OnSearch, Results as ResultsModel } from '../../models/search';
-import { BEST_TIME_A_PERSON_IS_WILLING_TO_WAIT_IN_AN_APP } from '../../config';
+import { OnSearch, Results as ResultsModel } from './types/search';
+import { SEARCH_TYPE_DELAY } from './config';
 
 type ResultsProps = {
   results: ResultsModel;
@@ -51,10 +51,7 @@ type SearchProps = {
 export const Search = React.forwardRef<any, SearchProps>(
   ({ onSearch, results, clear, renderResults }, ref) => {
     const [text, setText] = React.useState<string>('');
-    const [query, debounce] = useDebounce(
-      text,
-      BEST_TIME_A_PERSON_IS_WILLING_TO_WAIT_IN_AN_APP
-    );
+    const [query, debounce] = useDebounce(text, SEARCH_TYPE_DELAY);
 
     React.useEffect(() => {
       if (query) {
