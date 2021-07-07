@@ -1,5 +1,5 @@
 import React from 'react';
-import { OnSearch, Results } from 'src/models/search';
+import { OnSearch, Results } from '../types/search';
 
 export const useSearch = ({ onSearch }: { onSearch: OnSearch }) => {
   const ref = React.useRef<HTMLInputElement>(null);
