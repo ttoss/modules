@@ -1,3 +1,3 @@
-export { Search, Results } from './components/Search';
+export { Search, Results } from './components/Search/Search';
 
-export { useSearch } from './hooks/useSearch';
+export { useSearch } from './components/Search/hook/useSearch';
