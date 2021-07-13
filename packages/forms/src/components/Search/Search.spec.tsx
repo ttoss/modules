@@ -4,8 +4,8 @@ import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { render, screen, act } from '../../testUtils';
 
-import { Search, Results } from '.';
-import { useSearch } from '../../hooks/useSearch';
+import { Search, Results } from './Search';
+import { useSearch } from './Search.hook';
 
 beforeEach(() => {
   jest.resetAllMocks();

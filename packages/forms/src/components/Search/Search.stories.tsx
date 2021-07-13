@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 
-import { useSearch } from '../../hooks/useSearch';
-import { Search, Results } from '.';
+import { useSearch } from './Search.hook';
+import { Search, Results } from './Search';
 
 const SearchComponent: Meta = {
   title: 'Modules Components/Search',

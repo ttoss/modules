@@ -7,8 +7,8 @@ import searchFill from '@iconify/icons-eva/search-fill';
 
 import { Input, Box, Flex, Text } from 'theme-ui';
 
-import { OnSearch, Results as ResultsModel } from './types/search';
-import { SEARCH_TYPE_DELAY } from './config';
+import { OnSearch, Results as ResultsModel } from './Search.types';
+import { SEARCH_TYPE_DELAY } from './Search.config';
 
 type ResultsProps = {
   results: ResultsModel;
