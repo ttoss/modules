@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { render, screen, act } from '../../testUtils';
 
 import { Search, Results } from './Search';
 import { useSearch } from './Search.hook';
+import { SEARCH_TYPE_DELAY } from './Search.config';
 
 beforeEach(() => {
   jest.resetAllMocks();
@@ -23,6 +23,8 @@ const names = [
   'Mario',
 ];
 
+const SEARCH_DELAY = SEARCH_TYPE_DELAY + 100;
+
 const onClickResult = jest.fn();
 
 function sleep(ms: number) {
@@ -30,12 +32,10 @@ function sleep(ms: number) {
 }
 
 describe('Test ', () => {
-  const { result } = renderHook(() =>
-    useSearch({
+  const SearchComponent = () => {
+    const searchProps = useSearch({
       onSearch: (query: string) => {
-        console.log(query);
-
-        result.current.setResults(
+        searchProps.setResults(
           names
             .filter((name) => name.toLowerCase().includes(query.toLowerCase()))
             .map((n) => ({
@@ -44,46 +44,52 @@ describe('Test ', () => {
             }))
         );
       },
-    })
-  );
+    });
 
-  beforeEach(() => {
-    render(
+    return (
       <Search
-        {...result.current}
+        {...searchProps}
         renderResults={
           <Results
-            results={result.current.results}
+            results={searchProps.results}
             onClickResult={(id) => onClickResult(id)}
           />
         }
       />
     );
-  });
+  };
 
   test('Testing input search', async () => {
-    const inputSearch = screen.getByLabelText('input-search');
+    const { getByLabelText } = render(<SearchComponent />);
+
+    const inputSearch = getByLabelText('input-search');
 
     await act(async () => {
       userEvent.type(inputSearch, 'e');
     });
 
     await act(async () => {
-      await sleep(1000);
+      await sleep(SEARCH_DELAY);
     });
 
-    expect(result.current?.results?.length).toEqual(2);
-
-    expect(result.current?.results?.map((item) => item.value)).toContain(
-      'Pedro'
-    );
-    expect(result.current?.results?.map((item) => item.value)).toContain(
-      'Ennio'
-    );
+    expect(screen.getByText('Pedro')).toBeInTheDocument();
+    expect(screen.getByText('Ennio')).toBeInTheDocument();
   });
 
   test('OnClickResult test', async () => {
-    const itemResult = screen.getByText('Pedro');
+    const { getByText, getByLabelText } = render(<SearchComponent />);
+
+    const inputSearch = getByLabelText('input-search');
+
+    await act(async () => {
+      userEvent.type(inputSearch, 'ped');
+    });
+
+    await act(async () => {
+      await sleep(SEARCH_DELAY);
+    });
+
+    const itemResult = getByText('Pedro');
 
     await act(async () => {
       userEvent.click(itemResult);
