@@ -56,16 +56,8 @@ export const Search = React.forwardRef<any, SearchProps>(
     React.useEffect(() => {
       if (query) {
         onSearch(query);
-
-        console.log('debouce::', query);
       }
     }, [query]);
-
-    React.useEffect(() => {
-      if (text) {
-        console.log('text::', text);
-      }
-    }, [text]);
 
     const onClear = React.useCallback(() => {
       setText('');
