@@ -1,5 +1,6 @@
 {
   "name": "@ttoss/forms",
+  "private": "true",
   "author": {
     "name": "Rayza Oliveira",
     "email": "rayza.ocr@gmail.com",

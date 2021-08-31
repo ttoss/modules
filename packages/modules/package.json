@@ -1,7 +1,7 @@
 {
   "name": "@ttoss/modules",
   "author": "Pedro Arantes",
-  "version": "0.1.0",
+  "private": "true",
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
