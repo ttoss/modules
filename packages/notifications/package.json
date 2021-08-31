@@ -1,0 +1,21 @@
+{
+  "name": "@ttoss/notifications",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/notifications.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdx build"
+  },
+  "keywords": [
+    "React",
+    "notifications"
+  ],
+  "author": "Pedro Arantes <arantespp@gmail.com> (https://twitter.com/arantespp)",
+  "license": "UNLICENSED"
+}

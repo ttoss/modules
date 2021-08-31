@@ -1,0 +1,29 @@
+{
+  "name": "@ttoss/ui",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/ui.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdx build"
+  },
+  "keywords": [
+    "React",
+    "ui",
+    "user interface"
+  ],
+  "author": "Pedro Arantes <arantespp@gmail.com> (https://twitter.com/arantespp)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@theme-ui/components": "^0.11.1",
+    "@theme-ui/core": "^0.11.1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  }
+}
