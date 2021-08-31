@@ -2,6 +2,9 @@
   "name": "@ttoss/notifications",
   "version": "0.0.1",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/notifications.esm.js",

@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "author": "Rayza Oliveira",
   "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/google-maps.esm.js",
