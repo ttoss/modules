@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Component Example 1`] = `
+<div>
+  <span>
+    StorybookDecorator
+  </span>
+  <div>
+    <span>
+      oi
+    </span>
+    <span>
+      0
+    </span>
+    <button
+      onClick={[Function]}
+    >
+      Increment
+    </button>
+  </div>
+</div>
+`;

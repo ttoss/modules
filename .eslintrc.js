@@ -31,17 +31,28 @@ module.exports = {
     'prettier',
     'jest',
     'jest-dom',
-    'react-app',
-    'plugin:jsx-a11y/recommended',
+    'jsx-a11y',
+    'import',
   ],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'eslint:recommended',
-    'jsx-a11y',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
+    'plugin:react-app/recommended',
+    'plugin:prettier/recommended',
+    'plugin:jsx-a11y/recommended',
   ],
   rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     'formatjs/no-offset': 'error',
+    /**
+     * Doesn't work with Yarn Workspaces yet.
+     * https://github.com/import-js/eslint-plugin-import/issues/1174
+     */
+    'import/no-extraneous-dependencies': ['off'],
+    'react-app/react/react-in-jsx-scope': 'off',
   },
   overrides: [
     {

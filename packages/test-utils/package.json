@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/test-utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "This package provides a number of utilities and re-exports for testing using Jest, React Testing Library, and Storybook.",
   "keywords": [
     "Jest",
@@ -8,7 +8,11 @@
     "React Testing Library",
     "Storybook"
   ],
-  "author": "Pedro Arantes",
+  "author": {
+    "email": "pedro@arantespp.com",
+    "name": "Pedro Arantes",
+    "url": "https://arantespp.com/contact"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +22,13 @@
   "files": [
     "dist",
     "src",
+    "storybook.d.ts",
     "storybook.js"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "test": "yarn workspace @examples/test-react-storybook test"
   },
   "dependencies": {
     "@storybook/addon-storyshots": "^6.3.8",
@@ -33,6 +39,8 @@
     "@testing-library/user-event": "^13.2.1"
   },
   "peerDependencies": {
+    "@storybook/client-api": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
