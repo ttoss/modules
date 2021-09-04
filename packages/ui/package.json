@@ -1,7 +1,7 @@
 {
   "name": "@ttoss/ui",
   "version": "0.0.1",
-  "description": "",
+  "description": "Primitive layout, typographic, and other components for styling applications.",
   "publishConfig": {
     "access": "public"
   },
@@ -13,14 +13,21 @@
     "src"
   ],
   "scripts": {
-    "build": "tsdx build"
+    "build": "tsup",
+    "storybook": "start-storybook -p 6006",
+    "dev": "yarn run storybook",
+    "test": "jest"
   },
   "keywords": [
     "React",
     "ui",
     "user interface"
   ],
-  "author": "Pedro Arantes <arantespp@gmail.com> (https://twitter.com/arantespp)",
+  "author": {
+    "email": "pedro@arantespp.com",
+    "name": "Pedro Arantes",
+    "url": "https://arantespp.com/contact"
+  },
   "license": "UNLICENSED",
   "dependencies": {
     "@theme-ui/components": "^0.11.1",
@@ -28,5 +35,8 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@theme-ui/style-guide": "^0.11.1"
   }
 }

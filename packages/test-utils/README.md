@@ -53,4 +53,99 @@ This package re-exports the following libraries:
 - Everything from [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/): APIs for working with React components.
 - `userEvent` from [@testing-library/user-event](https://testing-library.com/docs/ecosystem-user-event/): fire events the same way the user does.
 
+#### customRender
+
+`customRender` is a method that allows you to render a React component with a provided wrapper. Before using it, you need to setup the testing framework before each test.
+
+```tsx
+// jest.setup.ts
+import { setWrapper } from '@ttoss/test-utils';
+
+import AllProviders from './paht/to/AllProviders';
+
+/**
+ * Add global wrapper to React Testing Library `customRender`.
+ */
+setWrapper(AllProviders);
+```
+
+Add `jest.setup.ts` to your `jest.config.js` file.
+
+```ts
+export default {
+  // ...
+  setupFilesAfterEnv: ['./jest.setup.tsx'],
+};
+```
+
+Finally, you write your tests something like this:
+
+```tsx
+import { customRender, render, screen, userEvent } from '@ttoss/test-utils';
+
+import Component from './Component';
+
+test('test with custom render', () => {
+  customRender(<Component />);
+
+  userEvent.click(screen.getByText('Increment'));
+
+  expect(screen.getByText(1)).toBeInTheDocument();
+});
+
+test('test with default render', () => {
+  render(<Component />);
+
+  userEvent.click(screen.getByText('Increment'));
+
+  expect(screen.getByText(1)).toBeInTheDocument();
+});
+```
+
 ### Storybook
+
+You can use your Storybook stories in your unit tests or create Storyshoots testing.
+
+#### Storybook Stories
+
+You can reuse the Storybook stories that you've already created in your unit tests. To do so, this packages uses the package [@storybook/testing-react](https://github.com/storybookjs/testing-react), that you can use this way:
+
+```tsx
+import { customRender, screen, userEvent } from '@ttoss/test-utils';
+import { composeStories } from '@ttoss/test-utils/storybook';
+
+import * as stories from './my.stories';
+
+const { Example } = composeStories(stories);
+
+test('check if Storybook Example story is working', () => {
+  customRender(<Example />);
+
+  expect(screen.getByText('oi')).toBeInTheDocument();
+  expect(screen.getByText(0)).toBeInTheDocument();
+  expect(screen.getByText('Increment')).toBeInTheDocument();
+  expect(screen.getByText('StorybookDecorator')).toBeInTheDocument();
+  expect(screen.getByText('JestSetupProvider')).toBeInTheDocument();
+
+  userEvent.click(screen.getByText('Increment'));
+
+  expect(screen.getByText(1)).toBeInTheDocument();
+});
+```
+
+If your Storybook configuration has global decorators/parameters/etc and you want to use them in your tests, you can use the `setGlobalConfig` function to pass them to your stories. In your `jest.setup.ts` file, you can use the `setGlobalConfig` this way:
+
+```tsx
+// jest.setup.ts
+import { setGlobalConfig } from '@ttoss/test-utils/storybook';
+
+/**
+ * Add global config to Storybook.
+ * https://storybook.js.org/addons/@storybook/testing-react
+ */
+import * as globalStorybookConfig from './.storybook/preview';
+
+setGlobalConfig(globalStorybookConfig);
+```
+
+#### Storyshoots
