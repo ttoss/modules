@@ -1,9 +1,5 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { Button, Input } from 'theme-ui';
-import * as yup from 'yup';
-
-import { Form } from '../../../modules/src/modules/forms';
+import { useForm, yup, yupResolver } from '@ttoss/form';
+import { Button, FormField, Input } from '@ttoss/ui';
 
 import AuthContainer from '../AuthContainer/AuthContainer';
 
@@ -41,14 +37,14 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
       title="Criar Conta"
       urlLogo={urlLogo}
     >
-      <Form onSubmit={handleSubmit(onSubmitForm)}>
-        <Form.Field label="e-mail" name="email" formState={formState}>
+      <form onSubmit={handleSubmit(onSubmitForm)}>
+        <FormField label="e-mail">
           <Input id="email" {...register('email')} />
-        </Form.Field>
+        </FormField>
 
-        <Form.Field label="senha" name="password" formState={formState}>
+        <FormField label="senha">
           <Input id="password" {...register('password')} type="password" />
-        </Form.Field>
+        </FormField>
 
         <Button
           type="submit"
@@ -56,7 +52,7 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
         >
           Criar
         </Button>
-      </Form>
+      </form>
     </AuthContainer>
   );
 };

@@ -1,7 +1,4 @@
-import * as React from 'react';
-import { Button, Flex, Image, Text } from 'theme-ui';
-
-import LogoDemo from '../../../components/LogoDemo/index';
+import { Button, Flex, Image, Text } from '@ttoss/ui';
 
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
@@ -49,10 +46,8 @@ const AuthContainer = ({
         fontFamily: 'Arial',
       }}
     >
-      {urlLogo ? (
+      {urlLogo && (
         <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
-      ) : (
-        <LogoDemo />
       )}
       <Text
         sx={{

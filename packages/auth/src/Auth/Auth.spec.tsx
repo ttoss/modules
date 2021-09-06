@@ -1,22 +1,17 @@
-import * as React from 'react';
-
-import { render, screen, userEvent, waitFor } from '../../../testUtils';
-
-const signIn = jest.fn();
-
-const signUp = jest.fn();
-
-const confirmSignUp = jest.fn();
-
-jest.mock('aws-amplify', () => ({
-  Auth: {
-    signIn,
-    signUp,
-    confirmSignUp,
-  },
-}));
+import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
+import * as awsAmplify from 'aws-amplify';
 
 import Auth from './Auth';
+
+jest.mock('aws-amplify');
+
+const signIn = jest.fn();
+const signUp = jest.fn();
+const confirmSignUp = jest.fn();
+
+awsAmplify.Auth.signIn = signIn;
+awsAmplify.Auth.signUp = signUp;
+awsAmplify.Auth.confirmSignUp = confirmSignUp;
 
 const email = 'some@email.com';
 

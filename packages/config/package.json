@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/ui",
+  "name": "@ttoss/config",
   "version": "0.0.1",
-  "description": "Primitive layout, typographic, and other components for styling applications.",
+  "description": "Default configuration for packages.",
   "license": "UNLICENSED",
   "publishConfig": {
     "access": "public"
@@ -13,11 +13,7 @@
     "dist",
     "src"
   ],
-  "keywords": [
-    "React",
-    "ui",
-    "user interface"
-  ],
+  "keywords": [],
   "author": "ttoss",
   "contributors": [
     {
@@ -27,16 +23,10 @@
     }
   ],
   "scripts": {
-    "build": "tsup",
-    "storybook": "start-storybook -p 6006",
-    "dev": "yarn run storybook",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsup"
   },
   "dependencies": {
-    "@theme-ui/components": "^0.11.1",
-    "@theme-ui/core": "^0.11.1"
-  },
-  "peerDependencies": {
-    "react": "^17.0.2"
+    "deepmerge": "^4.2.2"
   }
 }

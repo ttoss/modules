@@ -1,8 +1,5 @@
-import * as React from 'react';
-
-import { Button, Input } from 'theme-ui';
-
-import { Form, useForm, yup, yupResolver } from '../../forms';
+import { Button, FormField, Input } from '@ttoss/ui';
+import { useForm, yup, yupResolver } from '@ttoss/form';
 
 import AuthContainer from '../AuthContainer/AuthContainer';
 
@@ -22,20 +19,18 @@ const AuthConfirmSignUp = ({
     })
     .required();
 
-  const { register, handleSubmit, formState } = useForm<
-    yup.TypeOf<typeof schema>
-  >({
+  const { register, handleSubmit } = useForm<yup.TypeOf<typeof schema>>({
     resolver: yupResolver(schema),
   });
 
   return (
     <AuthContainer title="Confirm SignUp">
-      <Form
+      <form
         onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
       >
-        <Form.Field label="Confirmation Code" name="code" formState={formState}>
+        <FormField label="Confirmation Code">
           <Input id="email" {...register('code')} />
-        </Form.Field>
+        </FormField>
 
         <Button
           type="submit"
@@ -43,7 +38,7 @@ const AuthConfirmSignUp = ({
         >
           Confirmar
         </Button>
-      </Form>
+      </form>
     </AuthContainer>
   );
 };

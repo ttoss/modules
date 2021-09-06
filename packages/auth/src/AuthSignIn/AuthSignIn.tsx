@@ -1,10 +1,5 @@
-import * as React from 'react';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { Button, Input } from 'theme-ui';
-
-import { Form } from '../../forms';
+import { useForm, yup, yupResolver } from '@ttoss/form';
+import { Button, FormField, Input } from '@ttoss/ui';
 
 import AuthContainer from '../AuthContainer/AuthContainer';
 
@@ -35,7 +30,7 @@ const AuthSignIn = ({
       .trim(),
   });
 
-  const { register, handleSubmit, formState } = useForm<OnSignInInput>({
+  const { register, handleSubmit } = useForm<OnSignInInput>({
     defaultValues,
     resolver: yupResolver(schema),
   });
@@ -43,25 +38,24 @@ const AuthSignIn = ({
   const onSubmitForm = (data: OnSignInInput) => onSignIn(data);
 
   return (
-    <Form onSubmit={handleSubmit(onSubmitForm)}>
+    <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthContainer
         links={[
           {
             label: 'Criar Conta',
             onClick: onSignUp,
           },
-          // { label: 'Recuperar Senha', href: '/recovery-password' },
         ]}
         title="Login"
         urlLogo={urlLogo}
       >
-        <Form.Field label="e-mail" name="email" formState={formState}>
+        <FormField label="e-mail">
           <Input {...register('email')} />
-        </Form.Field>
+        </FormField>
 
-        <Form.Field label="senha" name="password" formState={formState}>
+        <FormField label="senha">
           <Input id="password" {...register('password')} type="password" />
-        </Form.Field>
+        </FormField>
 
         <Button
           type="submit"
@@ -71,7 +65,7 @@ const AuthSignIn = ({
           Login
         </Button>
       </AuthContainer>
-    </Form>
+    </form>
   );
 };
 

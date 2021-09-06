@@ -1,8 +1,4 @@
-import * as React from 'react';
-
-import userEvent from '@testing-library/user-event';
-
-import { render, act } from '../../../testUtils';
+import { act, render, userEvent } from '@ttoss/test-utils';
 
 import AuthSignIn from './AuthSignIn';
 

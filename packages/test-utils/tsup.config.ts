@@ -1,8 +1,5 @@
-import type { Options } from 'tsup';
+import { tsupConfig } from '@ttoss/config';
 
-export const tsup: Options = {
-  clean: true,
-  dts: true,
+export const tsup = tsupConfig({
   entryPoints: ['src/index.ts', 'src/storybook.ts'],
-  format: ['cjs', 'esm'],
-};
+});

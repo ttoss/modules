@@ -1,0 +1,1 @@
+export { tsupConfig } from './tsup';

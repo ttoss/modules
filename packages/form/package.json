@@ -1,24 +1,18 @@
 {
-  "name": "@ttoss/ui",
+  "name": "@ttoss/form",
   "version": "0.0.1",
-  "description": "Primitive layout, typographic, and other components for styling applications.",
-  "license": "UNLICENSED",
+  "description": "Forms utilities.",
   "publishConfig": {
     "access": "public"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/esm/index.js",
+  "author": "ttoss",
   "files": [
     "dist",
     "src"
   ],
-  "keywords": [
-    "React",
-    "ui",
-    "user interface"
-  ],
-  "author": "ttoss",
   "contributors": [
     {
       "email": "pedro@arantespp.com",
@@ -28,13 +22,13 @@
   ],
   "scripts": {
     "build": "tsup",
-    "storybook": "start-storybook -p 6006",
-    "dev": "yarn run storybook",
     "test": "jest"
   },
+  "license": "MIT",
   "dependencies": {
-    "@theme-ui/components": "^0.11.1",
-    "@theme-ui/core": "^0.11.1"
+    "@hookform/resolvers": "^2.8.0",
+    "react-hook-form": "^7.14.2",
+    "yup": "^0.32.9"
   },
   "peerDependencies": {
     "react": "^17.0.2"

@@ -1,12 +1,37 @@
 {
-  "name": "auth",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@ttoss/auth",
+  "version": "0.0.1",
+  "description": "ttoss authentication module for React apps.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
   "scripts": {
+    "build": "tsup",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "Pedro Arantes",
-  "license": "ISC"
+  "keywords": [
+    "React",
+    "authentication"
+  ],
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "aws-amplify": "^4.2.7"
+  },
+  "peerDependencies": {
+    "aws-amplify": "^4.2.7"
+  },
+  "dependencies": {
+    "@ttoss/form": "^0.0.1",
+    "@ttoss/ui": "^0.0.1",
+    "@xstate/react": "^1.6.1",
+    "xstate": "^4.23.4"
+  }
 }

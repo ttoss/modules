@@ -3,8 +3,6 @@ import { Auth as AmplifyAuth } from 'aws-amplify';
 import * as React from 'react';
 import { assign, createMachine } from 'xstate';
 
-import { useNotifications } from '../../notifications';
-
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
@@ -84,58 +82,58 @@ export const Auth = ({
 }) => {
   const [state, send] = useMachine(authMachine);
 
-  const { toast, setLoading } = useNotifications();
+  // const { toast, setLoading } = useNotifications();
 
   const onSignIn = React.useCallback<OnSignIn>(async ({ email, password }) => {
     try {
-      setLoading(true);
+      // setLoading(true);
       await AmplifyAuth.signIn(email, password);
       if (onSuccessSignIn) {
         onSuccessSignIn();
       }
-      toast('Signed In');
+      // toast('Signed In');
     } catch (error) {
-      switch (error.code) {
+      switch ((error as any).code) {
         case 'UserNotConfirmedException':
           await AmplifyAuth.resendSignUp(email);
           send({ type: 'SIGN_UP_RESEND_CONFIRMATION', email });
           break;
         default:
-          toast(JSON.stringify(error, null, 2));
+        // toast(JSON.stringify(error, null, 2));
       }
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   }, []);
 
   const onSignUp = React.useCallback<OnSignUp>(async ({ email, password }) => {
     try {
-      setLoading(true);
+      // setLoading(true);
       await AmplifyAuth.signUp({
         username: email,
         password,
         attributes: { email },
       });
-      toast('Signed Up');
+      // toast('Signed Up');
       send({ type: 'SIGN_UP_CONFIRM', email });
     } catch (error) {
-      toast(JSON.stringify(error, null, 2));
+      // toast(JSON.stringify(error, null, 2));
     } finally {
-      setLoading(false);
+      // setLoading(false);
     }
   }, []);
 
   const onConfirmSignUp = React.useCallback<OnConfirmSignUp>(
     async ({ email, code }) => {
       try {
-        setLoading(true);
+        // setLoading(true);
         await AmplifyAuth.confirmSignUp(email, code);
-        toast('Confirmed Signed In');
+        // toast('Confirmed Signed In');
         send({ type: 'SIGN_UP_CONFIRMED', email });
       } catch (error) {
-        toast(JSON.stringify(error, null, 2));
+        // toast(JSON.stringify(error, null, 2));
       } finally {
-        setLoading(false);
+        // setLoading(false);
       }
     },
     []
