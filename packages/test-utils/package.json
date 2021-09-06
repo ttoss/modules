@@ -8,11 +8,14 @@
     "React Testing Library",
     "Storybook"
   ],
-  "author": {
-    "email": "pedro@arantespp.com",
-    "name": "Pedro Arantes",
-    "url": "https://arantespp.com/contact"
-  },
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
   "publishConfig": {
     "access": "public"
   },

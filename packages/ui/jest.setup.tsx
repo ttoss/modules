@@ -1,9 +1,9 @@
-import { setGlobalConfig } from '@ttoss/test-utils/storybook';
+import { setOptions } from '@ttoss/test-utils';
 
-/**
- * Add global config to Storybook.
- * https://storybook.js.org/addons/@storybook/testing-react
- */
-import * as globalStorybookConfig from './.storybook/preview';
+import ThemeProvider from './src/theme/ThemeProvider';
 
-setGlobalConfig(globalStorybookConfig);
+const Providers: React.FC = ({ children }) => {
+  return <ThemeProvider>{children}</ThemeProvider>;
+};
+
+setOptions({ wrapper: Providers });

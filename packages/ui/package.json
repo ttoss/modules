@@ -7,7 +7,7 @@
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/ui.esm.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist",
     "src"
@@ -23,11 +23,14 @@
     "ui",
     "user interface"
   ],
-  "author": {
-    "email": "pedro@arantespp.com",
-    "name": "Pedro Arantes",
-    "url": "https://arantespp.com/contact"
-  },
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
   "license": "UNLICENSED",
   "dependencies": {
     "@theme-ui/components": "^0.11.1",
@@ -35,8 +38,5 @@
   },
   "peerDependencies": {
     "react": "^17.0.2"
-  },
-  "devDependencies": {
-    "@theme-ui/style-guide": "^0.11.1"
   }
 }

@@ -1,5 +1,1 @@
-import { Button, ButtonProps } from '@theme-ui/components';
-
-export type { ButtonProps };
-
-export default Button;
+export { Button as default, ButtonProps } from '@theme-ui/components';

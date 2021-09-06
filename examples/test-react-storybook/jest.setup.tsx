@@ -1,4 +1,4 @@
-import { setWrapper } from '@ttoss/test-utils';
+import { setOptions } from '@ttoss/test-utils';
 import { setGlobalConfig } from '@ttoss/test-utils/storybook';
 import * as React from 'react';
 
@@ -22,4 +22,4 @@ const JestSetupProvider: React.FC = ({ children }) => {
   );
 };
 
-setWrapper(JestSetupProvider);
+setOptions({ wrapper: JestSetupProvider });

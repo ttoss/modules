@@ -4,7 +4,7 @@ This package provides a number of utilities and re-exports for testing using [Je
 
 ## How to Configure Your Project
 
-You can configure your project following the instructions in the [Jest](https://jestjs.io/) documentation. Basically, you need to add jest to your project, `yarn add --dev jest` and run `npx jest --init`. After that, a configuration file will be created in your project root. If you're working with React, you'll need to change the property `testEnvironment` to `jsdom`.
+You can configure your project following the instructions in the [Jest](https://jestjs.io/) documentation. Basically, you need to add jest to your project, `yarn add --dev jest` and run `npx jest --init`, which will create a configuration file in your project root. If you're working with React, you'll need to change the property `testEnvironment` to `jsdom`.
 
 ```ts
 // jest.config.ts
@@ -14,7 +14,7 @@ export default {
 };
 ```
 
-If you're working with TypeScript, you'll need to install [Babel](https://jestjs.io/docs/getting-started#using-babel) and create a `babel.config.js` to handle the transpilation of the ES6 code, TypeScript, and JSX.
+If you're working with TypeScript, you'll also need to install [Babel](https://jestjs.io/docs/getting-started#using-babel) and create a `babel.config.js` to handle the transpilation of the ES6 code, TypeScript, and JSX.
 
 ```sh
 yarn add --dev babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript
@@ -55,18 +55,18 @@ This package re-exports the following libraries:
 
 #### customRender
 
-`customRender` is a method that allows you to render a React component with a provided wrapper. Before using it, you need to setup the testing framework before each test.
+`customRender` is a method that allows you to render a React component with provided options. Before using it, you need to setup your testing options.
 
 ```tsx
 // jest.setup.ts
-import { setWrapper } from '@ttoss/test-utils';
+import { setOptions } from '@ttoss/test-utils';
 
 import AllProviders from './paht/to/AllProviders';
 
 /**
  * Add global wrapper to React Testing Library `customRender`.
  */
-setWrapper(AllProviders);
+setOptions({ wrapper: AllProviders });
 ```
 
 Add `jest.setup.ts` to your `jest.config.js` file.
@@ -78,7 +78,7 @@ export default {
 };
 ```
 
-Finally, you write your tests something like this:
+Finally, you write your tests like this:
 
 ```tsx
 import { customRender, render, screen, userEvent } from '@ttoss/test-utils';
@@ -101,6 +101,8 @@ test('test with default render', () => {
   expect(screen.getByText(1)).toBeInTheDocument();
 });
 ```
+
+Note that `options` exists only in the `customRender` method and not in the `render` method.
 
 ### Storybook
 

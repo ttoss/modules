@@ -1,8 +1,7 @@
-import React from 'react';
-
+import { DecoratorFn, Parameters } from '@storybook/react';
 import { ThemeProvider } from '@ttoss/ui';
 
-export const parameters = {
+export const parameters: Parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -17,7 +16,7 @@ export const parameters = {
   },
 };
 
-export const decorators = [
+export const decorators: DecoratorFn[] = [
   (Story) => (
     <ThemeProvider>
       <Story />

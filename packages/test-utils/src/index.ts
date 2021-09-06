@@ -18,13 +18,13 @@ export { default as userEvent } from '@testing-library/user-event';
 expect.extend(matchers);
 
 /**
- * Create custom render function with options.
+ * Custom render options.
  */
-let wrapper: RenderOptions['wrapper'];
+let options_: RenderOptions = {};
 
 export const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
-  render(ui, { wrapper, ...options });
+  render(ui, { ...options_, ...options });
 
-export const setWrapper = (newWrapper: RenderOptions['wrapper']) => {
-  wrapper = newWrapper;
+export const setOptions = (options: RenderOptions) => {
+  options_ = options;
 };

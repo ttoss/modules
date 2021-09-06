@@ -1,0 +1,20 @@
+{
+  "name": "@ttoss/storybook",
+  "private": true,
+  "version": "0.0.1",
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "scripts": {
+    "dev": "yarn run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build": "build-storybook"
+  }
+}
