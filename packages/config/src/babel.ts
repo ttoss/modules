@@ -1,6 +1,6 @@
 import { configCreator } from './configCreator';
 
-const defaultOptions: any = {
+export const defaultConfig: any = {
   presets: [
     /**
      * `loose: true` to avoid the Storybook warning:
@@ -16,4 +16,4 @@ const defaultOptions: any = {
   ],
 };
 
-export const babelConfig = configCreator(defaultOptions);
+export const babelConfig = configCreator(defaultConfig);

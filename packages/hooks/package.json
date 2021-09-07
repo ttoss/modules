@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/auth",
-  "version": "0.5.1",
-  "description": "ttoss authentication module for React apps.",
+  "name": "@ttoss/hooks",
+  "version": "0.0.1",
+  "description": "React hooks.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/esm/index.js",
@@ -18,7 +18,7 @@
   },
   "keywords": [
     "React",
-    "authentication"
+    "hooks"
   ],
   "author": "ttoss",
   "contributors": [
@@ -29,18 +29,8 @@
     }
   ],
   "license": "UNLICENSED",
-  "dependencies": {
-    "@ttoss/form": "^0.5.1",
-    "@ttoss/ui": "^0.5.1",
-    "@xstate/react": "^1.6.1",
-    "xstate": "^4.23.4"
-  },
+  "dependencies": {},
   "peerDependencies": {
-    "aws-amplify": "^4.2.7",
-    "react": ">=16.8.0"
-  },
-  "devDependencies": {
-    "aws-amplify": "^4.2.7"
-  },
-  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
+    "react": ">=16.8.6"
+  }
 }

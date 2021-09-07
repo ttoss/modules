@@ -28,16 +28,19 @@
   ],
   "scripts": {
     "build": "tsup",
-    "storybook": "start-storybook -p 6006",
-    "dev": "yarn run storybook",
-    "test": "jest"
+    "test": "jest",
+    "dev": "yarn workspace @ttoss/storybook run dev"
   },
   "dependencies": {
     "@theme-ui/components": "^0.11.1",
     "@theme-ui/core": "^0.11.1"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@ttoss/config": "*",
+    "@ttoss/test-utils": "*"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

@@ -47,11 +47,6 @@ module.exports = {
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'formatjs/no-offset': 'error',
-    /**
-     * Doesn't work with Yarn Workspaces yet.
-     * https://github.com/import-js/eslint-plugin-import/issues/1174
-     */
-    'import/no-extraneous-dependencies': ['off'],
     'react-app/react/react-in-jsx-scope': 'off',
   },
   overrides: [

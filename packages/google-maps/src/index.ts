@@ -1,2 +1,2 @@
-export { useGoogleMapsApi } from './useGoogleMapsApi';
-export { useGoogleMaps } from './useGoogleMaps';
+export { GoogleMapsProvider, useGoogleMaps } from './GoogleMapsProvider';
+export { useMap } from './useMap';

@@ -51,6 +51,7 @@ This package re-exports the following libraries:
 
 - [@testing-library/jest-dom](https://github.com/testing-library/jest-dom): custom [Jest](https://jestjs.io/) matchers to test the state of the DOM.
 - Everything from [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/): APIs for working with React components.
+- `renderHook` from [@testing-library/render-hooks](https://react-hooks-testing-library.com/): a utility for testing custom hooks.
 - `userEvent` from [@testing-library/user-event](https://testing-library.com/docs/ecosystem-user-event/): fire events the same way the user does.
 
 #### customRender

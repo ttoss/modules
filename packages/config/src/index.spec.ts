@@ -1,15 +1,7 @@
-import { tsupConfig, tsupDefaultOptions } from './tsup';
+import * as allConfigs from '.';
 
-describe('tsupConfig', () => {
-  test('should return default configuration', () => {
-    expect(tsupConfig()).toEqual(tsupDefaultOptions);
-  });
-
-  test('should return default configuration', () => {
-    expect(
-      tsupConfig({
-        entryPoints: ['src/index.tsx'],
-      })
-    ).toEqual({ ...tsupDefaultOptions, entryPoints: ['src/index.tsx'] });
-  });
+it('configs should be exported', () => {
+  expect(allConfigs.babelConfig).toBeDefined();
+  expect(allConfigs.jestConfig).toBeDefined();
+  expect(allConfigs.tsupConfig).toBeDefined();
 });

@@ -31,7 +31,7 @@
     "yup": "^0.32.9"
   },
   "peerDependencies": {
-    "react": "^17.0.2"
+    "react": ">=16.8.0"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

@@ -2,7 +2,7 @@ import type { Options } from 'tsup';
 
 import { configCreator } from './configCreator';
 
-export const tsupDefaultOptions: Options = {
+export const defaultConfig: Options = {
   clean: true,
   dts: true,
   entryPoints: ['src/index.ts'],
@@ -14,4 +14,4 @@ export const tsupDefaultOptions: Options = {
   minify: true,
 };
 
-export const tsupConfig = configCreator(tsupDefaultOptions);
+export const tsupConfig = configCreator(defaultConfig);
