@@ -3,7 +3,7 @@ const path = require('path');
 /**
  * Point to root node_modules.
  */
-const resolve = (p) => path.join(process.cwd(), '../..', p);
+const resolve = (p) => path.join(process.cwd(), '..', p);
 
 module.exports = {
   stories: [

@@ -7,7 +7,9 @@ yarn workspace @ttoss/test-utils build
 
 yarn workspace @ttoss/ui build
 yarn workspace @ttoss/form build
+yarn workspace @ttoss/hooks build
 
 yarn workspace @ttoss/auth build
+yarn workspace @ttoss/google-maps build
 
 yarn workspace @ttoss/storybook build
