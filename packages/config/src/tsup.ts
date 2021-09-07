@@ -11,7 +11,10 @@ export const defaultConfig: Options = {
    * legacyOutput `true` because some libraries don't support `.mjs`.
    */
   legacyOutput: true,
-  minify: true,
+  /**
+   * Becomes difficult to debug if code is minified.
+   */
+  minify: false,
 };
 
 export const tsupConfig = configCreator(defaultConfig);

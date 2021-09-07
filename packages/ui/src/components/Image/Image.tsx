@@ -1,1 +1,3 @@
-export { Image as default, ImageProps } from '@theme-ui/components';
+export { Image as default } from '@theme-ui/components';
+
+export type { ImageProps } from '@theme-ui/components';
