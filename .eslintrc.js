@@ -46,6 +46,7 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'no-console': 'error',
     'formatjs/no-offset': 'error',
     'react-app/react/react-in-jsx-scope': 'off',
   },
