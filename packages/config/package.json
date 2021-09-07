@@ -28,5 +28,6 @@
   },
   "dependencies": {
     "deepmerge": "^4.2.2"
-  }
+  },
+  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

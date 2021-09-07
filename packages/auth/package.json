@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/esm/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "test": "jest"
@@ -33,5 +36,6 @@
   },
   "devDependencies": {
     "aws-amplify": "^4.2.7"
-  }
+  },
+  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

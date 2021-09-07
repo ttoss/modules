@@ -2,21 +2,25 @@
   "name": "ttoss-modules",
   "private": true,
   "version": "0.0.1",
-  "author": {
-    "email": "pedro@arantespp.com",
-    "name": "Pedro Arantes",
-    "url": "https://arantespp.com/contact"
-  },
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
   "license": "UNLICENSED",
   "scripts": {
     "lerna": "lerna",
-    "test": "lerna run test --",
+    "build": "./scripts/build.sh",
+    "test": "lerna run test --parallel",
     "lint": "lerna run lint -- --fix",
-    "build": "lerna run build",
     "remove-all-node-modules": "npx lerna exec -- rm -rf node_modules && rm -rf node_modules && rm -f yarn.lock",
     "reinstall": "yarn run remove-all-node-modules && yarn",
     "list-updates": "npx ncu && lerna exec -- npx ncu",
-    "update-all": "npx ncu -u && lerna exec -- npx ncu -u"
+    "update-all": "npx ncu -u && lerna exec -- npx ncu -u",
+    "postinstall": "patch-package"
   },
   "keywords": [
     "monorepo"
@@ -71,6 +75,8 @@
     "lerna": "^4.0.0",
     "lint-staged": "^11.1.2",
     "npm-check-updates": "^11.8.3",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.3.2",
     "ts-node": "^10.2.1",
     "tsdx": "^0.14.1",

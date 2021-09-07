@@ -144,3 +144,5 @@ node_modules/
 notifications/
 
 lerna-debug.log
+
+storybook-static/
