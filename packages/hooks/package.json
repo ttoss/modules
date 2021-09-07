@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/hooks",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "React hooks.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
