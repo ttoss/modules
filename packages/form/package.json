@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/form",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Forms utilities.",
   "publishConfig": {
     "access": "public"

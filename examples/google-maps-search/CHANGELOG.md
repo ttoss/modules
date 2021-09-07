@@ -9,12 +9,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - build script ([c7eedf4](https://github.com/ttoss/modules/commit/c7eedf4839238e290f4439eb47b5b22fc1126dfd))
 
-## [0.5.1](https://github.com/ttoss/modules/compare/v0.5.0...v0.5.1) (2021-09-07)
-
-**Note:** Version bump only for package @ttoss/storybook
-
-# 0.5.0 (2021-09-07)
-
 ### Features
 
-- creating ttoss Storybook ([a652a2e](https://github.com/ttoss/modules/commit/a652a2ee473fba647a9dd32c1a90a35936a74107))
+- maps first implementation ([3191e60](https://github.com/ttoss/modules/commit/3191e609011d764586bb0e32664dc4d110413002))

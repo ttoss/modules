@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/hooks",
-  "version": "0.0.1",
+  "version": "0.6.0",
   "description": "React hooks.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -29,7 +29,6 @@
     }
   ],
   "license": "UNLICENSED",
-  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.8.6"
   }
