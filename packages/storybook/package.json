@@ -1,7 +1,7 @@
 {
   "name": "@ttoss/storybook",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.5.0",
   "author": "ttoss",
   "contributors": [
     {
@@ -11,10 +11,9 @@
     }
   ],
   "license": "UNLICENSED",
-  "dependencies": {},
   "scripts": {
     "dev": "yarn run storybook",
     "storybook": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "rm -rf storybook-static && build-storybook"
   }
 }

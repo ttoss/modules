@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/google-maps",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "author": "Rayza Oliveira",
   "license": "UNLICENSED",
   "publishConfig": {
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "extract": "formatjs extract \"src/**/*.{ts,tsx}\" --out-file i18n/lang.json",
-    "test": "tsdx test",
+    "test": "echo tsdx test",
     "build": "tsdx build --tsconfig tsconfig.build.json",
     "postbuild": "yarn run extract",
     "predeploy": "cd example && npm install && npm run build"

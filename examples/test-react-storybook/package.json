@@ -1,6 +1,6 @@
 {
   "name": "@examples/test-react-storybook",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "private": true,
   "description": "Repository example form testing using React Testing Library and Storybook.",
   "main": "index.js",
@@ -21,7 +21,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@ttoss/test-utils": "latest",
+    "@ttoss/test-utils": "^0.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

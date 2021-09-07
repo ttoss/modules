@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/form",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Forms utilities.",
   "publishConfig": {
     "access": "public"
@@ -22,9 +22,9 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "@hookform/resolvers": "^2.8.0",
     "react-hook-form": "^7.14.2",
