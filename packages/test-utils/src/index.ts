@@ -33,4 +33,12 @@ export const setOptions = (options: RenderOptions) => {
 /**
  * Storybook
  */
-export * from './storybook';
+export { default as initStoryshots } from '@storybook/addon-storyshots';
+/**
+ * This package needs `@storybook/client-api` package.
+ */
+export {
+  composeStories,
+  setGlobalConfig as setStorybookGlobalConfig,
+  composeStory,
+} from '@storybook/testing-react';

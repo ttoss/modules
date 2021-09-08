@@ -20,7 +20,7 @@ const googleMock = {
 };
 
 beforeAll(() => {
-  (global.google as any) = googleMock;
+  (global.google as unknown) = googleMock;
 });
 
 const RenderStatus = () => {
