@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/ttoss/modules/compare/v0.6.2...v0.7.0) (2021-09-08)
+
+### Features
+
+- add useGeocoder ([d740c38](https://github.com/ttoss/modules/commit/d740c38d38f38f724888fc544dfac09f86816efb))
+
 ## [0.6.2](https://github.com/ttoss/modules/compare/v0.6.1...v0.6.2) (2021-09-07)
 
 **Note:** Version bump only for package @ttoss/google-maps
