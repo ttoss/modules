@@ -1,5 +1,4 @@
-import { setOptions } from '@ttoss/test-utils';
-import { setGlobalConfig } from '@ttoss/test-utils/storybook';
+import { setOptions, setStorybookGlobalConfig } from '@ttoss/test-utils';
 import * as React from 'react';
 
 /**
@@ -8,7 +7,7 @@ import * as React from 'react';
  */
 import * as globalStorybookConfig from './.storybook/preview';
 
-setGlobalConfig(globalStorybookConfig);
+setStorybookGlobalConfig(globalStorybookConfig);
 
 /**
  * Add global wrapper to React Testing Library `customRender`.

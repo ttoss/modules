@@ -1,5 +1,10 @@
-import { customRender, render, screen, userEvent } from '@ttoss/test-utils';
-import { composeStories } from '@ttoss/test-utils/storybook';
+import {
+  composeStories,
+  customRender,
+  render,
+  screen,
+  userEvent,
+} from '@ttoss/test-utils';
 
 import Component from '.';
 import * as stories from './index.stories';
