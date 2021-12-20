@@ -31,6 +31,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "tsup",
+    "postbuild": "./scripts/post-build.sh",
     "test": "yarn workspace @examples/test-react-storybook test"
   },
   "dependencies": {
@@ -48,6 +49,9 @@
     "@storybook/react": "^6.3.8",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@ttoss/config": "*"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

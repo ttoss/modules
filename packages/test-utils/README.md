@@ -43,7 +43,7 @@ yarn add --dev @ttoss/test-utils
 
 ## Using the Package
 
-_You can see an example of the package on this [GitHub repository]()._
+<!-- _You can see an example of the package on this [GitHub repository](https)._ -->
 
 ### React
 
@@ -75,7 +75,7 @@ Add `jest.setup.ts` to your `jest.config.js` file.
 ```ts
 export default {
   // ...
-  setupFilesAfterEnv: ['./jest.setup.tsx'],
+  setupFilesAfterEnv: ['./jest.setup.ts'],
 };
 ```
 
