@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/ttoss/modules/compare/v0.7.0...v0.8.0) (2021-12-23)
+
+### Features
+
+- add cicd ([#20](https://github.com/ttoss/modules/issues/20)) ([76277d7](https://github.com/ttoss/modules/commit/76277d7f0c5f0e01b33aa6864ab809768987eb9a))
+
 # [0.7.0](https://github.com/ttoss/modules/compare/v0.6.2...v0.7.0) (2021-09-08)
 
 **Note:** Version bump only for package @examples/google-maps-search
