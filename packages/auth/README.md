@@ -1,8 +1,24 @@
-# Auth Module
+# @ttoss/auth
+
+## 📚 About
 
 This module is intended to use with AWS Cognito. It uses [AWS Amplify](https://docs.amplify.aws/lib/auth/getting-started/q/platform/js) under the hood.
 
-[Amplify Auth configuration](https://docs.amplify.aws/lib/auth/start/q/platform/js#re-use-existing-authentication-resource) must be provided in your App to make Auth Module works properly,.
+[Amplify Auth configuration](https://docs.amplify.aws/lib/auth/start/q/platform/js#re-use-existing-authentication-resource) must be provided in your App to make Auth Module works properly.
+
+## 🚀 Get Started
+
+### Install
+
+```shell
+$ yarn add @ttoss/auth
+# or
+$ npm install @ttoss/auth
+```
+
+## 📄 Examples of use
+
+### Amplify config
 
 ```ts
 import Amplify from 'aws-amplify';
@@ -69,4 +85,64 @@ Amplify.configure({
     },
   },
 });
+```
+
+### PrivateRoute component
+
+```tsx
+import { useAuth } from '@ttoss/auth';
+
+const PrivateRoute = (props: any) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" state={{ redirectTo: props.path || '/' }} />;
+  }
+  return <Route {...props} />;
+};
+```
+
+### Login Page
+
+```tsx
+import { Auth, useAuth } from '@ttoss/auth';
+
+const Login = () => {
+  const auth = useAuth();
+
+  const onSuccess = () => {
+    // Navigate to logged-area
+  };
+
+  return (
+    <div>
+      <h1>Login Page</h1>
+
+      <Auth onSignIn={onSuccess} />
+
+      <button onClick={auth.signOut}>Logout</button>
+    </div>
+  );
+};
+export default Login;
+```
+
+## Types
+
+```ts
+export type OnSignInInput = {
+  email: string;
+  password: string;
+};
+
+export type OnSignIn = (input: OnSignInInput) => void;
+
+export type OnSignUpInput = {
+  email: string;
+  password: string;
+};
+
+export type OnSignUp = (input: OnSignUpInput) => void;
+
+export type OnConfirmSignUp = (input: { email: string; code: string }) => void;
 ```
