@@ -11,5 +11,3 @@ yarn workspace @ttoss/hooks build
 
 yarn workspace @ttoss/auth build
 yarn workspace @ttoss/google-maps build
-
-yarn workspace @ttoss/storybook build

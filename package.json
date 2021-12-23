@@ -1,5 +1,5 @@
 {
-  "name": "ttoss-modules",
+  "name": "ttoss-modules-monorepo",
   "private": true,
   "version": "0.0.1",
   "author": "ttoss",
@@ -86,7 +86,6 @@
   },
   "workspaces": [
     "examples/**/*",
-    "packages/**/*",
-    "storybook"
+    "packages/**/*"
   ]
 }
