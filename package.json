@@ -16,7 +16,6 @@
     "build": "./scripts/build.sh",
     "test": "lerna run test --parallel",
     "lint": "lerna run lint -- --fix",
-    "deploy": "./scripts/publish.sh",
     "remove-all-node-modules": "npx lerna exec -- rm -rf node_modules && rm -rf node_modules && rm -f yarn.lock",
     "reinstall": "yarn run remove-all-node-modules && yarn",
     "list-updates": "npx ncu && lerna exec -- npx ncu",
