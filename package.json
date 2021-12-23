@@ -86,7 +86,6 @@
   },
   "workspaces": [
     "examples/**/*",
-    "packages/**/*",
-    "storybook"
+    "packages/**/*"
   ]
 }

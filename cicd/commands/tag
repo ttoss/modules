@@ -1,0 +1,6 @@
+#!/bin/bash
+
+yarn lerna run "build" --stream
+yarn lerna run "test" --stream
+echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+npx lerna publish --yes

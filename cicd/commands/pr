@@ -1,0 +1,4 @@
+#!/bin/bash
+
+yarn lerna run "build" --stream
+yarn lerna run "test" --stream
