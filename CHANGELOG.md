@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.3](https://github.com/ttoss/modules/compare/v0.8.2...v0.8.3) (2022-01-04)
+
+### Bug Fixes
+
+- main command ([4efdce3](https://github.com/ttoss/modules/commit/4efdce3341e432558f1bf757a40f50d6a76ca50f))
+
 ## [0.8.2](https://github.com/ttoss/modules/compare/v0.8.1...v0.8.2) (2022-01-04)
 
 ### Bug Fixes

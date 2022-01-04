@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/test-utils",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "This package provides a number of utilities and re-exports for testing using Jest, React Testing Library, and Storybook.",
   "keywords": [
     "Jest",
