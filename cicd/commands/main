@@ -2,4 +2,5 @@
 
 yarn run "build" --stream
 yarn run "test" --stream
-yarn lerna version --yes
+echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+yarn lerna publish --yes
