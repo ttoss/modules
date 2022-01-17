@@ -148,4 +148,6 @@ lerna-debug.log
 storybook-static/
 
 package-lock.json
+
+.vscode/
 .carlin

@@ -31,5 +31,8 @@
   "license": "UNLICENSED",
   "peerDependencies": {
     "react": ">=16.8.6"
+  },
+  "devDependencies": {
+    "@ttoss/config": "*"
   }
 }
