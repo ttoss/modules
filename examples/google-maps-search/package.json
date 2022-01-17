@@ -1,10 +1,9 @@
 {
   "name": "@examples/google-maps-search",
   "private": true,
-  "version": "0.7.0",
+  "version": "0.8.2",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
     "serve": "vite preview"
   },
   "dependencies": {
