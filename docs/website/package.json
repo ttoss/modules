@@ -1,5 +1,5 @@
 {
-  "name": "website",
+  "name": "ttoss-modules-website",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -15,10 +15,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.6",
-    "@docusaurus/preset-classic": "2.0.0-beta.6",
+    "@docusaurus/core": "^2.0.0-beta.14",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.14",
+    "@docusaurus/preset-classic": "^2.0.0-beta.14",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
+    "@ttoss/auth": "*",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "^1.2.1",
@@ -27,7 +29,6 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.0.0-beta.6",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/react": "^17.0.14",
     "@types/react-helmet": "^6.1.2",

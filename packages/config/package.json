@@ -32,7 +32,7 @@
     "@babel/preset-typescript": "^7.15.0",
     "@emotion/jest": "^11.3.0",
     "deepmerge": "^4.2.2",
-    "tsup": "^4.14.0"
+    "tsup": "^5.11.11"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01",
   "devDependencies": {

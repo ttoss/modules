@@ -27,6 +27,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@hookform/resolvers": "^2.8.0",
+    "@ttoss/config": "0.x.x",
     "react-hook-form": "^7.14.2",
     "yup": "^0.32.9"
   },
