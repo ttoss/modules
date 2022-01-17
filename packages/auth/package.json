@@ -30,6 +30,7 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
+    "@ttoss/config": "^0.8.4",
     "@ttoss/form": "^0.8.4",
     "@ttoss/ui": "^0.8.4",
     "@xstate/react": "^1.6.1",
