@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.4](https://github.com/ttoss/modules/compare/v0.8.3...v0.8.4) (2022-01-17)
+
+**Note:** Version bump only for package ttoss-modules-monorepo
+
 ## [0.8.3](https://github.com/ttoss/modules/compare/v0.8.2...v0.8.3) (2022-01-04)
 
 ### Bug Fixes
