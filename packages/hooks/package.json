@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/hooks",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "React hooks.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -33,6 +33,6 @@
     "react": ">=16.8.6"
   },
   "devDependencies": {
-    "@ttoss/config": "^0.9.0"
+    "@ttoss/config": "^0.9.1"
   }
 }
