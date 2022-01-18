@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/ttoss/modules/compare/v0.8.5...v0.9.0) (2022-01-18)
+
+### Features
+
+- add auth example ([#22](https://github.com/ttoss/modules/issues/22)) ([a0964b3](https://github.com/ttoss/modules/commit/a0964b3b62226c77e6deb603039ed8da47c20237))
+
 ## [0.8.5](https://github.com/ttoss/modules/compare/v0.8.4...v0.8.5) (2022-01-17)
 
 **Note:** Version bump only for package @ttoss/auth
