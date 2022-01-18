@@ -1,15 +1,27 @@
-// import * as React from 'react';
+import {
+  ThemeProvider as ThemeUiProvider,
+  ThemeProviderProps,
+  merge,
+} from '@theme-ui/core';
+import * as React from 'react';
 
-import { ThemeProvider as ThemeUiProvider, Theme } from '@theme-ui/core';
+import { defaultTheme } from './defaultTheme';
 
-import { theme } from './theme';
+export type { ThemeProviderProps };
 
-export type ThemeProviderProps = {
-  theme?: Theme | ((outerTheme: Theme) => Theme);
-};
+const ThemeProvider: React.FC<Partial<ThemeProviderProps>> = ({
+  children,
+  theme = {},
+}) => {
+  const mergedTheme = React.useMemo(() => {
+    if (typeof theme === 'function') {
+      return theme;
+    }
 
-const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  return <ThemeUiProvider theme={theme}>{children}</ThemeUiProvider>;
+    return merge(defaultTheme, theme);
+  }, [theme]);
+
+  return <ThemeUiProvider theme={mergedTheme}>{children}</ThemeUiProvider>;
 };
 
 export default ThemeProvider;

@@ -9,7 +9,13 @@ import { render, RenderOptions } from '@testing-library/react';
 export * from '@emotion/jest';
 
 export * from '@testing-library/react';
-export { renderHook, act as renderHookAct } from '@testing-library/react-hooks';
+export {
+  renderHook,
+  /**
+   * DEPRECATED: use `act` instead.
+   */
+  act as renderHookAct,
+} from '@testing-library/react-hooks';
 export { default as userEvent } from '@testing-library/user-event';
 
 /**

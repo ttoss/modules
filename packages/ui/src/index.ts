@@ -3,9 +3,9 @@ export {
   ThemeProviderProps,
 } from './theme/ThemeProvider';
 
-export { default as Box } from './components/Box/Box';
-export type { BoxProps } from './components/Box/Box';
+export { useTheme } from './theme/useTheme';
 
+export { default as Box, BoxProps } from './components/Box/Box';
 export { default as Button, ButtonProps } from './components/Button/Button';
 export { default as Flex, FlexProps } from './components/Flex/Flex';
 export {
