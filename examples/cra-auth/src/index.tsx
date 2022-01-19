@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { AuthProvider } from '@ttoss/auth';
+import { ThemeProvider } from '@ttoss/ui';
 import Amplify from 'aws-amplify';
 
 Amplify.configure({
@@ -17,9 +18,32 @@ Amplify.configure({
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <ThemeProvider
+      theme={{
+        text: {
+          title: {
+            color: 'red',
+          },
+        },
+        cards: {
+          primary: {
+            padding: 2,
+            borderRadius: 4,
+            boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)',
+          },
+          compact: {
+            padding: 4,
+            borderRadius: 2,
+            border: '20px solid',
+            borderColor: 'muted',
+          },
+        },
+      }}
+    >
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

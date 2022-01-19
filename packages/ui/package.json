@@ -32,6 +32,8 @@
     "dev": "yarn workspace @ttoss/storybook run dev"
   },
   "dependencies": {
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@theme-ui/components": "^0.13.1",
     "@theme-ui/core": "^0.13.1"
   },
