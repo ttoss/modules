@@ -1,5 +1,5 @@
 {
-  "name": "cra-auth",
+  "name": "@examples/cra-auth",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
