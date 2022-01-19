@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/ttoss/modules/compare/v0.9.1...v0.9.2) (2022-01-19)
+
+### Bug Fixes
+
+- UI variant ([#24](https://github.com/ttoss/modules/issues/24)) ([f018aa7](https://github.com/ttoss/modules/commit/f018aa7ed8b80b9787c88f096f060aedbed81957))
+
 ## [0.9.1](https://github.com/ttoss/modules/compare/v0.9.0...v0.9.1) (2022-01-18)
 
 ### Bug Fixes
