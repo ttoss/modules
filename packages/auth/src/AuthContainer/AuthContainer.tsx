@@ -1,4 +1,4 @@
-import { Button, Flex, Image, Text } from '@ttoss/ui';
+import { Button, Card, Image, Text } from '@ttoss/ui';
 
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
@@ -34,23 +34,14 @@ const AuthContainer = ({
   links,
 }: AuthContainerProps) => {
   return (
-    <Flex
-      sx={{
-        maxWidth: '400px',
-        width: '100%',
-        border: 'solid 2px #444',
-        padding: '32px',
-        flexDirection: 'column',
-        alignItems: 'center',
-        color: 'text',
-        fontFamily: 'Arial',
-      }}
-    >
+    <Card variant="compact">
       {urlLogo && (
         <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
       )}
       <Text
+        variant="title"
         sx={{
+          variant: 'title',
           marginY: '24px',
           textAlign: 'center',
           width: '100%',
@@ -66,7 +57,7 @@ const AuthContainer = ({
           {link.label}
         </LinkButton>
       ))}
-    </Flex>
+    </Card>
   );
 };
 
