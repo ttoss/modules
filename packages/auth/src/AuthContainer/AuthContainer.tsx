@@ -1,4 +1,4 @@
-import { Button, Card, Image, Text } from '@ttoss/ui';
+import { Button, Card, Flex, Text } from '@ttoss/ui';
 
 type LinkButtonProps = {
   children: React.ReactNode | React.ReactNodeArray;
@@ -17,46 +17,38 @@ const LinkButton = ({ children, onClick }: LinkButtonProps) => {
   );
 };
 
+type LinkProps = {
+  label: string;
+  onClick: () => void;
+};
+
 type AuthContainerProps = {
-  children: React.ReactNode | React.ReactNodeArray;
-  urlLogo?: string;
+  children: React.ReactNode;
+  logo?: React.ReactNode;
   title: string;
-  links?: Array<{
-    label: string;
-    onClick: () => void;
-  }>;
+  leftLink?: LinkProps[];
+  rightLink?: LinkProps[];
 };
 
 const AuthContainer = ({
   children,
-  urlLogo,
+  logo,
   title,
-  links,
+  rightLink,
+  leftLink,
 }: AuthContainerProps) => {
   return (
-    <Card variant="compact">
-      {urlLogo && (
-        <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
-      )}
-      <Text
-        variant="title"
-        sx={{
-          variant: 'title',
-          marginY: '24px',
-          textAlign: 'center',
-          width: '100%',
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-        }}
-      >
-        {title}
-      </Text>
-      {children}
-      {links?.map((link) => (
-        <LinkButton key={link.label} onClick={link.onClick}>
-          {link.label}
-        </LinkButton>
-      ))}
+    <Card variant="primary">
+      <Flex>
+        <Flex>{logo}</Flex>
+        <Text variant="title">{title}</Text>
+        {children}
+        {links?.map((link) => (
+          <LinkButton key={link.label} onClick={link.onClick}>
+            {link.label}
+          </LinkButton>
+        ))}
+      </Flex>
     </Card>
   );
 };

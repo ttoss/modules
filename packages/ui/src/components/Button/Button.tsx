@@ -1,3 +1,11 @@
-export { Button as default } from '@theme-ui/components';
+import { Button as ButtonUi } from '@theme-ui/components';
 
-export type { ButtonProps } from '@theme-ui/components';
+import type { ButtonProps } from '@theme-ui/components';
+
+export type { ButtonProps };
+
+const Button = (props: ButtonProps) => {
+  return <ButtonUi {...props} sx={{ cursor: 'pointer', ...props.sx }} />;
+};
+
+export default Button;

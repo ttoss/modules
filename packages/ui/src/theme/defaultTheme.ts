@@ -8,18 +8,16 @@ export const defaultTheme: Theme = {
     secondary: '#639',
     gray: '#555',
   },
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  styles: {},
   buttons: {
     primary: {
-      color: 'background',
-      bg: 'primary',
+      color: 'white',
+      backgroundColor: 'primary',
     },
     secondary: {
-      color: 'background',
-      bg: 'secondary',
-    },
-    gray: {
-      color: 'background',
-      bg: 'gray',
+      color: 'white',
+      backgroundColor: 'secondary',
     },
   },
 };
