@@ -4,6 +4,7 @@ import * as React from 'react';
 import { assign, createMachine } from 'xstate';
 
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
+import { useAuth } from '../AuthProvider/AuthProvider';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
 
@@ -76,6 +77,8 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
 );
 
 export const Auth = () => {
+  const { isAuthenticated } = useAuth();
+
   const [state, send] = useMachine(authMachine);
 
   // const { toast, setLoading } = useNotifications();
@@ -138,6 +141,10 @@ export const Auth = () => {
     },
     [send]
   );
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (state.matches('signUp')) {
     return <AuthSignUp onSignUp={onSignUp} />;

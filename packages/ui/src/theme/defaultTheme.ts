@@ -9,7 +9,13 @@ export const defaultTheme: Theme = {
     gray: '#555',
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  styles: {},
+  styles: {
+    a: {
+      color: 'primary',
+      textDecoration: 'underline',
+      cursor: 'pointer',
+    },
+  },
   buttons: {
     primary: {
       color: 'white',
@@ -18,6 +24,18 @@ export const defaultTheme: Theme = {
     secondary: {
       color: 'white',
       backgroundColor: 'secondary',
+    },
+  },
+  cards: {
+    primary: {
+      border: '1px solid black',
+      padding: [4, 5],
+    },
+  },
+  text: {
+    title: {
+      fontSize: [4, 5],
+      textAlign: 'center',
     },
   },
 };

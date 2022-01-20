@@ -1,21 +1,4 @@
-import { Button, Card, Flex, Text } from '@ttoss/ui';
-
-type LinkButtonProps = {
-  children: React.ReactNode | React.ReactNodeArray;
-  onClick: () => void;
-};
-
-const LinkButton = ({ children, onClick }: LinkButtonProps) => {
-  return (
-    <Button
-      as="a"
-      sx={{ color: 'black', cursor: 'pointer', marginTop: '24px' }}
-      onClick={onClick}
-    >
-      {children}
-    </Button>
-  );
-};
+import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
 
 type LinkProps = {
   label: string;
@@ -23,31 +6,34 @@ type LinkProps = {
 };
 
 type AuthContainerProps = {
-  children: React.ReactNode;
-  logo?: React.ReactNode;
+  children: React.ReactNode | React.ReactNodeArray;
   title: string;
-  leftLink?: LinkProps[];
-  rightLink?: LinkProps[];
+  buttonLabel: string;
+  leftLink?: LinkProps;
+  rightLink?: LinkProps;
 };
 
 const AuthContainer = ({
   children,
-  logo,
   title,
-  rightLink,
+  buttonLabel,
   leftLink,
+  rightLink,
 }: AuthContainerProps) => {
   return (
-    <Card variant="primary">
-      <Flex>
-        <Flex>{logo}</Flex>
+    <Card variant="primary" sx={{ maxWidth: '500px' }}>
+      <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         <Text variant="title">{title}</Text>
         {children}
-        {links?.map((link) => (
-          <LinkButton key={link.label} onClick={link.onClick}>
-            {link.label}
-          </LinkButton>
-        ))}
+        <Button type="submit" aria-label="submit-login">
+          {buttonLabel}
+        </Button>
+        <Flex sx={{ justifyContent: 'space-between' }}>
+          {leftLink && <Link onClick={leftLink.onClick}>{leftLink.label}</Link>}
+          {rightLink && (
+            <Link onClick={rightLink.onClick}>{rightLink.label}</Link>
+          )}
+        </Flex>
       </Flex>
     </Card>
   );

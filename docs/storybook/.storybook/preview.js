@@ -1,5 +1,7 @@
 import { ThemeProvider } from '@ttoss/ui';
 
+import { themes } from '../themes';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -10,10 +12,27 @@ export const parameters = {
   },
 };
 
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'Triangulos',
+    toolbar: {
+      icon: 'circlehollow',
+      items: Object.keys(themes),
+      showName: true,
+    },
+  },
+};
+
 export const decorators = [
-  (Story) => (
-    <ThemeProvider theme={{}}>
-      <Story />
-    </ThemeProvider>
-  ),
+  (Story, context) => {
+    const theme = themes[context.globals.theme];
+
+    return (
+      <ThemeProvider theme={theme}>
+        <Story />
+      </ThemeProvider>
+    );
+  },
 ];
