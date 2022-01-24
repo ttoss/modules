@@ -1,62 +1,40 @@
-import { Button, Card, Image, Text } from '@ttoss/ui';
+import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
 
-type LinkButtonProps = {
-  children: React.ReactNode | React.ReactNodeArray;
+type LinkProps = {
+  label: string;
   onClick: () => void;
-};
-
-const LinkButton = ({ children, onClick }: LinkButtonProps) => {
-  return (
-    <Button
-      as="a"
-      sx={{ color: 'black', cursor: 'pointer', marginTop: '24px' }}
-      onClick={onClick}
-    >
-      {children}
-    </Button>
-  );
 };
 
 type AuthContainerProps = {
   children: React.ReactNode | React.ReactNodeArray;
-  urlLogo?: string;
   title: string;
-  links?: Array<{
-    label: string;
-    onClick: () => void;
-  }>;
+  buttonLabel: string;
+  leftLink?: LinkProps;
+  rightLink?: LinkProps;
 };
 
 const AuthContainer = ({
   children,
-  urlLogo,
   title,
-  links,
+  buttonLabel,
+  leftLink,
+  rightLink,
 }: AuthContainerProps) => {
   return (
-    <Card variant="compact">
-      {urlLogo && (
-        <Image sx={{ maxHeight: '120px', marginY: '14px' }} src={urlLogo} />
-      )}
-      <Text
-        variant="title"
-        sx={{
-          variant: 'title',
-          marginY: '24px',
-          textAlign: 'center',
-          width: '100%',
-          fontWeight: 'bold',
-          textTransform: 'uppercase',
-        }}
-      >
-        {title}
-      </Text>
-      {children}
-      {links?.map((link) => (
-        <LinkButton key={link.label} onClick={link.onClick}>
-          {link.label}
-        </LinkButton>
-      ))}
+    <Card variant="primary" sx={{ maxWidth: '500px' }}>
+      <Flex sx={{ flexDirection: 'column', gap: 3 }}>
+        <Text variant="title">{title}</Text>
+        {children}
+        <Button type="submit" aria-label="submit-login">
+          {buttonLabel}
+        </Button>
+        <Flex sx={{ justifyContent: 'space-between' }}>
+          {leftLink && <Link onClick={leftLink.onClick}>{leftLink.label}</Link>}
+          {rightLink && (
+            <Link onClick={rightLink.onClick}>{rightLink.label}</Link>
+          )}
+        </Flex>
+      </Flex>
     </Card>
   );
 };

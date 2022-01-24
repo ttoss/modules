@@ -4,6 +4,7 @@ import * as React from 'react';
 import { assign, createMachine } from 'xstate';
 
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
+import { useAuth } from '../AuthProvider/AuthProvider';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
 
@@ -16,7 +17,7 @@ type AuthState =
     }
   | {
       value: 'signUp';
-      context: {};
+      context: Record<string, never>;
     }
   | {
       value: 'signUpConfirm';
@@ -75,53 +76,55 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
   }
 );
 
-export const Auth = ({
-  onSignIn: onSuccessSignIn,
-}: {
-  onSignIn?: () => void;
-}) => {
+export const Auth = () => {
+  const { isAuthenticated } = useAuth();
+
   const [state, send] = useMachine(authMachine);
 
   // const { toast, setLoading } = useNotifications();
 
-  const onSignIn = React.useCallback<OnSignIn>(async ({ email, password }) => {
-    try {
-      // setLoading(true);
-      await AmplifyAuth.signIn(email, password);
-      if (onSuccessSignIn) {
-        onSuccessSignIn();
-      }
-      // toast('Signed In');
-    } catch (error) {
-      switch ((error as any).code) {
-        case 'UserNotConfirmedException':
-          await AmplifyAuth.resendSignUp(email);
-          send({ type: 'SIGN_UP_RESEND_CONFIRMATION', email });
-          break;
-        default:
-        // toast(JSON.stringify(error, null, 2));
-      }
-    } finally {
-      // setLoading(false);
-    }
-  }, []);
+  const onSignIn = React.useCallback<OnSignIn>(
+    async ({ email, password }) => {
+      try {
+        // setLoading(true);
+        await AmplifyAuth.signIn(email, password);
 
-  const onSignUp = React.useCallback<OnSignUp>(async ({ email, password }) => {
-    try {
-      // setLoading(true);
-      await AmplifyAuth.signUp({
-        username: email,
-        password,
-        attributes: { email },
-      });
-      // toast('Signed Up');
-      send({ type: 'SIGN_UP_CONFIRM', email });
-    } catch (error) {
-      // toast(JSON.stringify(error, null, 2));
-    } finally {
-      // setLoading(false);
-    }
-  }, []);
+        // toast('Signed In');
+      } catch (error) {
+        switch ((error as any).code) {
+          case 'UserNotConfirmedException':
+            await AmplifyAuth.resendSignUp(email);
+            send({ type: 'SIGN_UP_RESEND_CONFIRMATION', email });
+            break;
+          default:
+          // toast(JSON.stringify(error, null, 2));
+        }
+      } finally {
+        // setLoading(false);
+      }
+    },
+    [send]
+  );
+
+  const onSignUp = React.useCallback<OnSignUp>(
+    async ({ email, password }) => {
+      try {
+        // setLoading(true);
+        await AmplifyAuth.signUp({
+          username: email,
+          password,
+          attributes: { email },
+        });
+        // toast('Signed Up');
+        send({ type: 'SIGN_UP_CONFIRM', email });
+      } catch (error) {
+        // toast(JSON.stringify(error, null, 2));
+      } finally {
+        // setLoading(false);
+      }
+    },
+    [send]
+  );
 
   const onConfirmSignUp = React.useCallback<OnConfirmSignUp>(
     async ({ email, code }) => {
@@ -136,8 +139,12 @@ export const Auth = ({
         // setLoading(false);
       }
     },
-    []
+    [send]
   );
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   if (state.matches('signUp')) {
     return <AuthSignUp onSignUp={onSignUp} />;

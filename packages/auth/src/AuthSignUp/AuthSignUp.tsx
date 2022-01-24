@@ -1,17 +1,15 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { Button, FormField, Input } from '@ttoss/ui';
+import { FormField, Input } from '@ttoss/ui';
 
 import AuthContainer from '../AuthContainer/AuthContainer';
 
 import type { OnSignUp, OnSignUpInput } from '../types';
 
-type AuthSignUpProps = {
+export type AuthSignUpProps = {
   onSignUp: OnSignUp;
-  defaultValues?: OnSignUpInput;
-  urlLogo?: string;
 };
 
-const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
+const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -24,20 +22,15 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
       .trim(),
   });
 
-  const { register, handleSubmit, formState } = useForm<OnSignUpInput>({
-    defaultValues,
+  const { register, handleSubmit } = useForm<OnSignUpInput>({
     resolver: yupResolver(schema),
   });
 
   const onSubmitForm = (data: OnSignUpInput) => onSignUp(data);
 
   return (
-    <AuthContainer
-      // links={[{ label: 'Login', href: '/login' }]}
-      title="Criar Conta"
-      urlLogo={urlLogo}
-    >
-      <form onSubmit={handleSubmit(onSubmitForm)}>
+    <form onSubmit={handleSubmit(onSubmitForm)}>
+      <AuthContainer title="Criar Conta" buttonLabel="Criar Conta">
         <FormField label="e-mail">
           <Input id="email" {...register('email')} />
         </FormField>
@@ -45,15 +38,8 @@ const AuthSignUp = ({ onSignUp, defaultValues, urlLogo }: AuthSignUpProps) => {
         <FormField label="senha">
           <Input id="password" {...register('password')} type="password" />
         </FormField>
-
-        <Button
-          type="submit"
-          sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
-        >
-          Criar
-        </Button>
-      </form>
-    </AuthContainer>
+      </AuthContainer>
+    </form>
   );
 };
 

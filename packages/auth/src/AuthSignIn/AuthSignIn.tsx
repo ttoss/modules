@@ -5,7 +5,7 @@ import AuthContainer from '../AuthContainer/AuthContainer';
 
 import type { OnSignIn, OnSignInInput } from '../types';
 
-type AuthSignInProps = {
+export type AuthSignInProps = {
   onSignIn: OnSignIn;
   onSignUp: () => void;
   defaultValues?: Partial<OnSignInInput>;
@@ -40,14 +40,16 @@ const AuthSignIn = ({
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthContainer
-        links={[
-          {
-            label: 'Criar Conta',
-            onClick: onSignUp,
-          },
-        ]}
         title="Login"
-        urlLogo={urlLogo}
+        buttonLabel="Login"
+        leftLink={{
+          onClick: onSignUp,
+          label: 'Esqueceu a senha?',
+        }}
+        rightLink={{
+          onClick: onSignUp,
+          label: 'Não tem uma conta? Cadastre-se',
+        }}
       >
         <FormField label="e-mail">
           <Input {...register('email')} />
@@ -56,14 +58,6 @@ const AuthSignIn = ({
         <FormField label="senha">
           <Input id="password" {...register('password')} type="password" />
         </FormField>
-
-        <Button
-          type="submit"
-          sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
-          aria-label="submit-login"
-        >
-          Login
-        </Button>
       </AuthContainer>
     </form>
   );

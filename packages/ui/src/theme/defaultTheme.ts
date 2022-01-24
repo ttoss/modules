@@ -8,18 +8,34 @@ export const defaultTheme: Theme = {
     secondary: '#639',
     gray: '#555',
   },
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  styles: {
+    a: {
+      color: 'primary',
+      textDecoration: 'underline',
+      cursor: 'pointer',
+    },
+  },
   buttons: {
     primary: {
-      color: 'background',
-      bg: 'primary',
+      color: 'white',
+      backgroundColor: 'primary',
     },
     secondary: {
-      color: 'background',
-      bg: 'secondary',
+      color: 'white',
+      backgroundColor: 'secondary',
     },
-    gray: {
-      color: 'background',
-      bg: 'gray',
+  },
+  cards: {
+    primary: {
+      border: '1px solid black',
+      padding: [4, 5],
+    },
+  },
+  text: {
+    title: {
+      fontSize: [4, 5],
+      textAlign: 'center',
     },
   },
 };
