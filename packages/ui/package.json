@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/ui",
-  "version": "0.9.2",
+  "version": "1.1.0",
   "description": "Primitive layout, typographic, and other components for styling applications.",
   "license": "UNLICENSED",
   "publishConfig": {
@@ -41,8 +41,8 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^0.9.2",
-    "@ttoss/test-utils": "^0.9.2"
+    "@ttoss/config": "^1.1.0",
+    "@ttoss/test-utils": "^1.1.0"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }
