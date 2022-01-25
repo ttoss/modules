@@ -142,7 +142,7 @@ export const Auth = () => {
     [send]
   );
 
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
     return null;
   }
 

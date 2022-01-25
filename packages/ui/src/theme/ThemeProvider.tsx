@@ -1,3 +1,4 @@
+import { Global } from '@emotion/react';
 import {
   ThemeProvider as ThemeUiProvider,
   ThemeProviderProps,
@@ -21,7 +22,18 @@ const ThemeProvider: React.FC<Partial<ThemeProviderProps>> = ({
     return merge(defaultTheme, theme);
   }, [theme]);
 
-  return <ThemeUiProvider theme={mergedTheme}>{children}</ThemeUiProvider>;
+  return (
+    <ThemeUiProvider theme={mergedTheme}>
+      <Global
+        styles={{
+          '*': {
+            margin: 0,
+          },
+        }}
+      />
+      {children}
+    </ThemeUiProvider>
+  );
 };
 
 export default ThemeProvider;

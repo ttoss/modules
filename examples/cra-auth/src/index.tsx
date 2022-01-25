@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -20,23 +20,26 @@ ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider
       theme={{
-        text: {
-          title: {
-            color: 'red',
-          },
-        },
-        cards: {
-          primary: {
-            padding: 2,
-            borderRadius: 4,
-            boxShadow: '0 0 8px rgba(0, 0, 0, 0.125)',
-          },
-          compact: {
-            padding: 4,
-            borderRadius: 2,
-            border: '20px solid',
-            borderColor: 'muted',
-          },
+        colors: {
+          transparent: '#ffffff00',
+          primary: '#127547',
+          secondary: '#457F8D',
+          text: '#393A3A',
+          background: '#F7F9F8',
+          accent: '#00C7FE',
+          highlight: '#0067D2',
+          muted: '#B9B9B9',
+          primaryVariant: '#008774',
+          secondaryVariant: '#7AB4C3',
+          alert: '#FF655B',
+          success: '#66AA00',
+          caution: '#FC6C00',
+          neutral: '#888888',
+          eucalipto: '#E79E49',
+          pinus: '#EBC36D',
+          cedroAustraliano: '#9F4F2A',
+          mognoAfricano: '#C18771',
+          teca: '#C19358',
         },
       }}
     >
