@@ -52,6 +52,15 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
   },
   overrides: [
+    /**
+     * https://stackoverflow.com/a/70546500/8786986
+     */
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
     {
       files: ['**/*.js', '**/*.jsx'],
       rules: {

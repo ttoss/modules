@@ -19,4 +19,9 @@ const Template: Story<AuthContainerProps & AuthSignInProps> = (args) => (
   </AuthContainer>
 );
 
-export const Example = Template.bind({});
+export const DefaultBackground = Template.bind({});
+
+export const RandomBackgroundImage = Template.bind({});
+RandomBackgroundImage.args = {
+  backgroundImageUrl: 'https://static.cdn.siflor.com.br/images/siflor-bg.webp',
+};
