@@ -1,6 +1,7 @@
 import { matchers } from '@emotion/jest';
 import '@testing-library/jest-dom';
 import { render, RenderOptions } from '@testing-library/react';
+import * as React from 'react';
 
 /**
  * Export all the matchers for Jest to avoid the error:
@@ -28,6 +29,8 @@ expect.extend(matchers);
  * Custom render options.
  */
 let options_: RenderOptions = {};
+
+export type { RenderOptions };
 
 export const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
   render(ui, { ...options_, ...options });

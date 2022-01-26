@@ -64,5 +64,11 @@ test('should pass variants', () => {
     },
   });
 
-  expect(result.current.theme).toEqual(expect.objectContaining(variants));
+  expect(result.current.theme.cards).toEqual(
+    expect.objectContaining(variants.cards)
+  );
+
+  expect(result.current.theme.layout).toEqual(
+    expect.objectContaining(variants.layout)
+  );
 });

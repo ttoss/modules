@@ -1,16 +1,8 @@
 {
   "name": "@docs/storybook",
+  "version": "0.0.0",
   "private": true,
-  "main": "index.js",
   "author": "ttoss",
-  "devDependencies": {
-    "@babel/core": "^7.16.10",
-    "@storybook/addon-actions": "^6.4.13",
-    "@storybook/addon-essentials": "^6.4.13",
-    "@storybook/addon-links": "^6.4.13",
-    "@storybook/react": "^6.4.13",
-    "babel-loader": "^8.2.3"
-  },
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build:after": "build-storybook --quiet",
