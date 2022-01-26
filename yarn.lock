@@ -6935,6 +6935,14 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"@theme-ui/color@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.13.1.tgz#4b545f58303e8673d10dbb016c2b4d963692a4bd"
+  integrity sha512-G5/FK836daz0fZLwPOIH60TtwZ3hKh3GVFAtO41Pvgq2a5JXxOl323SNf3kEMwXvxarznap95gUxl4jxuzdOcA==
+  dependencies:
+    "@theme-ui/css" "0.13.1"
+    polished "^4.0.5"
+
 "@theme-ui/components@^0.13.1":
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.13.1.tgz#fe2a3dfd8b9e36774225d6bb5f68cbf4984ad7c7"
@@ -6946,7 +6954,7 @@
     "@theme-ui/css" "0.13.1"
     "@types/styled-system" "^5.1.13"
 
-"@theme-ui/core@^0.13.1":
+"@theme-ui/core@0.13.1", "@theme-ui/core@^0.13.1":
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.13.1.tgz#1e3ddb899a1b862ca80f00f68243524dc0076820"
   integrity sha512-Mbf4XfNHBy7H1brRe4aegGRTRyvLCsFcpC0qrx0yGCJPDSg9cRpaM6cZ+BCoshRG8fGD727bIyxo2i2co+y8Bw==
@@ -6961,6 +6969,14 @@
   integrity sha512-O85gC3SLKM7HhFYBTnTuhfLdieY+kZCnSuYG+P5quf3XFJEZTYtpwucoU2NDNALSOAoSgfGb7pgTB9cmNHRB5Q==
   dependencies:
     csstype "^3.0.10"
+
+"@theme-ui/mdx@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.13.1.tgz#23fe6e42352038bb516cca2fc2539177127a60a3"
+  integrity sha512-P4jtqB9iJQcy0qiD4c30QVYEMxvPwhfegPte/ifcOr8NR4dO/gTP9jkbGN7DgXGvIkNitzCNZjjrQT9IcbPAJg==
+  dependencies:
+    "@theme-ui/core" "0.13.1"
+    "@theme-ui/css" "0.13.1"
 
 "@theme-ui/parse-props@0.13.1":
   version "0.13.1"

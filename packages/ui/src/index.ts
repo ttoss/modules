@@ -1,4 +1,6 @@
+export * as color from '@theme-ui/color';
 export type { Theme } from '@theme-ui/core';
+export { Themed } from '@theme-ui/mdx';
 
 export {
   default as ThemeProvider,

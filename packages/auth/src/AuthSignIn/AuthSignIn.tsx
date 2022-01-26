@@ -1,7 +1,7 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { Button, FormField, Input } from '@ttoss/ui';
+import { FormField, Input } from '@ttoss/ui';
 
-import AuthContainer from '../AuthContainer/AuthContainer';
+import { AuthCard } from '../AuthCard/AuthCard';
 
 import type { OnSignIn, OnSignInInput } from '../types';
 
@@ -39,7 +39,7 @@ const AuthSignIn = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
-      <AuthContainer
+      <AuthCard
         title="Login"
         buttonLabel="Login"
         leftLink={{
@@ -58,7 +58,7 @@ const AuthSignIn = ({
         <FormField label="senha">
           <Input id="password" {...register('password')} type="password" />
         </FormField>
-      </AuthContainer>
+      </AuthCard>
     </form>
   );
 };
