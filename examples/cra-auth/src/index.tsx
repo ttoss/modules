@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { AuthProvider } from '@ttoss/auth';
 import { ThemeProvider } from '@ttoss/ui';
-import Amplify from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 
 Amplify.configure({
   Auth: {
