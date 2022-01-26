@@ -10,22 +10,18 @@ export type AvailableLanguages = {
   [key: string]: MessageType;
 };
 type TranslationsContextProps = {
-  availableLanguages?: AvailableLanguages;
   locale: string;
   selectedLanguage?: MessageType | undefined;
   changeLanguage: (language: string) => void;
   setInitialLanguages: (languages: AvailableLanguages) => void;
 };
 
-export const TranslationsContext = React.createContext<TranslationsContextProps>(
-  {
-    availableLanguages: undefined,
-    selectedLanguage: undefined,
+export const TranslationsContext =
+  React.createContext<TranslationsContextProps>({
     changeLanguage: () => null,
     setInitialLanguages: () => null,
     locale: '',
-  }
-);
+  });
 
 type TranslationProviderProps = {
   initialLocale: string;
@@ -58,7 +54,6 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
     <TranslationsContext.Provider
       value={{
         selectedLanguage,
-        availableLanguages,
         changeLanguage,
         setInitialLanguages,
         locale,

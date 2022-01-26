@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 
 import { IntlProvider } from 'react-intl';
@@ -18,23 +17,21 @@ const ProviderApp: React.FC<ProviderProps> = ({
   children,
   initialLocale,
 }) => {
-  const {
-    setInitialLanguages,
-    selectedLanguage,
-    locale,
-    changeLanguage,
-  } = useTranslation();
+  const { setInitialLanguages, selectedLanguage, locale, changeLanguage } =
+    useTranslation();
 
   React.useEffect(() => {
     if (translations) {
       setInitialLanguages(translations);
     }
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
   }, []);
 
   React.useEffect(() => {
     if (initialLocale) {
       changeLanguage(initialLocale);
     }
+    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
   }, [initialLocale]);
 
   return (
