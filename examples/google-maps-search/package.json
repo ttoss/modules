@@ -1,8 +1,8 @@
 {
   "name": "@examples/google-maps-search",
   "private": true,
-  "version": "0.8.2",
   "scripts": {
+    "build:after": "vite build",
     "dev": "vite",
     "serve": "vite preview"
   },

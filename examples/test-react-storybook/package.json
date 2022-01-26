@@ -1,10 +1,10 @@
 {
   "name": "@examples/test-react-storybook",
-  "version": "0.8.2",
   "private": true,
   "description": "Repository example form testing using React Testing Library and Storybook.",
   "main": "index.js",
   "scripts": {
+    "build:after": "build-storybook --quiet",
     "test": "jest",
     "storybook": "start-storybook -p 6006"
   },

@@ -13,7 +13,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "lerna": "lerna",
-    "build": "lerna run build",
+    "build": "lerna run build && lerna run build:after",
     "test": "lerna run test --parallel",
     "lint": "lerna run lint -- --fix",
     "remove-all-node-modules": "npx lerna exec -- rm -rf node_modules && rm -rf node_modules && rm -f yarn.lock",
