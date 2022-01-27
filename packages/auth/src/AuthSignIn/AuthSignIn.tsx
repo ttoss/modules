@@ -12,12 +12,7 @@ export type AuthSignInProps = {
   urlLogo?: string;
 };
 
-const AuthSignIn = ({
-  onSignIn,
-  onSignUp,
-  defaultValues,
-  urlLogo,
-}: AuthSignInProps) => {
+const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -42,14 +37,16 @@ const AuthSignIn = ({
       <AuthCard
         title="Login"
         buttonLabel="Login"
-        leftLink={{
-          onClick: onSignUp,
-          label: 'Esqueceu a senha?',
-        }}
-        rightLink={{
-          onClick: onSignUp,
-          label: 'Não tem uma conta? Cadastre-se',
-        }}
+        links={[
+          {
+            onClick: onSignUp,
+            label: 'Esqueceu a senha?',
+          },
+          {
+            onClick: onSignUp,
+            label: 'Não tem uma conta? Cadastre-se',
+          },
+        ]}
       >
         <FormField label="e-mail">
           <Input {...register('email')} />
