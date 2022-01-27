@@ -21,16 +21,14 @@ type AuthCardProps = {
   children: React.ReactNode;
   title: string;
   buttonLabel: string;
-  leftLink?: LinkProps;
-  rightLink?: LinkProps;
+  links?: LinkProps[];
 };
 
 export const AuthCard = ({
   children,
   title,
   buttonLabel,
-  leftLink,
-  rightLink,
+  links = [],
 }: AuthCardProps) => {
   const { logo } = React.useContext(LogoContext);
 
@@ -53,10 +51,15 @@ export const AuthCard = ({
             marginTop: 3,
           }}
         >
-          {leftLink && <Link onClick={leftLink.onClick}>{leftLink.label}</Link>}
-          {rightLink && (
-            <Link onClick={rightLink.onClick}>{rightLink.label}</Link>
-          )}
+          {links.map((link) => {
+            return (
+              link && (
+                <Link key={link.label} onClick={link.onClick}>
+                  {link.label}
+                </Link>
+              )
+            );
+          })}
         </Flex>
       </Flex>
     </Card>
