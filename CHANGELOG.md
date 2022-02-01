@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ttoss/modules/compare/v1.2.0...v1.3.0) (2022-01-27)
+
+### Features
+
+- auth logo ([#32](https://github.com/ttoss/modules/issues/32)) ([17bdf97](https://github.com/ttoss/modules/commit/17bdf978cc5f10c72452611c85778d6d75c3aa87))
+
+# [1.2.0](https://github.com/ttoss/modules/compare/v1.1.0...v1.2.0) (2022-01-26)
+
+### Features
+
+- create auth container ([#30](https://github.com/ttoss/modules/issues/30)) ([9fb4fe6](https://github.com/ttoss/modules/commit/9fb4fe66fc2bdf8e116f2ebe7a94251655d0d06a))
+
 # [1.1.0](https://github.com/ttoss/modules/compare/v0.9.2...v1.1.0) (2022-01-24)
 
 ### Features

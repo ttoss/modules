@@ -1,8 +1,20 @@
 import { setOptions } from '@ttoss/test-utils';
-import ThemeProvider from '@ttoss/ui';
+import { ThemeProvider } from '@ttoss/ui';
+import React from 'react';
 
-const Providers: React.FC = ({ children }) => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+const Providers = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider
+      theme={{
+        colors: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+      }}
+    >
+      {children}
+    </ThemeProvider>
+  );
 };
 
 setOptions({ wrapper: Providers });

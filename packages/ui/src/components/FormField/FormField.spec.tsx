@@ -1,4 +1,4 @@
-import { customRender, screen } from '@ttoss/test-utils';
+import { render, screen } from '@ttoss/test-utils';
 
 import Input from '../Input/Input';
 
@@ -8,7 +8,7 @@ const label = 'Label';
 const value = 'Value';
 
 test('check if label is rendered on screen', () => {
-  customRender(
+  render(
     <FormField label={label}>
       <Input defaultValue={value} />
     </FormField>
@@ -18,7 +18,7 @@ test('check if label is rendered on screen', () => {
 });
 
 test('check if label is associated with input', () => {
-  customRender(
+  render(
     <FormField label={label}>
       <Input defaultValue={value} />
     </FormField>
@@ -30,7 +30,7 @@ test('check if label is associated with input', () => {
 test('check if renders a single error', () => {
   const error = 'Error';
 
-  customRender(
+  render(
     <FormField label={label} error={error}>
       <Input defaultValue={value} />
     </FormField>
@@ -42,7 +42,7 @@ test('check if renders a single error', () => {
 test('check if renders multiple errors', () => {
   const errors = ['Error1', 'Error2', 'Error3'];
 
-  customRender(
+  render(
     <FormField label={label} error={errors}>
       <Input defaultValue={value} />
     </FormField>

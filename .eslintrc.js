@@ -24,6 +24,7 @@ module.exports = {
   env: {
     browser: true,
     'jest/globals': true,
+    node: true,
   },
   plugins: [
     '@typescript-eslint',
@@ -40,7 +41,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:react-app/recommended',
+    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/recommended',
   ],
@@ -48,9 +49,18 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'no-console': 'error',
     'formatjs/no-offset': 'error',
-    'react-app/react/react-in-jsx-scope': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   overrides: [
+    /**
+     * https://stackoverflow.com/a/70546500/8786986
+     */
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
     {
       files: ['**/*.js', '**/*.jsx'],
       rules: {

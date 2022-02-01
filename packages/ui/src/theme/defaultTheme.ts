@@ -28,6 +28,7 @@ export const defaultTheme: Theme = {
   },
   cards: {
     primary: {
+      backgroundColor: 'background',
       border: '1px solid black',
       padding: [4, 5],
     },

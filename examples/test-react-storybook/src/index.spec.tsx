@@ -1,10 +1,4 @@
-import {
-  composeStories,
-  customRender,
-  render,
-  screen,
-  userEvent,
-} from '@ttoss/test-utils';
+import { composeStories, render, screen, userEvent } from '@ttoss/test-utils';
 
 import Component from '.';
 import * as stories from './index.stories';
@@ -12,19 +6,19 @@ import * as stories from './index.stories';
 const { Example } = composeStories(stories);
 
 test('check if the jest.setup.tsx added the JestSetupProvider', () => {
-  customRender(<Component />);
+  render(<Component />);
 
   expect(screen.getByText('JestSetupProvider')).toBeInTheDocument();
 });
 
 test("check if JestSetupProvider is not present because we're using `render`", () => {
-  render(<Component />);
+  render(<Component />, { wrapper: ({ children }) => <>{children}</> });
 
   expect(screen.queryByText('JestSetupProvider')).not.toBeInTheDocument();
 });
 
 test('check if the setup added the button', () => {
-  customRender(<Component />);
+  render(<Component />);
 
   expect(screen.getByText('oi')).toBeInTheDocument();
   expect(screen.getByText(0)).toBeInTheDocument();
@@ -32,7 +26,7 @@ test('check if the setup added the button', () => {
 });
 
 test('check user event', () => {
-  customRender(<Component />);
+  render(<Component />);
 
   userEvent.click(screen.getByText('Increment'));
 
@@ -40,7 +34,7 @@ test('check user event', () => {
 });
 
 test('check if Storybook Example story is working', () => {
-  customRender(<Example />);
+  render(<Example />);
 
   expect(screen.getByText('oi')).toBeInTheDocument();
   expect(screen.getByText(0)).toBeInTheDocument();

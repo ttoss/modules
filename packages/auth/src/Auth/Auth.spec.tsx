@@ -1,7 +1,7 @@
 import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
 import * as awsAmplify from 'aws-amplify';
 
-import Auth from './Auth';
+import { Auth } from './Auth';
 
 jest.mock('aws-amplify');
 
@@ -48,7 +48,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign In screen
    */
-  userEvent.click(screen.getByText('Criar Conta'));
+  userEvent.click(screen.getByText('Não tem uma conta? Cadastre-se'));
 
   await waitFor(() => {
     expect(signIn).not.toHaveBeenCalled();

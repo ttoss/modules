@@ -1,3 +1,3 @@
 import { initStoryshots } from '@ttoss/test-utils';
 
-initStoryshots();
+initStoryshots({ framework: 'react' });
