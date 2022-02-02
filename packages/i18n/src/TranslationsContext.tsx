@@ -9,53 +9,49 @@ export type MessageType =
 export type AvailableLanguages = {
   [key: string]: MessageType;
 };
+
 type TranslationsContextProps = {
   locale: string;
   selectedLanguage?: MessageType | undefined;
   changeLanguage: (language: string) => void;
-  setInitialLanguages: (languages: AvailableLanguages) => void;
 };
 
 export const TranslationsContext =
   React.createContext<TranslationsContextProps>({
     changeLanguage: () => null,
-    setInitialLanguages: () => null,
     locale: '',
   });
 
 type TranslationProviderProps = {
   initialLocale: string;
+  translations: AvailableLanguages;
 };
 
 export const TranslationProvider: React.FC<TranslationProviderProps> = ({
   children,
   initialLocale,
+  translations,
 }) => {
-  const [availableLanguages, setAvailableLanguages] = React.useState<
-    AvailableLanguages | undefined
-  >();
   const [selectedLanguage, setSelectedLanguage] = React.useState<
     MessageType | undefined
-  >();
+  >(translations?.[initialLocale]);
   const [locale, setLocale] = React.useState(initialLocale);
 
-  const changeLanguage = (language: string) => {
-    if (availableLanguages && !!availableLanguages[language]) {
-      setSelectedLanguage(availableLanguages[language]);
-      setLocale(language);
-    }
-  };
-
-  const setInitialLanguages = (languages: AvailableLanguages) => {
-    setAvailableLanguages(languages);
-  };
+  const changeLanguage = React.useCallback(
+    (language: string) => {
+      if (translations && !!translations[language]) {
+        setSelectedLanguage(translations[language]);
+        setLocale(language);
+      }
+    },
+    [translations, setSelectedLanguage, setLocale]
+  );
 
   return (
     <TranslationsContext.Provider
       value={{
         selectedLanguage,
         changeLanguage,
-        setInitialLanguages,
         locale,
       }}
     >

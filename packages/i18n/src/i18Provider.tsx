@@ -7,48 +7,43 @@ import {
   TranslationProvider,
 } from './TranslationsContext';
 
-export type ProviderProps = {
+export type I18nProviderProps = {
   initialLocale: string;
   translations: AvailableLanguages;
 };
 
-const ProviderApp: React.FC<ProviderProps> = ({
-  translations,
+const ProviderApp: React.FC<{ initialLocale?: string }> = ({
   children,
   initialLocale,
 }) => {
-  const { setInitialLanguages, selectedLanguage, locale, changeLanguage } =
-    useTranslation();
-
-  React.useEffect(() => {
-    if (translations) {
-      setInitialLanguages(translations);
-    }
-    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
-  }, []);
-
-  React.useEffect(() => {
-    if (initialLocale) {
-      changeLanguage(initialLocale);
-    }
-    // eslint-disable-next-line react-app/react-hooks/exhaustive-deps
-  }, [initialLocale]);
+  const { selectedLanguage, locale } = useTranslation();
 
   return (
-    <IntlProvider locale={locale} messages={selectedLanguage}>
+    <IntlProvider
+      defaultLocale={initialLocale}
+      locale={locale}
+      messages={selectedLanguage}
+    >
       <>{children}</>
     </IntlProvider>
   );
 };
 
-export const Provider: React.FC<ProviderProps> = ({
+export const I18nProvider: React.FC<I18nProviderProps> = ({
   children,
   initialLocale,
   translations,
 }) => {
+  if (!translations) {
+    return null;
+  }
+
   return (
-    <TranslationProvider initialLocale={initialLocale}>
-      <ProviderApp initialLocale={initialLocale} translations={translations}>
+    <TranslationProvider
+      initialLocale={initialLocale}
+      translations={translations}
+    >
+      <ProviderApp initialLocale={initialLocale}>
         <>{children}</>
       </ProviderApp>
     </TranslationProvider>
