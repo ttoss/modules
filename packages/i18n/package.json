@@ -34,8 +34,10 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
+    "@formatjs/ts-transformer": "^3.9.1",
     "@ttoss/config": "^0.9.1",
-    "@ttoss/test-utils": "^0.9.1"
+    "@ttoss/test-utils": "^0.9.1",
+    "babel-plugin-formatjs": "^10.3.17"
   },
   "dependencies": {
     "i18next": "^21.6.6",
