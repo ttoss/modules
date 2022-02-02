@@ -17,7 +17,7 @@ $ npm install @ttoss/i18n
 ## 📄 Examples of use
 
 ```tsx title="src/index.tsx"
-import { Provider } from '@ttoss/i18n';
+import { I18nProvider } from '@ttoss/i18n';
 
 const translations = {
   'en-US': {
@@ -33,9 +33,9 @@ const translations = {
 };
 
 ReactDOM.render(
-  <Provider initialLocale="en-US" translations={translations}>
+  <I18nProvider initialLocale="en-US" translations={translations}>
     <App />
-  </Provider>,
+  </I18nProvider>,
   document.getElementById('root')
 );
 ```
@@ -80,7 +80,7 @@ export type AvailableLanguages = {
   [key: string]: MessageType;
 };
 
-export type ProviderProps = {
+export type I18nProviderProps = {
   initialLocale: string;
   translations: AvailableLanguages;
 };
