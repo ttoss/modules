@@ -141,8 +141,6 @@ dist/
 node_modules/
 .cache/
 
-notifications/
-
 lerna-debug.log
 
 storybook-static/
