@@ -1,5 +1,6 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
 import { FormField, Input } from '@ttoss/ui';
+import { useIntl } from '@ttoss/i18n';
 
 import { AuthCard } from '../AuthCard/AuthCard';
 
@@ -10,15 +11,29 @@ export type AuthSignUpProps = {
 };
 
 const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
+  const { formatMessage } = useIntl();
+
   const schema = yup.object().shape({
     email: yup
       .string()
-      .required('Custom required message')
-      .email('Custom email message'),
+      .required(
+        formatMessage({ id: 'auth.signUp.field.email.messages.required' })
+      )
+      .email(
+        formatMessage({
+          id: 'auth.signUp.field.email.messages.validEmail',
+        })
+      ),
     password: yup
       .string()
       .required()
-      .min(4, 'Custom min length message')
+      .min(
+        4,
+        formatMessage(
+          { id: 'auth.signUp.field.password.messages.min' },
+          { value: 4 }
+        )
+      )
       .trim(),
   });
 
@@ -30,12 +45,25 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
-      <AuthCard title="Criar Conta" buttonLabel="Criar Conta">
-        <FormField label="e-mail">
+      <AuthCard
+        title={formatMessage({ id: 'auth.signUp.title' })}
+        buttonLabel={formatMessage({ id: 'auth.signUp.buttonLabel' })}
+      >
+        <FormField
+          label={formatMessage({
+            id: 'auth.signUp.field.email.label',
+            defaultMessage: 'e-mail',
+          })}
+        >
           <Input id="email" {...register('email')} />
         </FormField>
 
-        <FormField label="senha">
+        <FormField
+          label={formatMessage({
+            id: 'auth.signUp.field.password.label',
+            defaultMessage: 'senha',
+          })}
+        >
           <Input id="password" {...register('password')} type="password" />
         </FormField>
       </AuthCard>
