@@ -8,6 +8,8 @@ import { AuthProvider } from '@ttoss/auth';
 import { ThemeProvider } from '@ttoss/ui';
 import { Amplify } from 'aws-amplify';
 
+import { translations } from './locale';
+
 Amplify.configure({
   Auth: {
     region: 'us-east-1',
@@ -43,7 +45,7 @@ ReactDOM.render(
         },
       }}
     >
-      <AuthProvider>
+      <AuthProvider translations={translations} initialLocale="pt-BR">
         <App />
       </AuthProvider>
     </ThemeProvider>
