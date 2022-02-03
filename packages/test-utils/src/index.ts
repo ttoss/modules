@@ -1,6 +1,7 @@
-import { matchers } from '@emotion/jest';
+import { createSerializer, matchers } from '@emotion/jest';
 import '@testing-library/jest-dom';
 import { render, RenderOptions } from '@testing-library/react';
+import * as React from 'react';
 
 /**
  * Export all the matchers for Jest to avoid the error:
@@ -8,7 +9,6 @@ import { render, RenderOptions } from '@testing-library/react';
  */
 export * from '@emotion/jest';
 
-export * from '@testing-library/react';
 export {
   renderHook,
   /**
@@ -25,12 +25,26 @@ export { default as userEvent } from '@testing-library/user-event';
 expect.extend(matchers);
 
 /**
+ * Output the actual styles being applied.
+ * https://emotion.sh/docs/testing
+ */
+expect.addSnapshotSerializer(createSerializer());
+
+/**
  * Custom render options.
  */
 let options_: RenderOptions = {};
 
-export const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
+export type { RenderOptions };
+
+const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
   render(ui, { ...options_, ...options });
+
+// eslint-disable-next-line import/export
+export * from '@testing-library/react';
+
+// eslint-disable-next-line import/export
+export { customRender as render };
 
 export const setOptions = (options: RenderOptions) => {
   options_ = options;

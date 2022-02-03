@@ -1,4 +1,4 @@
-import { Auth, useAuth } from '@ttoss/auth';
+import { Auth, useAuth, AuthContainer } from '@ttoss/auth';
 
 const AuthData = () => {
   const { isAuthenticated, user, tokens } = useAuth();
@@ -13,10 +13,9 @@ const App = () => {
 
   if (!isAuthenticated) {
     return (
-      <>
+      <AuthContainer>
         <Auth />
-        <AuthData />
-      </>
+      </AuthContainer>
     );
   }
 

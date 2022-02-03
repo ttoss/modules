@@ -1,18 +1,18 @@
+import { Global } from '@emotion/react';
 import {
   ThemeProvider as ThemeUiProvider,
-  ThemeProviderProps,
+  ThemeProviderProps as ThemeUiProviderProps,
   merge,
 } from '@theme-ui/core';
 import * as React from 'react';
 
 import { defaultTheme } from './defaultTheme';
 
-export type { ThemeProviderProps };
+export type ThemeProviderProps = ThemeUiProviderProps & {
+  children?: React.ReactNode;
+};
 
-const ThemeProvider: React.FC<Partial<ThemeProviderProps>> = ({
-  children,
-  theme = {},
-}) => {
+const ThemeProvider = ({ children, theme = {} }: ThemeProviderProps) => {
   const mergedTheme = React.useMemo(() => {
     if (typeof theme === 'function') {
       return theme;
@@ -21,7 +21,20 @@ const ThemeProvider: React.FC<Partial<ThemeProviderProps>> = ({
     return merge(defaultTheme, theme);
   }, [theme]);
 
-  return <ThemeUiProvider theme={mergedTheme}>{children}</ThemeUiProvider>;
+  return (
+    <>
+      <ThemeUiProvider theme={mergedTheme}>
+        <Global
+          styles={{
+            '*': {
+              margin: 0,
+            },
+          }}
+        />
+        {children}
+      </ThemeUiProvider>
+    </>
+  );
 };
 
 export default ThemeProvider;

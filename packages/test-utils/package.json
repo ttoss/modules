@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/test-utils",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "description": "This package provides a number of utilities and re-exports for testing using Jest, React Testing Library, and Storybook.",
   "keywords": [
     "Jest",
@@ -35,23 +35,23 @@
     "test": "yarn workspace @examples/test-react-storybook test"
   },
   "dependencies": {
-    "@emotion/jest": "^11.3.0",
-    "@storybook/addon-storyshots": "^6.3.8",
-    "@storybook/testing-react": "^0.0.22",
-    "@testing-library/dom": "^8.2.0",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
+    "@emotion/jest": "^11.7.1",
+    "@storybook/addon-storyshots": "^6.4.14",
+    "@storybook/testing-react": "^1.2.3",
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.2.1"
+    "@testing-library/user-event": "^13.5.0"
   },
   "peerDependencies": {
-    "@storybook/client-api": "^6.3.8",
-    "@storybook/react": "^6.3.8",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "@storybook/client-api": "^6.4.14",
+    "@storybook/react": "^6.4.14",
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.1.0"
+    "@ttoss/config": "^1.3.0"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

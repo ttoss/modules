@@ -1,7 +1,7 @@
-import { Button, FormField, Input } from '@ttoss/ui';
+import { FormField, Input } from '@ttoss/ui';
 import { useForm, yup, yupResolver } from '@ttoss/form';
 
-import AuthContainer from '../AuthContainer/AuthContainer';
+import { AuthCard } from '../AuthCard/AuthCard';
 
 import type { OnConfirmSignUp } from '../types';
 
@@ -24,22 +24,15 @@ const AuthConfirmSignUp = ({
   });
 
   return (
-    <AuthContainer title="Confirm SignUp">
-      <form
-        onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
-      >
+    <form
+      onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
+    >
+      <AuthCard title="Confirm SignUp" buttonLabel="Confirmar">
         <FormField label="Confirmation Code">
           <Input id="email" {...register('code')} />
         </FormField>
-
-        <Button
-          type="submit"
-          sx={{ paddingX: '32px', backgroundColor: '#222', cursor: 'pointer' }}
-        >
-          Confirmar
-        </Button>
-      </form>
-    </AuthContainer>
+      </AuthCard>
+    </form>
   );
 };
 
