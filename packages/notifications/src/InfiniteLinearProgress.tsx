@@ -16,7 +16,7 @@ export const InfiniteLinearProgress = () => {
         let diff = 0;
 
         if (oldProgress > 0.97 * MAX_PROGRESS) {
-          diff -= 0.2 * MAX_PROGRESS;
+          diff -= 0.4 * MAX_PROGRESS;
         } else if (oldProgress > 0.7 * MAX_PROGRESS) {
           diff = Math.random() * (MAX_PROGRESS - oldProgress) * 0.1;
         } else {
@@ -32,5 +32,7 @@ export const InfiniteLinearProgress = () => {
     };
   }, []);
 
-  return <LinearProgress max={MAX_PROGRESS} value={progress} />;
+  return (
+    <LinearProgress max={MAX_PROGRESS} value={progress} role="progressbar" />
+  );
 };

@@ -1,7 +1,10 @@
 import { createSerializer, matchers } from '@emotion/jest';
 import '@testing-library/jest-dom';
 import { render, RenderOptions } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+/**
+ * https://react-hooks-testing-library.com/installation#being-specific
+ */
+import { renderHook } from '@testing-library/react-hooks/dom';
 import * as React from 'react';
 
 /**
@@ -10,12 +13,6 @@ import * as React from 'react';
  */
 export * from '@emotion/jest';
 
-export {
-  /**
-   * DEPRECATED: use `act` instead.
-   */
-  act as renderHookAct,
-} from '@testing-library/react-hooks';
 export { default as userEvent } from '@testing-library/user-event';
 
 /**
