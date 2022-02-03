@@ -20,4 +20,8 @@ export {
 export { default as Image, ImageProps } from './components/Image/Image';
 export { default as Input, InputProps } from './components/Input/Input';
 export { default as Link, LinkProps } from './components/Link/Link';
+export {
+  LinearProgress,
+  LinearProgressProps,
+} from './components/LinearProgress/LinearProgress';
 export { default as Text, TextProps } from './components/Text/Text';

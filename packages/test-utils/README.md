@@ -54,9 +54,9 @@ This package re-exports the following libraries:
 - `renderHook` from [@testing-library/render-hooks](https://react-hooks-testing-library.com/): a utility for testing custom hooks.
 - `userEvent` from [@testing-library/user-event](https://testing-library.com/docs/ecosystem-user-event/): fire events the same way the user does.
 
-#### customRender
+#### render
 
-`customRender` is a method that allows you to render a React component with provided options. Before using it, you need to setup your testing options.
+`render` is a method that allows you to render a React component with provided options. Before using it, you need to setup your testing options.
 
 ```tsx
 // jest.setup.ts
@@ -82,19 +82,11 @@ export default {
 Finally, you write your tests like this:
 
 ```tsx
-import { customRender, render, screen, userEvent } from '@ttoss/test-utils';
+import { render, screen, userEvent } from '@ttoss/test-utils';
 
 import Component from './Component';
 
-test('test with custom render', () => {
-  customRender(<Component />);
-
-  userEvent.click(screen.getByText('Increment'));
-
-  expect(screen.getByText(1)).toBeInTheDocument();
-});
-
-test('test with default render', () => {
+test('test with render', () => {
   render(<Component />);
 
   userEvent.click(screen.getByText('Increment'));
@@ -102,8 +94,6 @@ test('test with default render', () => {
   expect(screen.getByText(1)).toBeInTheDocument();
 });
 ```
-
-Note that `options` exists only in the `customRender` method and not in the `render` method.
 
 ### Storybook
 
