@@ -81,3 +81,11 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
     expect(confirmSignUp).toHaveBeenCalledWith(email, code);
   });
 });
+
+test('should render logo', () => {
+  const logo = <p>logo</p>;
+
+  render(<Auth logo={logo} />);
+
+  expect(screen.getByText('logo')).toBeInTheDocument();
+});
