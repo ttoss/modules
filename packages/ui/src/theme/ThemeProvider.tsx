@@ -1,15 +1,12 @@
 import { Global } from '@emotion/react';
-import {
-  ThemeProvider as ThemeUiProvider,
-  ThemeProviderProps as ThemeUiProviderProps,
-  merge,
-} from '@theme-ui/core';
+import { ThemeProvider as ThemeUiProvider, Theme, merge } from '@theme-ui/core';
 import * as React from 'react';
 
 import { defaultTheme } from './defaultTheme';
 
-export type ThemeProviderProps = ThemeUiProviderProps & {
+export type ThemeProviderProps = {
   children?: React.ReactNode;
+  theme?: Theme;
 };
 
 const ThemeProvider = ({ children, theme = {} }: ThemeProviderProps) => {

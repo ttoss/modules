@@ -1,6 +1,7 @@
 import { createSerializer, matchers } from '@emotion/jest';
 import '@testing-library/jest-dom';
 import { render, RenderOptions } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
 import * as React from 'react';
 
 /**
@@ -10,7 +11,6 @@ import * as React from 'react';
 export * from '@emotion/jest';
 
 export {
-  renderHook,
   /**
    * DEPRECATED: use `act` instead.
    */
@@ -33,7 +33,9 @@ expect.addSnapshotSerializer(createSerializer());
 /**
  * Custom render options.
  */
-let options_: RenderOptions = {};
+let options_: {
+  wrapper?: any;
+} = {};
 
 export type { RenderOptions };
 
@@ -45,6 +47,11 @@ export * from '@testing-library/react';
 
 // eslint-disable-next-line import/export
 export { customRender as render };
+
+const customRenderHook: typeof renderHook = (callback, options) =>
+  renderHook(callback, { ...options_, ...options });
+
+export { customRenderHook as renderHook };
 
 export const setOptions = (options: RenderOptions) => {
   options_ = options;
