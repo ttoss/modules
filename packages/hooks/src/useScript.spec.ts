@@ -1,4 +1,4 @@
-import { renderHookAct, renderHook } from '@ttoss/test-utils';
+import { act, renderHook } from '@ttoss/test-utils';
 
 import { useScript } from './useScript';
 
@@ -22,7 +22,7 @@ test('should load script', () => {
    * Act
    */
 
-  renderHookAct(() => {
+  act(() => {
     document.querySelectorAll('script')[0].dispatchEvent(loadEvent);
   });
 

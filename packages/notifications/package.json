@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/auth",
+  "name": "@ttoss/notifications",
   "version": "1.4.0",
-  "description": "ttoss authentication module for React apps.",
+  "description": "ttoss notifications module.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/esm/index.js",
@@ -18,7 +18,7 @@
   },
   "keywords": [
     "React",
-    "authentication"
+    "notifications"
   ],
   "author": "ttoss",
   "contributors": [
@@ -31,17 +31,9 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@ttoss/config": "^1.4.0",
-    "@ttoss/form": "^1.4.0",
-    "@ttoss/ui": "^1.4.0",
-    "@xstate/react": "^1.6.3",
-    "xstate": "^4.28.1"
+    "@ttoss/ui": "^1.4.0"
   },
   "peerDependencies": {
-    "aws-amplify": "4.x.x",
     "react": ">=17.0.2"
-  },
-  "devDependencies": {
-    "aws-amplify": "4.x.x"
-  },
-  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
+  }
 }

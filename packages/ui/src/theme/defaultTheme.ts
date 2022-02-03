@@ -15,6 +15,10 @@ export const defaultTheme: Theme = {
       textDecoration: 'underline',
       cursor: 'pointer',
     },
+    progress: {
+      color: 'primary',
+      backgroundColor: 'background',
+    },
   },
   buttons: {
     primary: {
