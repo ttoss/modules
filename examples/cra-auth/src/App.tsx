@@ -1,4 +1,11 @@
 import { Auth, useAuth, AuthContainer } from '@ttoss/auth';
+import { Box } from '@ttoss/ui';
+
+const Logo = () => {
+  return (
+    <Box sx={{ width: 100, height: 100, backgroundColor: 'primary' }}>Logo</Box>
+  );
+};
 
 const AuthData = () => {
   const { isAuthenticated, user, tokens } = useAuth();
@@ -14,7 +21,7 @@ const App = () => {
   if (!isAuthenticated) {
     return (
       <AuthContainer>
-        <Auth />
+        <Auth logo={<Logo />} />
       </AuthContainer>
     );
   }
