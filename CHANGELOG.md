@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ttoss/modules/compare/v1.4.1...v1.5.0) (2022-02-04)
+
+### Features
+
+- correctly add cognito ([#39](https://github.com/ttoss/modules/issues/39)) ([c6bb7a9](https://github.com/ttoss/modules/commit/c6bb7a98433393abb66161e69a0fca94013ceb97))
+
 ## [1.4.1](https://github.com/ttoss/modules/compare/v1.4.0...v1.4.1) (2022-02-03)
 
 ### Bug Fixes
