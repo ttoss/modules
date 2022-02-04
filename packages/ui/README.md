@@ -4,7 +4,7 @@
 
 <strong> @ttoss/ui</strong> is a easiest way to use Ui components in your React application.
 
-## 🚀 Get Started
+## 🚀 Getting Started
 
 ### Install @ttoss/ui
 
@@ -37,6 +37,18 @@ const App = () => {
 export default App;
 ```
 
-```tsx
+### Loading Fonts
 
+You can pass fonts URLs to `ThemeProvider` component thought `fonts` prop.
+
+```tsx
+<ThemeProvider
+  fonts={[
+    'https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap',
+    ,
+    'https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap',
+  ]}
+>
+  <App />
+</ThemeProvider>
 ```
