@@ -1,5 +1,5 @@
 import { getTemplate } from './cloudformation';
 
-test('test 1', () => {
+test('getTemplate should return a object', () => {
   expect(getTemplate()).toBeDefined();
 });
