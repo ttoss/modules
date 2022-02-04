@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ttoss/modules/compare/v1.5.0...v1.6.0) (2022-02-04)
+
+### Features
+
+- add fonts to theme provider ([#42](https://github.com/ttoss/modules/issues/42)) ([6ef9cea](https://github.com/ttoss/modules/commit/6ef9cea3db705a80d39fd50aef75800065fafc28))
+
 # [1.5.0](https://github.com/ttoss/modules/compare/v1.4.1...v1.5.0) (2022-02-04)
 
 ### Features
