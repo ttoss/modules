@@ -1,3 +1,4 @@
+import { NotificationsProvider } from '@ttoss/notifications';
 import { ThemeProvider } from '@ttoss/ui';
 
 import { themes } from '../themes';
@@ -31,7 +32,9 @@ export const decorators = [
 
     return (
       <ThemeProvider theme={theme}>
-        <Story />
+        <NotificationsProvider>
+          <Story />
+        </NotificationsProvider>
       </ThemeProvider>
     );
   },

@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/hooks",
+  "name": "@ttoss/notifications",
   "version": "1.4.1",
-  "description": "React hooks.",
+  "description": "ttoss notifications module.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/esm/index.js",
@@ -18,7 +18,7 @@
   },
   "keywords": [
     "React",
-    "hooks"
+    "notifications"
   ],
   "author": "ttoss",
   "contributors": [
@@ -29,10 +29,11 @@
     }
   ],
   "license": "UNLICENSED",
+  "dependencies": {
+    "@ttoss/config": "^1.4.1",
+    "@ttoss/ui": "^1.4.1"
+  },
   "peerDependencies": {
     "react": ">=17.0.2"
-  },
-  "devDependencies": {
-    "@ttoss/config": "^1.4.1"
   }
 }

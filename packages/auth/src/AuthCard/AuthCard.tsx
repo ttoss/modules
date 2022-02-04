@@ -1,7 +1,7 @@
 import { Button, Card, Flex, Link } from '@ttoss/ui';
 import * as React from 'react';
 
-type LogoContextProps = { logo?: React.ReactNode };
+export type LogoContextProps = { logo?: React.ReactNode };
 
 const LogoContext = React.createContext<LogoContextProps>({});
 

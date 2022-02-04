@@ -3,6 +3,7 @@ import { Auth as AmplifyAuth } from 'aws-amplify';
 import * as React from 'react';
 import { assign, createMachine } from 'xstate';
 
+import { LogoProvider, LogoContextProps } from '../AuthCard/AuthCard';
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
@@ -76,7 +77,7 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
   }
 );
 
-export const Auth = () => {
+const AuthWithoutLogo = () => {
   const { isAuthenticated } = useAuth();
 
   const [state, send] = useMachine(authMachine);
@@ -168,4 +169,20 @@ export const Auth = () => {
   );
 };
 
-export default Auth;
+const withLogo = <T extends Record<string, unknown>>(
+  Component: React.ComponentType<T>
+) => {
+  const WithLogo = ({ logo, ...componentProps }: T & LogoContextProps) => {
+    return (
+      <LogoProvider logo={logo}>
+        <Component {...(componentProps as T)} />
+      </LogoProvider>
+    );
+  };
+
+  WithLogo.displayName = 'WithLogo';
+
+  return WithLogo;
+};
+
+export const Auth = withLogo(AuthWithoutLogo);
