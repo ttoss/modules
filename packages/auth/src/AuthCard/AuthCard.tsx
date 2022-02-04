@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
+import { Button, Card, Flex, Link } from '@ttoss/ui';
 import * as React from 'react';
 
 type LogoContextProps = { logo?: React.ReactNode };
@@ -19,42 +19,83 @@ type LinkProps = {
 
 type AuthCardProps = {
   children: React.ReactNode;
-  title: string;
   buttonLabel: string;
   links?: LinkProps[];
+  forgotPassword?: LinkProps;
 };
 
 export const AuthCard = ({
   children,
-  title,
   buttonLabel,
   links = [],
+  forgotPassword,
 }: AuthCardProps) => {
   const { logo } = React.useContext(LogoContext);
 
   return (
-    <Card variant="primary" sx={{ maxWidth: '500px' }}>
+    <Card
+      variant="primary"
+      sx={{
+        maxWidth: '340px',
+        fontFamily: 'body',
+        padding: 7,
+        paddingTop: 8,
+        border: 'none',
+        background: 'white',
+      }}
+    >
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
         )}
-        <Text variant="title">{title}</Text>
+
         {children}
-        <Button type="submit" aria-label="submit-login">
-          {buttonLabel}
-        </Button>
+
+        <Flex sx={{ justifyContent: 'space-between', marginTop: 7 }}>
+          <Button
+            sx={{ paddingX: 7, paddingY: 6, fontFamily: 'body', fontSize: 3 }}
+            type="submit"
+            aria-label="submit-login"
+          >
+            {buttonLabel}
+          </Button>
+          {forgotPassword && (
+            <Link
+              sx={{
+                fontFamily: 'body',
+                fontSize: 3,
+                color: 'text',
+                textDecoration: 'none',
+              }}
+              onClick={forgotPassword.onClick}
+            >
+              {forgotPassword.label}
+            </Link>
+          )}
+        </Flex>
+
         <Flex
           sx={{
             justifyContent: 'space-between',
             flexDirection: 'column',
-            gap: 2,
-            marginTop: 3,
+            gap: 6,
+            marginTop: 7,
+            color: 'text',
           }}
         >
           {links.map((link) => {
             return (
               link && (
-                <Link key={link.label} onClick={link.onClick}>
+                <Link
+                  sx={{
+                    fontFamily: 'body',
+                    fontSize: 3,
+                    color: 'text',
+                    textDecoration: 'none',
+                  }}
+                  key={link.label}
+                  onClick={link.onClick}
+                >
                   {link.label}
                 </Link>
               )

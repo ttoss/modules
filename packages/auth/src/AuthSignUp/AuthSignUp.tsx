@@ -1,7 +1,8 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { FormField, Input } from '@ttoss/ui';
+import { Input } from '@ttoss/ui';
 
 import { AuthCard } from '../AuthCard/AuthCard';
+import { defaultStyleInput } from '../styles';
 
 import type { OnSignUp, OnSignUpInput } from '../types';
 
@@ -30,14 +31,20 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
-      <AuthCard title="Criar Conta" buttonLabel="Criar Conta">
-        <FormField label="e-mail">
-          <Input id="email" {...register('email')} />
-        </FormField>
-
-        <FormField label="senha">
-          <Input id="password" {...register('password')} type="password" />
-        </FormField>
+      <AuthCard buttonLabel="Criar Conta">
+        <Input
+          sx={defaultStyleInput}
+          placeholder="Email"
+          id="email"
+          {...register('email')}
+        />
+        <Input
+          sx={defaultStyleInput}
+          placeholder="Senha"
+          id="password"
+          {...register('password')}
+          type="password"
+        />
       </AuthCard>
     </form>
   );
