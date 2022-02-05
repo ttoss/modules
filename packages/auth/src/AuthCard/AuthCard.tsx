@@ -33,17 +33,7 @@ export const AuthCard = ({
   const { logo } = React.useContext(LogoContext);
 
   return (
-    <Card
-      variant="primary"
-      sx={{
-        maxWidth: '340px',
-        fontFamily: 'body',
-        padding: 7,
-        paddingTop: 8,
-        border: 'none',
-        background: 'white',
-      }}
-    >
+    <Card variant="forms.auth.cardContainer">
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
@@ -51,48 +41,27 @@ export const AuthCard = ({
 
         {children}
 
-        <Flex sx={{ justifyContent: 'space-between', marginTop: 7 }}>
+        <Flex variant="forms.auth.submitButtonContainer">
           <Button
-            sx={{ paddingX: 7, paddingY: 6, fontFamily: 'body', fontSize: 3 }}
             type="submit"
             aria-label="submit-login"
+            variant="forms.auth.submitButton"
           >
             {buttonLabel}
           </Button>
           {forgotPassword && (
-            <Link
-              sx={{
-                fontFamily: 'body',
-                fontSize: 3,
-                color: 'text',
-                textDecoration: 'none',
-              }}
-              onClick={forgotPassword.onClick}
-            >
+            <Link variant="forms.auth.link" onClick={forgotPassword.onClick}>
               {forgotPassword.label}
             </Link>
           )}
         </Flex>
 
-        <Flex
-          sx={{
-            justifyContent: 'space-between',
-            flexDirection: 'column',
-            gap: 6,
-            marginTop: 7,
-            color: 'text',
-          }}
-        >
+        <Flex variant="forms.auth.containerLinks">
           {links.map((link) => {
             return (
               link && (
                 <Link
-                  sx={{
-                    fontFamily: 'body',
-                    fontSize: 3,
-                    color: 'text',
-                    textDecoration: 'none',
-                  }}
+                  variant="forms.auth.link"
                   key={link.label}
                   onClick={link.onClick}
                 >

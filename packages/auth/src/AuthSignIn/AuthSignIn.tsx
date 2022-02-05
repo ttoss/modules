@@ -2,7 +2,6 @@ import { useForm, yup, yupResolver } from '@ttoss/form';
 import { Input } from '@ttoss/ui';
 
 import { AuthCard } from '../AuthCard/AuthCard';
-import { defaultStyleInput } from '../styles';
 
 import type { OnSignIn, OnSignInInput } from '../types';
 
@@ -53,13 +52,14 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
         }}
       >
         <Input
-          sx={defaultStyleInput}
+          variant="forms.auth.input"
           placeholder="Email"
           {...register('email')}
         />
 
         <Input
-          sx={{ ...defaultStyleInput, marginTop: 5 }}
+          sx={{ marginTop: 5 }}
+          variant="forms.auth.input"
           placeholder="Senha"
           id="password"
           {...register('password')}

@@ -2,7 +2,6 @@ import { useForm, yup, yupResolver } from '@ttoss/form';
 import { Input } from '@ttoss/ui';
 
 import { AuthCard } from '../AuthCard/AuthCard';
-import { defaultStyleInput } from '../styles';
 
 import type { OnSignUp, OnSignUpInput } from '../types';
 
@@ -33,15 +32,16 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard buttonLabel="Criar Conta">
         <Input
-          sx={defaultStyleInput}
+          variant="forms.auth.input"
           placeholder="Email"
           id="email"
           {...register('email')}
         />
+
         <Input
-          sx={defaultStyleInput}
           placeholder="Senha"
           id="password"
+          variant="forms.auth.input"
           {...register('password')}
           type="password"
         />
