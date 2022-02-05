@@ -17,7 +17,7 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: 'Siflor',
+    defaultValue: 'Triangulos',
     toolbar: {
       icon: 'circlehollow',
       items: Object.keys(themes),

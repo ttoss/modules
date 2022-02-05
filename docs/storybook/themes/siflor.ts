@@ -22,6 +22,54 @@ export const theme: Theme = {
     partial: 6,
     full: '100%',
   },
+
+  forms: {
+    auth: {
+      input: {
+        borderColor: 'muted',
+        borderWidth: 2,
+        fontFamily: 'body',
+        fontSize: 3,
+        paddingY: 4,
+        paddingX: 5,
+        '::placeholder': {
+          color: 'muted',
+        },
+      },
+      link: {
+        fontFamily: 'body',
+        fontSize: 3,
+        color: 'text',
+        textDecoration: 'none',
+      },
+      containerLinks: {
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+        gap: 6,
+        marginTop: 7,
+        color: 'text',
+      },
+      submitButtonContainer: {
+        justifyContent: 'space-between',
+        marginTop: 7,
+      },
+      submitButton: {
+        paddingX: 7,
+        paddingY: 6,
+        fontFamily: 'body',
+        fontSize: 3,
+      },
+      cardContainer: {
+        maxWidth: '340px',
+        fontFamily: 'body',
+        padding: 7,
+        paddingTop: 8,
+        border: 'none',
+        background: 'white',
+      },
+    },
+  },
+
   borderWidths: [0, '1px'],
   colors: {
     transparent: '#ffffff00',
