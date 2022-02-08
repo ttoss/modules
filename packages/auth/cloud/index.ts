@@ -1,5 +1,2 @@
-import { getTemplate } from "./cloudformation"
+export * from './cloudformation';
 
-const template = getTemplate();
-
-export default template;
