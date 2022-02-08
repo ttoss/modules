@@ -1,2 +1,2 @@
-export * from './cloudformation';
+export { getTemplate } from './cloudformation';
 
