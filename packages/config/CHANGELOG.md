@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/ttoss/modules/compare/v1.7.0...v1.7.1) (2022-02-09)
+
+### Bug Fixes
+
+- auth exports ([d5ec98d](https://github.com/ttoss/modules/commit/d5ec98d522e5e885a615b570076ed9408bd8206d))
+
 # [1.7.0](https://github.com/ttoss/modules/compare/v1.6.0...v1.7.0) (2022-02-09)
 
 **Note:** Version bump only for package @ttoss/config
