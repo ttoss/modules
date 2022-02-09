@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from '@ttoss/auth';
 import { ThemeProvider } from '@ttoss/ui';
 import { Amplify } from 'aws-amplify';
+import { NotificationsProvider } from '@ttoss/notifications';
 
 Amplify.configure({
   Auth: {
@@ -43,9 +44,11 @@ ReactDOM.render(
         },
       }}
     >
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <NotificationsProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </NotificationsProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
