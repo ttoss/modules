@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ttoss/modules/compare/v1.6.0...v1.7.0) (2022-02-09)
+
+### Features
+
+- create index file ([#45](https://github.com/ttoss/modules/issues/45)) ([71d9091](https://github.com/ttoss/modules/commit/71d9091f42018dfbdbb0d954e1877c9c489e50df))
+
 # [1.6.0](https://github.com/ttoss/modules/compare/v1.5.0...v1.6.0) (2022-02-04)
 
 **Note:** Version bump only for package @ttoss/auth
