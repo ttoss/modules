@@ -2,9 +2,15 @@
   "name": "@ttoss/auth",
   "version": "1.7.0",
   "description": "ttoss authentication module for React apps.",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "module": "dist/esm/index.js",
+  "main": "./dist/src/index.js",
+  "typings": "./dist/src/index.d.ts",
+  "module": "./dist/esm/src/index.js",
+  "exports": {
+    "cloud": {
+      "import": "./dist/cloud/index.js",
+      "require": "./dist/esm/cloud/index.js"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
