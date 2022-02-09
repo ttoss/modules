@@ -6,7 +6,12 @@
   "typings": "./dist/src/index.d.ts",
   "module": "./dist/esm/src/index.js",
   "exports": {
-    "cloud": {
+    ".": {
+      "import": "./dist/esm/src/index.js",
+      "require": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./cloud": {
       "import": "./dist/esm/cloud/index.js",
       "require": "./dist/cloud/index.js",
       "types": "./dist/cloud/index.d.ts"
