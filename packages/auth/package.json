@@ -7,8 +7,9 @@
   "module": "./dist/esm/src/index.js",
   "exports": {
     "cloud": {
-      "import": "./dist/cloud/index.js",
-      "require": "./dist/esm/cloud/index.js"
+      "import": "./dist/esm/cloud/index.js",
+      "require": "./dist/cloud/index.js",
+      "types": "./dist/cloud/index.d.ts"
     }
   },
   "publishConfig": {
