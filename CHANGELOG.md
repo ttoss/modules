@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.2](https://github.com/ttoss/modules/compare/v1.7.1...v1.7.2) (2022-02-10)
+
+### Bug Fixes
+
+- correct Join Function syntax ([#47](https://github.com/ttoss/modules/issues/47)) ([9cda3ab](https://github.com/ttoss/modules/commit/9cda3abb6d01fa72b8ea9855f1507a882482218d))
+
 ## [1.7.1](https://github.com/ttoss/modules/compare/v1.7.0...v1.7.1) (2022-02-09)
 
 ### Bug Fixes
