@@ -48,7 +48,7 @@ const template = {
       },
       Export: {
         Name: {
-          'Fn:Join': [':', [{ Ref: 'AWS::StackName' }, 'UserPoolId']],
+          'Fn::Join': [':', [{ Ref: 'AWS::StackName' }, 'UserPoolId']],
         },
       },
     },
@@ -58,7 +58,7 @@ const template = {
       },
       Export: {
         Name: {
-          'Fn:Join': [':', [{ Ref: 'AWS::StackName' }, 'AppClientId']],
+          'Fn::Join': [':', [{ Ref: 'AWS::StackName' }, 'AppClientId']],
         },
       },
     },
