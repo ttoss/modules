@@ -24,7 +24,7 @@ const template = {
         },
         UsernameAttributes: ['email'],
         UsernameConfiguration: {
-          Casesensitive: false,
+          CaseSensitive: false,
         },
         UserPoolName: {
           Ref: 'AWS::StackName',
