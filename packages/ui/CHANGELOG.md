@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.3](https://github.com/ttoss/modules/compare/v1.7.2...v1.7.3) (2022-02-10)
+
+**Note:** Version bump only for package @ttoss/ui
+
 ## [1.7.2](https://github.com/ttoss/modules/compare/v1.7.1...v1.7.2) (2022-02-10)
 
 **Note:** Version bump only for package @ttoss/ui
