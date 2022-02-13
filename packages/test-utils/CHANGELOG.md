@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ttoss/modules/compare/v1.8.1...v1.8.2) (2022-02-13)
+
+**Note:** Version bump only for package @ttoss/test-utils
+
 ## [1.8.1](https://github.com/ttoss/modules/compare/v1.8.0...v1.8.1) (2022-02-13)
 
 **Note:** Version bump only for package @ttoss/test-utils
