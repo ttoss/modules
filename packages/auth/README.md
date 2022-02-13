@@ -131,7 +131,7 @@ export default Login;
 
 ## Auth with Progressbar
 
-```ts
+```tsx
 import { AuthProvider } from '@ttoss/auth';
 import { NotificationsProvider } from '@ttoss/notifications';
 
