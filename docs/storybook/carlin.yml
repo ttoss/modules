@@ -6,5 +6,6 @@ environments:
     aliases:
       - storybook-modules.ttoss.dev
     cloudfront: true
+    csp: false
     skipDeploy: false
     stackName: TtossModulesDocsStorybook
