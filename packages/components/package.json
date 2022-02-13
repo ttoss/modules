@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/ui",
+  "name": "@ttoss/components",
   "version": "1.7.3",
-  "description": "Primitive layout, typographic, and other components for styling applications.",
+  "description": "React components.",
   "license": "UNLICENSED",
   "publishConfig": {
     "access": "public"
@@ -15,8 +15,7 @@
   ],
   "keywords": [
     "React",
-    "ui",
-    "user interface"
+    "components"
   ],
   "author": "ttoss",
   "contributors": [
@@ -32,15 +31,10 @@
     "dev": "yarn workspace @docs/storybook run dev"
   },
   "dependencies": {
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "@theme-ui/color": "^0.13.1",
-    "@theme-ui/components": "^0.13.1",
-    "@theme-ui/core": "^0.13.1",
-    "@theme-ui/mdx": "^0.13.1"
+    "@ttoss/ui": "^1.7.3"
   },
   "peerDependencies": {
-    "react": ">=17.0.2"
+    "react": ">=17.0.0"
   },
   "devDependencies": {
     "@ttoss/config": "^1.7.3",

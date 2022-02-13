@@ -6,3 +6,4 @@ echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
 # --no-verify-access: https://github.com/lerna/lerna/issues/2788
 # --no-private: https://github.com/lerna/lerna/issues/1942#issuecomment-702795107
 yarn lerna publish --yes --no-verify-access --no-private
+yarn run "deploy" --stream
