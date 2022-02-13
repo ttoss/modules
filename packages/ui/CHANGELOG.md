@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ttoss/modules/compare/v1.7.3...v1.8.0) (2022-02-13)
+
+### Features
+
+- deploy docs and create components package ([1c6d581](https://github.com/ttoss/modules/commit/1c6d5813185eec5e88672bb1547d1b23578eb76b))
+
 ## [1.7.3](https://github.com/ttoss/modules/compare/v1.7.2...v1.7.3) (2022-02-10)
 
 **Note:** Version bump only for package @ttoss/ui
