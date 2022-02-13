@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ttoss/modules/compare/v1.8.0...v1.8.1) (2022-02-13)
+
+### Bug Fixes
+
+- **monorepo:** add deploy command ([7350753](https://github.com/ttoss/modules/commit/735075348317dd6bb54ebeb89db00324fad78ae5))
+
 # [1.8.0](https://github.com/ttoss/modules/compare/v1.7.3...v1.8.0) (2022-02-13)
 
 ### Bug Fixes
