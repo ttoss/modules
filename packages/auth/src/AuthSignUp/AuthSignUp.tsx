@@ -31,17 +31,11 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard buttonLabel="Criar Conta">
-        <Input
-          variant="forms.auth.input"
-          placeholder="Email"
-          id="email"
-          {...register('email')}
-        />
+        <Input placeholder="Email" id="email" {...register('email')} />
 
         <Input
           placeholder="Senha"
           id="password"
-          variant="forms.auth.input"
           {...register('password')}
           type="password"
         />

@@ -33,7 +33,7 @@ export const AuthCard = ({
   const { logo } = React.useContext(LogoContext);
 
   return (
-    <Card variant="forms.auth.cardContainer">
+    <Card variant="primary" sx={{ maxWidth: '340px' }}>
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
@@ -41,30 +41,22 @@ export const AuthCard = ({
 
         {children}
 
-        <Flex variant="forms.auth.submitButtonContainer">
-          <Button
-            type="submit"
-            aria-label="submit-login"
-            variant="forms.auth.submitButton"
-          >
+        <Flex sx={{ justifyContent: 'space-between', marginTop: 7 }}>
+          <Button type="submit" aria-label="submit-login" variant="primary">
             {buttonLabel}
           </Button>
           {forgotPassword && (
-            <Link variant="forms.auth.link" onClick={forgotPassword.onClick}>
+            <Link variant="primary" onClick={forgotPassword.onClick}>
               {forgotPassword.label}
             </Link>
           )}
         </Flex>
 
-        <Flex variant="forms.auth.containerLinks">
+        <Flex variant="forms.containerLinks">
           {links.map((link) => {
             return (
               link && (
-                <Link
-                  variant="forms.auth.link"
-                  key={link.label}
-                  onClick={link.onClick}
-                >
+                <Link variant="primary" key={link.label} onClick={link.onClick}>
                   {link.label}
                 </Link>
               )

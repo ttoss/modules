@@ -52,14 +52,13 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
         }}
       >
         <Input
-          variant="forms.auth.input"
+          variant="forms.input"
           placeholder="Email"
           {...register('email')}
         />
 
         <Input
           sx={{ marginTop: 5 }}
-          variant="forms.auth.input"
           placeholder="Senha"
           id="password"
           {...register('password')}
