@@ -32,11 +32,12 @@
   "dependencies": {
     "@ttoss/config": "^1.6.0",
     "@ttoss/form": "^1.6.0",
-    "@ttoss/ui": "^1.6.0",
     "@xstate/react": "^1.6.3",
     "xstate": "^4.28.1"
   },
   "peerDependencies": {
+    "@ttoss/notifications": "^1.8.2",
+    "@ttoss/ui": "^1.8.2",
     "aws-amplify": "4.x.x",
     "react": ">=17.0.2"
   },
