@@ -42,11 +42,8 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
-    "@ttoss/config": "^1.6.0",
-    "@ttoss/form": "^1.6.0",
     "@ttoss/config": "^1.8.2",
     "@ttoss/form": "^1.8.2",
-    "@ttoss/ui": "^1.8.2",
     "@xstate/react": "^1.6.3",
     "xstate": "^4.28.1"
   },
@@ -57,6 +54,8 @@
     "react": ">=17.0.2"
   },
   "devDependencies": {
+    "@ttoss/notifications": "^1.8.2",
+    "@ttoss/ui": "^1.8.2",
     "aws-amplify": "4.x.x"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
