@@ -30,8 +30,8 @@ test('should call Amplify Auth.signIn', async () => {
   /**
    * Act
    */
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   /**
@@ -48,7 +48,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign In screen
    */
-  userEvent.click(screen.getByText('Não tem uma conta? Cadastre-se'));
+  userEvent.click(screen.getByText('Criar conta'));
 
   await waitFor(() => {
     expect(signIn).not.toHaveBeenCalled();
@@ -57,8 +57,8 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign Up screen
    */
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -74,7 +74,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
    */
   const code = '123456';
 
-  userEvent.type(screen.getByLabelText('Confirmation Code'), code);
+  userEvent.type(screen.getByPlaceholderText('Email'), code);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -97,8 +97,8 @@ test('loading bar should render', async () => {
 
   expect(screen.queryByRole('progressbar')).toBeNull();
 
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {

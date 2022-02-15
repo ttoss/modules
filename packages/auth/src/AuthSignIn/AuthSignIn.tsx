@@ -1,5 +1,5 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { FormField, Input } from '@ttoss/ui';
+import { Input } from '@ttoss/ui';
 
 import { AuthCard } from '../AuthCard/AuthCard';
 
@@ -35,26 +35,31 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
-        title="Login"
         buttonLabel="Login"
         links={[
           {
             onClick: onSignUp,
-            label: 'Esqueceu a senha?',
+            label: 'Criar conta',
           },
           {
             onClick: onSignUp,
-            label: 'Não tem uma conta? Cadastre-se',
+            label: 'Reenviar email de confirmação',
           },
         ]}
+        forgotPassword={{
+          onClick: onSignUp,
+          label: 'Esqueci a senha',
+        }}
       >
-        <FormField label="e-mail">
-          <Input {...register('email')} />
-        </FormField>
+        <Input placeholder="Email" {...register('email')} />
 
-        <FormField label="senha">
-          <Input id="password" {...register('password')} type="password" />
-        </FormField>
+        <Input
+          sx={{ marginTop: 5 }}
+          placeholder="Senha"
+          id="password"
+          {...register('password')}
+          type="password"
+        />
       </AuthCard>
     </form>
   );

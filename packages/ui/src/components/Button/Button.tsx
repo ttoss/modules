@@ -5,9 +5,7 @@ import type { ButtonProps } from '@theme-ui/components';
 export type { ButtonProps };
 
 const Button = (props: ButtonProps) => {
-  return (
-    <ButtonUi {...props} sx={{ cursor: 'pointer', padding: 2, ...props.sx }} />
-  );
+  return <ButtonUi {...props} sx={{ cursor: 'pointer', ...props.sx }} />;
 };
 
 export default Button;

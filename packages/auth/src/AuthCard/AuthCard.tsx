@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
+import { Button, Card, Flex, Link } from '@ttoss/ui';
 import { useNotifications } from '@ttoss/notifications';
 import * as React from 'react';
 
@@ -20,38 +20,50 @@ type LinkProps = {
 
 type AuthCardProps = {
   children: React.ReactNode;
-  title: string;
   buttonLabel: string;
   links?: LinkProps[];
+  forgotPassword?: LinkProps;
 };
 
 export const AuthCard = ({
   children,
-  title,
   buttonLabel,
   links = [],
+  forgotPassword,
 }: AuthCardProps) => {
   const { logo } = React.useContext(LogoContext);
 
   const { isLoading } = useNotifications();
 
   return (
-    <Card variant="primary" sx={{ maxWidth: '500px' }}>
+    <Card sx={{ maxWidth: '340px' }}>
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
         )}
-        <Text variant="title">{title}</Text>
+
         {children}
-        <Button type="submit" aria-label="submit-login" disabled={isLoading}>
-          {buttonLabel}
-        </Button>
+        <Flex sx={{ justifyContent: 'space-between', marginTop: 7 }}>
+          <Button
+            type="submit"
+            aria-label="submit-login"
+            variant="primary"
+            disabled={isLoading}
+          >
+            {buttonLabel}
+          </Button>
+          {forgotPassword && (
+            <Link onClick={forgotPassword.onClick}>{forgotPassword.label}</Link>
+          )}
+        </Flex>
+
         <Flex
           sx={{
             justifyContent: 'space-between',
             flexDirection: 'column',
-            gap: 2,
-            marginTop: 3,
+            gap: 6,
+            marginTop: 7,
+            color: 'text',
           }}
         >
           {links.map((link) => {

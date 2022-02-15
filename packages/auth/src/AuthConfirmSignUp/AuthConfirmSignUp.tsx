@@ -1,4 +1,4 @@
-import { FormField, Input } from '@ttoss/ui';
+import { Input } from '@ttoss/ui';
 import { useForm, yup, yupResolver } from '@ttoss/form';
 
 import { AuthCard } from '../AuthCard/AuthCard';
@@ -27,10 +27,8 @@ const AuthConfirmSignUp = ({
     <form
       onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
     >
-      <AuthCard title="Confirm SignUp" buttonLabel="Confirmar">
-        <FormField label="Confirmation Code">
-          <Input id="email" {...register('code')} />
-        </FormField>
+      <AuthCard buttonLabel="Confirmar">
+        <Input id="email" placeholder="Email" {...register('code')} />
       </AuthCard>
     </form>
   );

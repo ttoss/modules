@@ -18,12 +18,12 @@ test('Should not call the onSubmit function if click on the Signup button withou
 });
 
 test('Should call the onSubmit function if click on the Signup button with filling in the fields ', async () => {
-  const { getByLabelText, getByRole } = render(
+  const { getByPlaceholderText, getByRole } = render(
     <AuthSignUp onSignUp={onSignUp} />
   );
 
-  const emailInput = getByLabelText('e-mail');
-  const password = getByLabelText('senha');
+  const emailInput = getByPlaceholderText('Email');
+  const password = getByPlaceholderText('Senha');
   const buttonSubmit = getByRole('button');
 
   await act(async () => {
