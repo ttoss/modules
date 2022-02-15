@@ -28,7 +28,7 @@ const AuthConfirmSignUp = ({
       onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
     >
       <AuthCard buttonLabel="Confirmar">
-        <Input id="email" {...register('code')} />
+        <Input id="email" placeholder="Email" {...register('code')} />
       </AuthCard>
     </form>
   );
