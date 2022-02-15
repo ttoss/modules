@@ -32,13 +32,16 @@ export const theme: Theme = {
   },
 
   links: {
-    primary: {
-      fontFamily: 'body',
-      fontSize: 3,
-      color: 'text',
-      textDecoration: 'none',
+    styles: {
+      a: {
+        fontFamily: 'body',
+        fontSize: 3,
+        color: 'text',
+        textDecoration: 'none',
+      },
     },
   },
+
   cards: {
     primary: {
       fontFamily: 'body',
@@ -60,14 +63,6 @@ export const theme: Theme = {
       '::placeholder': {
         color: 'muted',
       },
-    },
-
-    containerLinks: {
-      justifyContent: 'space-between',
-      flexDirection: 'column',
-      gap: 6,
-      marginTop: 7,
-      color: 'text',
     },
   },
 

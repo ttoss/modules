@@ -33,7 +33,7 @@ export const AuthCard = ({
   const { logo } = React.useContext(LogoContext);
 
   return (
-    <Card variant="primary" sx={{ maxWidth: '340px' }}>
+    <Card sx={{ maxWidth: '340px' }}>
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
@@ -46,17 +46,23 @@ export const AuthCard = ({
             {buttonLabel}
           </Button>
           {forgotPassword && (
-            <Link variant="primary" onClick={forgotPassword.onClick}>
-              {forgotPassword.label}
-            </Link>
+            <Link onClick={forgotPassword.onClick}>{forgotPassword.label}</Link>
           )}
         </Flex>
 
-        <Flex variant="forms.containerLinks">
+        <Flex
+          sx={{
+            justifyContent: 'space-between',
+            flexDirection: 'column',
+            gap: 6,
+            marginTop: 7,
+            color: 'text',
+          }}
+        >
           {links.map((link) => {
             return (
               link && (
-                <Link variant="primary" key={link.label} onClick={link.onClick}>
+                <Link key={link.label} onClick={link.onClick}>
                   {link.label}
                 </Link>
               )

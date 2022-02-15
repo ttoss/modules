@@ -51,11 +51,7 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
           label: 'Esqueci a senha',
         }}
       >
-        <Input
-          variant="forms.input"
-          placeholder="Email"
-          {...register('email')}
-        />
+        <Input placeholder="Email" {...register('email')} />
 
         <Input
           sx={{ marginTop: 5 }}
