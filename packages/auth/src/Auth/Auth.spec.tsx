@@ -97,8 +97,8 @@ test('loading bar should render', async () => {
 
   expect(screen.queryByRole('progressbar')).toBeNull();
 
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
