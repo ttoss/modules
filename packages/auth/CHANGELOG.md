@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/ttoss/modules/compare/v1.8.1...v1.8.2) (2022-02-13)
+
+**Note:** Version bump only for package @ttoss/auth
+
+## [1.8.1](https://github.com/ttoss/modules/compare/v1.8.0...v1.8.1) (2022-02-13)
+
+**Note:** Version bump only for package @ttoss/auth
+
+# [1.8.0](https://github.com/ttoss/modules/compare/v1.7.3...v1.8.0) (2022-02-13)
+
+**Note:** Version bump only for package @ttoss/auth
+
+## [1.7.3](https://github.com/ttoss/modules/compare/v1.7.2...v1.7.3) (2022-02-10)
+
+**Note:** Version bump only for package @ttoss/auth
+
+## [1.7.2](https://github.com/ttoss/modules/compare/v1.7.1...v1.7.2) (2022-02-10)
+
+### Bug Fixes
+
+- correct Join Function syntax ([#47](https://github.com/ttoss/modules/issues/47)) ([9cda3ab](https://github.com/ttoss/modules/commit/9cda3abb6d01fa72b8ea9855f1507a882482218d))
+
+## [1.7.1](https://github.com/ttoss/modules/compare/v1.7.0...v1.7.1) (2022-02-09)
+
+### Bug Fixes
+
+- auth exports ([d5ec98d](https://github.com/ttoss/modules/commit/d5ec98d522e5e885a615b570076ed9408bd8206d))
+- docs README import ([e5bd59f](https://github.com/ttoss/modules/commit/e5bd59f25cc4a0fe2d94a0c4a4211b5c2d193109))
+- package ge.json exports ([e1f88c1](https://github.com/ttoss/modules/commit/e1f88c151b051e8629862ec1db9306867ad4da1e))
+
+# [1.7.0](https://github.com/ttoss/modules/compare/v1.6.0...v1.7.0) (2022-02-09)
+
+### Features
+
+- create index file ([#45](https://github.com/ttoss/modules/issues/45)) ([71d9091](https://github.com/ttoss/modules/commit/71d9091f42018dfbdbb0d954e1877c9c489e50df))
+
+# [1.6.0](https://github.com/ttoss/modules/compare/v1.5.0...v1.6.0) (2022-02-04)
+
+**Note:** Version bump only for package @ttoss/auth
+
+# [1.5.0](https://github.com/ttoss/modules/compare/v1.4.1...v1.5.0) (2022-02-04)
+
+### Features
+
+- correctly add cognito ([#39](https://github.com/ttoss/modules/issues/39)) ([c6bb7a9](https://github.com/ttoss/modules/commit/c6bb7a98433393abb66161e69a0fca94013ceb97))
+
 ## [1.4.1](https://github.com/ttoss/modules/compare/v1.4.0...v1.4.1) (2022-02-03)
 
 ### Bug Fixes
