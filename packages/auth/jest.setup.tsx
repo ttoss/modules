@@ -1,5 +1,6 @@
 import { setOptions } from '@ttoss/test-utils';
 import { ThemeProvider } from '@ttoss/ui';
+import { NotificationsProvider } from '@ttoss/notifications';
 import React from 'react';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
@@ -12,7 +13,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
         },
       }}
     >
-      {children}
+      <NotificationsProvider>{children}</NotificationsProvider>
     </ThemeProvider>
   );
 };

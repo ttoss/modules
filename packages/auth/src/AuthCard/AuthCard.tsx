@@ -1,4 +1,5 @@
 import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
+import { useNotifications } from '@ttoss/notifications';
 import * as React from 'react';
 
 export type LogoContextProps = { logo?: React.ReactNode };
@@ -32,6 +33,8 @@ export const AuthCard = ({
 }: AuthCardProps) => {
   const { logo } = React.useContext(LogoContext);
 
+  const { isLoading } = useNotifications();
+
   return (
     <Card variant="primary" sx={{ maxWidth: '500px' }}>
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
@@ -40,7 +43,7 @@ export const AuthCard = ({
         )}
         <Text variant="title">{title}</Text>
         {children}
-        <Button type="submit" aria-label="submit-login">
+        <Button type="submit" aria-label="submit-login" disabled={isLoading}>
           {buttonLabel}
         </Button>
         <Flex

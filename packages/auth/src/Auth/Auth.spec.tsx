@@ -89,3 +89,23 @@ test('should render logo', () => {
 
   expect(screen.getByText('logo')).toBeInTheDocument();
 });
+
+test('loading bar should render', async () => {
+  signIn.mockResolvedValue({});
+
+  render(<Auth />);
+
+  expect(screen.queryByRole('progressbar')).toBeNull();
+
+  userEvent.type(screen.getByLabelText('e-mail'), email);
+  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.click(screen.getByRole('button'));
+
+  await waitFor(() => {
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    expect(screen.queryByRole('progressbar')).toBeNull();
+  });
+});

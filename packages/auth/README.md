@@ -2,18 +2,20 @@
 
 ## 📚 About
 
+This module handles auth in your applications and other ttoss modules.
+
 This module is intended to use with AWS Cognito. It uses [AWS Amplify](https://docs.amplify.aws/lib/auth/getting-started/q/platform/js) under the hood.
 
 [Amplify Auth configuration](https://docs.amplify.aws/lib/auth/start/q/platform/js#re-use-existing-authentication-resource) must be provided in your App to make Auth Module works properly.
 
-## 🚀 Get Started
+## 🚀 Getting Started
 
 ### Install
 
 ```shell
-$ yarn add @ttoss/auth
+$ yarn add @ttoss/auth and yarn add @ttoss/notifications
 # or
-$ npm install @ttoss/auth
+$ npm install @ttoss/auth and npm install @ttoss/notifications
 ```
 
 ## 📄 Examples of use
@@ -125,6 +127,24 @@ const Login = () => {
   );
 };
 export default Login;
+```
+
+## Auth with Progressbar
+
+```tsx
+import { AuthProvider } from '@ttoss/auth';
+import { NotificationsProvider } from '@ttoss/notifications';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <NotificationsProvider>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </NotificationsProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 ```
 
 ## Types

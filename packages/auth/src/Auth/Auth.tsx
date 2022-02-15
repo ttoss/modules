@@ -9,6 +9,8 @@ import { useAuth } from '../AuthProvider/AuthProvider';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
 
+import { useNotifications } from '@ttoss/notifications';
+
 import type { OnConfirmSignUp, OnSignIn, OnSignUp } from '../types';
 
 type AuthState =
@@ -84,12 +86,13 @@ const AuthWithoutLogo = () => {
 
   // const { toast, setLoading } = useNotifications();
 
+  const { setLoading } = useNotifications();
+
   const onSignIn = React.useCallback<OnSignIn>(
     async ({ email, password }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.signIn(email, password);
-
         // toast('Signed In');
       } catch (error) {
         switch ((error as any).code) {
@@ -101,7 +104,7 @@ const AuthWithoutLogo = () => {
           // toast(JSON.stringify(error, null, 2));
         }
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
@@ -110,7 +113,7 @@ const AuthWithoutLogo = () => {
   const onSignUp = React.useCallback<OnSignUp>(
     async ({ email, password }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.signUp({
           username: email,
           password,
@@ -121,7 +124,7 @@ const AuthWithoutLogo = () => {
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
@@ -130,14 +133,14 @@ const AuthWithoutLogo = () => {
   const onConfirmSignUp = React.useCallback<OnConfirmSignUp>(
     async ({ email, code }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.confirmSignUp(email, code);
         // toast('Confirmed Signed In');
         send({ type: 'SIGN_UP_CONFIRMED', email });
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
