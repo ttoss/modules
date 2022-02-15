@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ttoss/modules/compare/v1.8.2...v1.9.0) (2022-02-15)
+
+### Bug Fixes
+
+- auth package json ([a60a553](https://github.com/ttoss/modules/commit/a60a5537b110472d00a9c2dc3ee101a88db468a1))
+
+### Features
+
+- added loading module in auth ([#46](https://github.com/ttoss/modules/issues/46)) ([b51183c](https://github.com/ttoss/modules/commit/b51183ce209199aabb4843cac09ca54de09c13f7))
+
 ## [1.8.2](https://github.com/ttoss/modules/compare/v1.8.1...v1.8.2) (2022-02-13)
 
 ### Bug Fixes
