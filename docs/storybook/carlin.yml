@@ -1,0 +1,11 @@
+# Skip deploy for nom production environments.
+skipDeploy: true
+
+environments:
+  Production:
+    aliases:
+      - storybook-modules.ttoss.dev
+    cloudfront: true
+    csp: false
+    skipDeploy: false
+    stackName: TtossModulesDocsStorybook

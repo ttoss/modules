@@ -24,7 +24,7 @@ const template = {
         },
         UsernameAttributes: ['email'],
         UsernameConfiguration: {
-          Casesensitive: false,
+          CaseSensitive: false,
         },
         UserPoolName: {
           Ref: 'AWS::StackName',
@@ -48,7 +48,7 @@ const template = {
       },
       Export: {
         Name: {
-          'Fn:Join': [':', [{ Ref: 'AWS::StackName' }, 'UserPoolId']],
+          'Fn::Join': [':', [{ Ref: 'AWS::StackName' }, 'UserPoolId']],
         },
       },
     },
@@ -58,7 +58,7 @@ const template = {
       },
       Export: {
         Name: {
-          'Fn:Join': [':', [{ Ref: 'AWS::StackName' }, 'AppClientId']],
+          'Fn::Join': [':', [{ Ref: 'AWS::StackName' }, 'AppClientId']],
         },
       },
     },

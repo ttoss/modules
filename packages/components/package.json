@@ -1,7 +1,7 @@
 {
-  "name": "@ttoss/config",
+  "name": "@ttoss/components",
   "version": "1.8.2",
-  "description": "Default configuration for packages.",
+  "description": "React components.",
   "license": "UNLICENSED",
   "publishConfig": {
     "access": "public"
@@ -13,7 +13,10 @@
     "dist",
     "src"
   ],
-  "keywords": [],
+  "keywords": [
+    "React",
+    "components"
+  ],
   "author": "ttoss",
   "contributors": [
     {
@@ -23,19 +26,19 @@
     }
   ],
   "scripts": {
+    "build": "tsup",
     "test": "jest",
-    "build": "tsup"
+    "dev": "yarn workspace @docs/storybook run dev"
   },
   "dependencies": {
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-react": "^7.16.7",
-    "@babel/preset-typescript": "^7.16.7",
-    "@emotion/jest": "^11.7.1",
-    "deepmerge": "^4.2.2",
-    "tsup": "^5.11.11"
+    "@ttoss/ui": "^1.8.2"
   },
-  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01",
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
   "devDependencies": {
-    "@jest/types": "^27.4.2"
-  }
+    "@ttoss/config": "^1.8.2",
+    "@ttoss/test-utils": "^1.8.2"
+  },
+  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }
