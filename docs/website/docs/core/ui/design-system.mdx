@@ -1,0 +1,73 @@
+---
+sidebar_position: 2
+title: Design System
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+import { defaultTheme } from './../../../../../packages/ui/src/theme/defaultTheme';
+
+export const theme = (() => {
+  const { space } = defaultTheme;
+  const scales = { space };
+  return { scales };
+})();
+
+export const HideTheme = ({ type }) => {
+  const summary = `Default ${type}`;
+  return (
+    <details>
+      <summary>{summary}</summary>
+      <CodeBlock language="js">
+        {JSON.stringify(theme[type], null, 2)}
+      </CodeBlock>
+    </details>
+  );
+};
+
+export { default as CodeBlock } from '@theme/CodeBlock';
+
+# Design System
+
+UI module is responsible to provide a consistent design system for your applications and implementing primitive components—buttons, input, cards, etc. This module was built on top of [Theme UI](https://theme-ui.com/) library, which is based on a [theme specification](https://theme-ui.com/theme-spec).
+
+The same theme specification used on Theme UI was kept in this module to follow a pattern that has been used in other UI modules, as [Styled System](https://styled-system.com/theme-specification).
+
+## Theme Specification
+
+The theme object contains all design properties that the CSS of the components will use to style. It is made up of the following data types:
+
+- [scales](#scales)
+- variants
+- styles
+
+:::caution
+
+All modules uses the default values of the theme inside their components. If you need to change some of the default values, you need to check if other modules don't break.
+
+:::
+
+### Scales
+
+The theme object is made up of the following scales for in CSS styles:
+
+- [space](#space)
+- [colors](#colors)
+
+The default scales object is:
+
+<HideTheme type="scales" />
+
+#### space
+
+This property is used to define the following CSS properties:
+
+> scroll-margin, scroll-margin-top, scroll-margin-right, scroll-margin-bottom, scroll-margin-left, scroll-padding, scroll-padding-top, scroll-padding-right, scroll-padding-bottom, scroll-padding-left, inset, inset-block, inset-block-end, inset-block-start, inset-inline, inset-inline-end, inset-inline-start, top, right, bottom, left, grid-gap, grid-column-gap, grid-row-gap, gap, column-gap, row-gap
+
+The default array of `space` values is:
+
+<CodeBlock language="jsx">
+  {`[${theme.scales.space}]`.replace(/,/g, ', ')}
+</CodeBlock>
+
+#### colors

@@ -5,15 +5,15 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (
   module.exports = {
-    title: 'My Site',
+    title: 'Modules',
     tagline: 'Dinosaurs are cool',
     url: 'https://your-docusaurus-test-site.com',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: 'ttoss', // Usually your GitHub org/user name.
+    projectName: 'modules', // Usually your repo name.
 
     presets: [
       [
@@ -43,17 +43,23 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         navbar: {
-          title: 'My Site',
+          title: 'Modules',
           logo: {
             alt: 'My Site Logo',
             src: 'img/logo.svg',
           },
           items: [
             {
-              type: 'doc',
-              docId: 'test-utils/getting-started',
+              type: 'docSidebar',
+              sidebarId: 'core',
               position: 'left',
-              label: 'Tutorial',
+              label: 'Core',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'libs',
+              position: 'left',
+              label: 'Libs',
             },
             { to: '/blog', label: 'Blog', position: 'left' },
             {

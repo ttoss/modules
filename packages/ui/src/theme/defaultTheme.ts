@@ -8,7 +8,7 @@ export const defaultTheme: Theme = {
     secondary: '#639',
     gray: '#555',
   },
-  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512, 1024],
   styles: {
     a: {
       color: 'primary',
