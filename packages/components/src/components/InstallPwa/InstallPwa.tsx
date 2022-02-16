@@ -21,7 +21,7 @@ export const InstallPwa = () => {
   const onInstall = (e: any) => {
     e.preventDefault();
     if (!promptInstall) {
-      return;
+      return null;
     }
     promptInstall.prompt();
   };
