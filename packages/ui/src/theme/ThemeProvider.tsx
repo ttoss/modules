@@ -2,6 +2,7 @@ import { Global, css } from '@emotion/react';
 import { ThemeProvider as ThemeUiProvider, Theme, merge } from '@theme-ui/core';
 import * as React from 'react';
 
+import { defaultFonts } from './defaultFonts';
 import { defaultTheme } from './defaultTheme';
 
 export type ThemeProviderProps = {
@@ -16,7 +17,7 @@ export type ThemeProviderProps = {
 const ThemeProvider = ({
   children,
   theme = {},
-  fonts = [],
+  fonts = defaultFonts,
 }: ThemeProviderProps) => {
   const mergedTheme = React.useMemo(() => {
     if (typeof theme === 'function') {

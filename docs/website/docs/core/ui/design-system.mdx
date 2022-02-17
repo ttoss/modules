@@ -8,9 +8,9 @@ import CodeBlock from '@theme/CodeBlock';
 import { defaultTheme } from './../../../../../packages/ui/src/theme/defaultTheme';
 
 export const theme = (() => {
-  const { space } = defaultTheme;
-  const scales = { space };
-  return { scales };
+  const { space, colors, fonts, styles, ...variants } = defaultTheme;
+  const scales = { space, colors, fonts };
+  return { scales, variants, styles };
 })();
 
 export const HideTheme = ({ type }) => {
@@ -18,7 +18,7 @@ export const HideTheme = ({ type }) => {
   return (
     <details>
       <summary>{summary}</summary>
-      <CodeBlock language="js">
+      <CodeBlock language="json">
         {JSON.stringify(theme[type], null, 2)}
       </CodeBlock>
     </details>
@@ -38,8 +38,8 @@ The same theme specification used on Theme UI was kept in this module to follow 
 The theme object contains all design properties that the CSS of the components will use to style. It is made up of the following data types:
 
 - [scales](#scales)
-- variants
-- styles
+- [variants](#variants)
+- [styles](#styles)
 
 :::caution
 
@@ -51,18 +51,31 @@ All modules uses the default values of the theme inside their components. If you
 
 The theme object is made up of the following scales for in CSS styles:
 
-- [space](#space)
 - [colors](#colors)
+- [fonts](#fonts)
+- [space](#space)
 
 The default scales object is:
 
 <HideTheme type="scales" />
 
+#### colors
+
+<CodeBlock language="jsx">
+  {JSON.stringify(theme.scales.colors, null, 2)}
+</CodeBlock>
+
+#### fonts
+
+<CodeBlock language="jsx">
+  {JSON.stringify(theme.scales.fonts, null, 2)}
+</CodeBlock>
+
 #### space
 
 This property is used to define the following CSS properties:
 
-> scroll-margin, scroll-margin-top, scroll-margin-right, scroll-margin-bottom, scroll-margin-left, scroll-padding, scroll-padding-top, scroll-padding-right, scroll-padding-bottom, scroll-padding-left, inset, inset-block, inset-block-end, inset-block-start, inset-inline, inset-inline-end, inset-inline-start, top, right, bottom, left, grid-gap, grid-column-gap, grid-row-gap, gap, column-gap, row-gap
+> margin, margin-top, margin-right, margin-bottom, margin-left, margin-block, margin-block-end, margin-block-start, margin-inline, margin-inline-end, margin-inline-start, padding, padding-top, padding-right, padding-bottom, padding-left, padding-block, padding-block-end, padding-block-start, padding-inline, padding-inline-end, padding-inline-start, scroll-margin, scroll-margin-top, scroll-margin-right, scroll-margin-bottom, scroll-margin-left, scroll-padding, scroll-padding-top, scroll-padding-right, scroll-padding-bottom, scroll-padding-left, inset, inset-block, inset-block-end, inset-block-start, inset-inline, inset-inline-end, inset-inline-start, top, right, bottom, left, grid-gap, grid-column-gap, grid-row-gap, gap, column-gap, row-gap
 
 The default array of `space` values is:
 
@@ -70,4 +83,13 @@ The default array of `space` values is:
   {`[${theme.scales.space}]`.replace(/,/g, ', ')}
 </CodeBlock>
 
-#### colors
+### Variants
+
+Use variants to define custom groups of styles. These are commonly used for typographic styles, buttons, and themeable layout components that have specific **role** in the application.
+For more detail about roles, see [Roles](./roles) documentation.
+
+<HideTheme type="variants" />
+
+### Styles
+
+<HideTheme type="styles" />
