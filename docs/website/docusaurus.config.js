@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   module.exports = {
     title: 'Modules',
     tagline: 'Dinosaurs are cool',
-    url: 'https://your-docusaurus-test-site.com',
+    url: 'https://modules.ttoss.dev',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -63,7 +63,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             { to: '/blog', label: 'Blog', position: 'left' },
             {
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/ttoss/modules',
               label: 'GitHub',
               position: 'right',
             },
@@ -77,7 +77,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
               items: [
                 {
                   label: 'Tutorial',
-                  to: '/docs/test-utils/get-started',
+                  to: '/docs/core/overview',
                 },
               ],
             },

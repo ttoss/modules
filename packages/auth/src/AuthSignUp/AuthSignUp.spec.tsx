@@ -4,13 +4,17 @@ import AuthSignUp from './AuthSignUp';
 
 const onSignUp = jest.fn();
 
+const onReturnToSignIn = jest.fn();
+
 const user = {
   email: 'user@example.com',
   password: 'password',
 };
 
 test('Should not call the onSubmit function if click on the Signup button without filling in the fields ', () => {
-  const { getByRole } = render(<AuthSignUp onSignUp={onSignUp} />);
+  const { getByRole } = render(
+    <AuthSignUp {...{ onSignUp, onReturnToSignIn }} />
+  );
 
   userEvent.click(getByRole('button'));
 
@@ -19,7 +23,7 @@ test('Should not call the onSubmit function if click on the Signup button withou
 
 test('Should call the onSubmit function if click on the Signup button with filling in the fields ', async () => {
   const { getByPlaceholderText, getByRole } = render(
-    <AuthSignUp onSignUp={onSignUp} />
+    <AuthSignUp {...{ onSignUp, onReturnToSignIn }} />
   );
 
   const emailInput = getByPlaceholderText('Email');

@@ -7,9 +7,10 @@ import type { OnSignUp, OnSignUpInput } from '../types';
 
 export type AuthSignUpProps = {
   onSignUp: OnSignUp;
+  onReturnToSignIn: () => void;
 };
 
-const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
+const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -30,7 +31,16 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
-      <AuthCard buttonLabel="Criar Conta">
+      <AuthCard
+        buttonLabel="Criar Conta"
+        title="Cadastrar"
+        links={[
+          {
+            label: 'Já tem uma conta? Faça o login',
+            onClick: onReturnToSignIn,
+          },
+        ]}
+      >
         <Input placeholder="Email" id="email" {...register('email')} />
 
         <Input

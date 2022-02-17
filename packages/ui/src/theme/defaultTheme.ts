@@ -25,6 +25,7 @@ export const defaultTheme: Theme = {
       color: 'primary',
       textDecoration: 'underline',
       cursor: 'pointer',
+      fontFamily: 'body',
     },
     progress: {
       color: 'primary',
@@ -54,6 +55,11 @@ export const defaultTheme: Theme = {
       flexDirection: 'column',
       alignItems: 'center',
       width: 'fit-content',
+    },
+  },
+  forms: {
+    input: {
+      fontFamily: 'body',
     },
   },
   text: {

@@ -35,7 +35,8 @@ type AuthEvent =
   | { type: 'SIGN_UP' }
   | { type: 'SIGN_UP_CONFIRM'; email: string }
   | { type: 'SIGN_UP_CONFIRMED'; email: string }
-  | { type: 'SIGN_UP_RESEND_CONFIRMATION'; email: string };
+  | { type: 'SIGN_UP_RESEND_CONFIRMATION'; email: string }
+  | { type: 'RETURN_TO_SIGN_IN' };
 
 type AuthContext = { email?: string };
 
@@ -58,6 +59,7 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
             actions: ['assignEmail'],
             target: 'signUpConfirm',
           },
+          RETURN_TO_SIGN_IN: { target: 'signIn' },
         },
       },
       signUpConfirm: {
@@ -146,12 +148,18 @@ const AuthWithoutLogo = () => {
     [send]
   );
 
+  const onReturnToSignIn = React.useCallback(() => {
+    send({ type: 'RETURN_TO_SIGN_IN' });
+  }, [send]);
+
   if (isAuthenticated) {
     return null;
   }
 
   if (state.matches('signUp')) {
-    return <AuthSignUp onSignUp={onSignUp} />;
+    return (
+      <AuthSignUp onSignUp={onSignUp} onReturnToSignIn={onReturnToSignIn} />
+    );
   }
 
   if (state.matches('signUpConfirm')) {

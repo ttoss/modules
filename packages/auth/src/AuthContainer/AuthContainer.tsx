@@ -1,4 +1,4 @@
-import { color, Flex, FlexProps } from '@ttoss/ui';
+import { color, Flex, FlexProps, useBreakpointIndex } from '@ttoss/ui';
 
 export type AuthContainerProps = FlexProps & { backgroundImageUrl?: string };
 
@@ -7,6 +7,8 @@ export const AuthContainer = ({
   backgroundImageUrl,
   ...props
 }: AuthContainerProps) => {
+  const index = useBreakpointIndex();
+
   return (
     <Flex
       {...props}
@@ -16,7 +18,7 @@ export const AuthContainer = ({
         alignItems: 'center',
         margin: 0,
         backgroundImage: (t: any) =>
-          backgroundImageUrl
+          backgroundImageUrl && index !== 0
             ? `url("${backgroundImageUrl}")`
             : `linear-gradient(
             to right top,

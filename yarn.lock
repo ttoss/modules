@@ -6930,6 +6930,11 @@
   dependencies:
     csstype "^3.0.10"
 
+"@theme-ui/match-media@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@theme-ui/match-media/-/match-media-0.13.1.tgz#2988f623701515778a2296132905faa98a3ccbeb"
+  integrity sha512-SHTNDa5YQae5pRtBplSL9A1i4oufg/ojQByJGleV03YfkDDJ8vc4IrehpcOuW3MBqVd+TpVj7+BngIrtiua7Fg==
+
 "@theme-ui/mdx@^0.13.1":
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.13.1.tgz#23fe6e42352038bb516cca2fc2539177127a60a3"

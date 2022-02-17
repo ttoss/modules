@@ -33,6 +33,7 @@
     "react": ">=17.0.2"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.9.0"
+    "@ttoss/config": "^1.9.0",
+    "@ttoss/test-utils": "^1.9.0"
   }
 }

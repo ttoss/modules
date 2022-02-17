@@ -1,5 +1,6 @@
 export * as color from '@theme-ui/color';
 export type { Theme } from '@theme-ui/core';
+export { useResponsiveValue, useBreakpointIndex } from '@theme-ui/match-media';
 export { Themed } from '@theme-ui/mdx';
 
 export {
