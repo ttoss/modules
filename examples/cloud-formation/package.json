@@ -1,0 +1,9 @@
+{
+  "name": "cloud-formation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@ttoss/cloud": "^1.0.0"
+  }
+}
