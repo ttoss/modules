@@ -1,0 +1,90 @@
+---
+sidebar_position: 3
+title: Roles
+---
+
+import { Button, Card, Text, ThemeProvider, useTheme } from '@ttoss/ui';
+
+export const Wrapper = ({ children }) => (
+  <ThemeProvider>
+    <div className="padding-vert--md">{children}</div>
+  </ThemeProvider>
+);
+
+export const ButtonExamples = ({ variant }) => {
+  return (
+    <Wrapper>
+      <Button variant={variant}>Click me</Button>
+    </Wrapper>
+  );
+};
+
+export const CardExamples = ({ variant, children }) => (
+  <Wrapper>
+    <Card>
+      <Text variant="title">Card Title</Text>
+      <Text sx={{ marginY: 4 }}>Some content here</Text>
+      <Button variant="cta">Save</Button>
+    </Card>
+  </Wrapper>
+);
+
+export const TextExamples = ({ variant }) => {
+  return (
+    <Wrapper>
+      <Text variant={variant}>Example: this is a {variant} text.</Text>
+    </Wrapper>
+  );
+};
+
+Some components come with a set of predefined roles—specific functions on the applications. You can assign each role specifing the `variant` prop of the component. For example, if you want to assign the `cta` role to a button, you can do so by passing the `variant` prop to the `Button` component.
+
+```jsx
+import { Button } from '@ttoss/ui';
+
+export const Component = () => {
+  return <Button variant="cta">Click me</Button>;
+};
+```
+
+## Button
+
+### `cta`
+
+`cta` (call to action) is used for actions that will perform some action, like submitting a form or confirming an action.
+
+<ButtonExamples variant="cta" />
+
+### `muted`
+
+It's used to cancel or close actions, as exiting a form or canceling a request.
+
+<ButtonExamples variant="muted" />
+
+### `danger`
+
+It's used to indicate that an action could be dangerous or irreversible, like deleting a record.
+
+<ButtonExamples variant="danger" />
+
+## Card
+
+### `primary`
+
+It's the default variant and is used to indicate that the card is the main one in the page.
+
+<CardExamples variant="primary" />
+
+## Text
+
+### `default`
+
+This role is for paragraphs, lists, and other text that has no major role in the application.
+
+<TextExamples variant="default" />
+
+### `title`
+
+For title text.
+
+<TextExamples variant="title" />

@@ -35,26 +35,22 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
+        title="Login"
         buttonLabel="Login"
         links={[
           {
             onClick: onSignUp,
-            label: 'Criar conta',
+            label: 'Esqueceu a senha?',
           },
           {
             onClick: onSignUp,
-            label: 'Reenviar email de confirmação',
+            label: 'Não tem uma conta? Cadastre-se',
           },
         ]}
-        forgotPassword={{
-          onClick: onSignUp,
-          label: 'Esqueci a senha',
-        }}
       >
         <Input placeholder="Email" {...register('email')} />
 
         <Input
-          sx={{ marginTop: 5 }}
           placeholder="Senha"
           id="password"
           {...register('password')}

@@ -2,7 +2,6 @@ import type { Theme } from '@ttoss/ui';
 
 export const theme: Theme = {
   breakpoints: ['42em', '60em'],
-  space: [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987],
   fonts: {
     body: 'Overlock',
     heading: 'Josefin Sans',
@@ -22,50 +21,6 @@ export const theme: Theme = {
     partial: 6,
     full: '100%',
   },
-  buttons: {
-    primary: {
-      paddingX: 7,
-      paddingY: 6,
-      fontFamily: 'body',
-      fontSize: 3,
-    },
-  },
-
-  links: {
-    styles: {
-      a: {
-        fontFamily: 'body',
-        fontSize: 3,
-        color: 'text',
-        textDecoration: 'none',
-      },
-    },
-  },
-
-  cards: {
-    primary: {
-      fontFamily: 'body',
-      padding: 7,
-      paddingTop: 8,
-      border: 'none',
-      background: 'white',
-    },
-  },
-
-  forms: {
-    input: {
-      borderColor: 'muted',
-      borderWidth: 2,
-      fontFamily: 'body',
-      fontSize: 3,
-      paddingY: 4,
-      paddingX: 5,
-      '::placeholder': {
-        color: 'muted',
-      },
-    },
-  },
-
   borderWidths: [0, '1px'],
   colors: {
     transparent: '#ffffff00',

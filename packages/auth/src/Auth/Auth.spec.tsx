@@ -48,7 +48,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign In screen
    */
-  userEvent.click(screen.getByText('Criar conta'));
+  userEvent.click(screen.getByText('Não tem uma conta? Cadastre-se'));
 
   await waitFor(() => {
     expect(signIn).not.toHaveBeenCalled();

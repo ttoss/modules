@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
@@ -16,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro"
+            to="/docs/core/overview"
           >
             Docusaurus Tutorial - 5min ⏱️
           </Link>

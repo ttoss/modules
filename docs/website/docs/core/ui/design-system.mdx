@@ -1,0 +1,95 @@
+---
+sidebar_position: 2
+title: Design System
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+import { defaultTheme } from './../../../../../packages/ui/src/theme/defaultTheme';
+
+export const theme = (() => {
+  const { space, colors, fonts, styles, ...variants } = defaultTheme;
+  const scales = { space, colors, fonts };
+  return { scales, variants, styles };
+})();
+
+export const HideTheme = ({ type }) => {
+  const summary = `Default ${type}`;
+  return (
+    <details>
+      <summary>{summary}</summary>
+      <CodeBlock language="json">
+        {JSON.stringify(theme[type], null, 2)}
+      </CodeBlock>
+    </details>
+  );
+};
+
+export { default as CodeBlock } from '@theme/CodeBlock';
+
+# Design System
+
+UI module is responsible to provide a consistent design system for your applications and implementing primitive components—buttons, input, cards, etc. This module was built on top of [Theme UI](https://theme-ui.com/) library, which is based on a [theme specification](https://theme-ui.com/theme-spec).
+
+The same theme specification used on Theme UI was kept in this module to follow a pattern that has been used in other UI modules, as [Styled System](https://styled-system.com/theme-specification).
+
+## Theme Specification
+
+The theme object contains all design properties that the CSS of the components will use to style. It is made up of the following data types:
+
+- [scales](#scales)
+- [variants](#variants)
+- [styles](#styles)
+
+:::caution
+
+All modules uses the default values of the theme inside their components. If you need to change some of the default values, you need to check if other modules don't break.
+
+:::
+
+### Scales
+
+The theme object is made up of the following scales for in CSS styles:
+
+- [colors](#colors)
+- [fonts](#fonts)
+- [space](#space)
+
+The default scales object is:
+
+<HideTheme type="scales" />
+
+#### colors
+
+<CodeBlock language="jsx">
+  {JSON.stringify(theme.scales.colors, null, 2)}
+</CodeBlock>
+
+#### fonts
+
+<CodeBlock language="jsx">
+  {JSON.stringify(theme.scales.fonts, null, 2)}
+</CodeBlock>
+
+#### space
+
+This property is used to define the following CSS properties:
+
+> margin, margin-top, margin-right, margin-bottom, margin-left, margin-block, margin-block-end, margin-block-start, margin-inline, margin-inline-end, margin-inline-start, padding, padding-top, padding-right, padding-bottom, padding-left, padding-block, padding-block-end, padding-block-start, padding-inline, padding-inline-end, padding-inline-start, scroll-margin, scroll-margin-top, scroll-margin-right, scroll-margin-bottom, scroll-margin-left, scroll-padding, scroll-padding-top, scroll-padding-right, scroll-padding-bottom, scroll-padding-left, inset, inset-block, inset-block-end, inset-block-start, inset-inline, inset-inline-end, inset-inline-start, top, right, bottom, left, grid-gap, grid-column-gap, grid-row-gap, gap, column-gap, row-gap
+
+The default array of `space` values is:
+
+<CodeBlock language="jsx">
+  {`[${theme.scales.space}]`.replace(/,/g, ', ')}
+</CodeBlock>
+
+### Variants
+
+Use variants to define custom groups of styles. These are commonly used for typographic styles, buttons, and themeable layout components that have specific **role** in the application.
+For more detail about roles, see [Roles](./roles) documentation.
+
+<HideTheme type="variants" />
+
+### Styles
+
+<HideTheme type="styles" />
