@@ -7,6 +7,8 @@ import { render, RenderOptions } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks/dom';
 import * as React from 'react';
 
+import './assignWindowProperties';
+
 /**
  * Export all the matchers for Jest to avoid the error:
  * > Property 'toHaveStyleRule' does not exist on type 'JestMatchers<HTMLElement>'.
@@ -66,20 +68,3 @@ export {
   setGlobalConfig as setStorybookGlobalConfig,
   composeStory,
 } from '@storybook/testing-react';
-
-/**
- * https://stackoverflow.com/a/66055672/8786986
- */
-Object.defineProperty(window, 'matchMedia', {
-  writable: true,
-  value: jest.fn().mockImplementation((query) => ({
-    matches: true,
-    media: query,
-    onchange: null,
-    addListener: jest.fn(), // Deprecated
-    removeListener: jest.fn(), // Deprecated
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
-});

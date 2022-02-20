@@ -5,3 +5,7 @@ test('methods should exist', () => {
   expect(renderHook).toBeDefined();
   expect(initStoryshots).toBeDefined();
 });
+
+test('should define window.matchMedia', () => {
+  expect(window.matchMedia).toBeDefined();
+});
