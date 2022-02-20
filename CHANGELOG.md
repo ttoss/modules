@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/ttoss/modules/compare/v1.9.0...v1.9.1) (2022-02-20)
+
+### Bug Fixes
+
+- auth layout ([#51](https://github.com/ttoss/modules/issues/51)) ([ba72020](https://github.com/ttoss/modules/commit/ba7202076f7469a8d478b6e80327d0ae37b0400b))
+- test match media assignment ([0110551](https://github.com/ttoss/modules/commit/0110551c752966f3a577467c1ca793c895848407))
+
 # [1.9.0](https://github.com/ttoss/modules/compare/v1.8.2...v1.9.0) (2022-02-15)
 
 ### Bug Fixes
