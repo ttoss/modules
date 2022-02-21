@@ -12,6 +12,13 @@ module.exports = {
     ['@babel/preset-react', { runtime: 'automatic' }],
   ],
   plugins: [
+    [
+      'formatjs',
+      {
+        idInterpolationPattern: '[sha512:contenthash:base64:6]',
+        ast: true,
+      },
+    ],
     '@babel/plugin-transform-shorthand-properties',
     '@babel/plugin-transform-block-scoping',
     [
