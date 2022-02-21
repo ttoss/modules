@@ -1,0 +1,98 @@
+{
+  "/3m+ZB": {
+    "defaultMessage": "Deve-se inserir um e-mail válido",
+    "description": "AuthSignUp - email should be valid"
+  },
+  "9yle96": {
+    "defaultMessage": "O campo de senha é obrigatório",
+    "description": "AuthSignIn - password is required"
+  },
+  "BONq80": {
+    "defaultMessage": "Login",
+    "description": "AuthSignIn - button label: Login"
+  },
+  "CMUNt+": {
+    "defaultMessage": "Criar Conta",
+    "description": "AuthSignUp - button label: Create account"
+  },
+  "CVisdw": {
+    "defaultMessage": "Mínimo de {value} caracteres",
+    "description": "AuthConfirmSignUp min value required to email"
+  },
+  "KK3rZR": {
+    "defaultMessage": "Email",
+    "description": "AuthSignUp - Input placeholder email"
+  },
+  "KybwlN": {
+    "defaultMessage": "Já tem uma conta? Faça o login",
+    "description": "AuthSignUp - link: Create account"
+  },
+  "Lm2vnB": {
+    "defaultMessage": "Deve-se inserir um e-mail válido",
+    "description": "AuthSignIn - email should be valid"
+  },
+  "MSlyLG": {
+    "defaultMessage": "Cadastrar",
+    "description": "AuthSignUp - title: Register"
+  },
+  "Mg5vkI": {
+    "defaultMessage": "Login",
+    "description": "AuthSignUp - title: Login"
+  },
+  "N4162m": {
+    "defaultMessage": "O campo de e-mail é obrigatório",
+    "description": "AuthConfirmSignUp - email is required"
+  },
+  "UQIZ1r": {
+    "defaultMessage": "O campo de e-mail é obrigatório",
+    "description": "AuthSignUp - email is required"
+  },
+  "WIUWtT": {
+    "defaultMessage": "Email",
+    "description": "AuthConfirmSignUp - Input placeholder email"
+  },
+  "XazOiV": {
+    "defaultMessage": "Confirmar",
+    "description": "AuthConfirmSignUp - buttonLabel: Confirm"
+  },
+  "Z2YIdD": {
+    "defaultMessage": "Senha",
+    "description": "AuthSignUp - Input placeholder password"
+  },
+  "bDeG8p": {
+    "defaultMessage": "O campo de e-mail é obrigatório",
+    "description": "AuthSignIn - email is required"
+  },
+  "jKorl/": {
+    "defaultMessage": "O campo de senha é obrigatório",
+    "description": "AuthSignUp - password is required"
+  },
+  "pV/cpS": {
+    "defaultMessage": "Não tem uma conta? Cadastre-se",
+    "description": "AuthSignIn - link: Create account"
+  },
+  "pzQ9cj": {
+    "defaultMessage": "Senha",
+    "description": "AuthSignIn - Input placeholder password"
+  },
+  "qllVGT": {
+    "defaultMessage": "Mínimo de {value} caracteres",
+    "description": "AuthSignIn min value required to password"
+  },
+  "qz93F9": {
+    "defaultMessage": "Email",
+    "description": "AuthSignIn - Input placeholder email"
+  },
+  "xACmCh": {
+    "defaultMessage": "Esqueceu a senha?",
+    "description": "AuthSignIn - title: Register"
+  },
+  "xPhjeJ": {
+    "defaultMessage": "Mínimo de {value} caracteres",
+    "description": "AuthSignUp min value required to password"
+  },
+  "xskxNO": {
+    "defaultMessage": "Confirmação",
+    "description": "AuthConfirmSignUp - title: Confirmation"
+  }
+}
