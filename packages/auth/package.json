@@ -26,7 +26,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest"
+    "test": "jest",
+    "extract": "formatjs extract"
   },
   "keywords": [
     "React",
