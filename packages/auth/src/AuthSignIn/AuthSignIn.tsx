@@ -1,5 +1,5 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { FormField, Input } from '@ttoss/ui';
+import { Input } from '@ttoss/ui';
 
 import { useIntl } from '@ttoss/i18n';
 
@@ -70,23 +70,14 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
           },
         ]}
       >
-        <FormField
-          label={formatMessage({
-            id: 'auth.signIn.field.email.label',
-            defaultMessage: 'e-mail',
-          })}
-        >
-          <Input {...register('email')} />
-        </FormField>
+        <Input placeholder="Email" {...register('email')} />
 
-        <FormField
-          label={formatMessage({
-            id: 'auth.signIn.field.password.label',
-            defaultMessage: 'senha',
-          })}
-        >
-          <Input id="password" {...register('password')} type="password" />
-        </FormField>
+        <Input
+          placeholder="Senha"
+          id="password"
+          {...register('password')}
+          type="password"
+        />
       </AuthCard>
     </form>
   );

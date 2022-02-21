@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { AuthProvider } from '@ttoss/auth';
 import { ThemeProvider } from '@ttoss/ui';
 import { Amplify } from 'aws-amplify';
+import { NotificationsProvider } from '@ttoss/notifications';
 
 import { translations } from './locale';
 
@@ -45,9 +46,11 @@ ReactDOM.render(
         },
       }}
     >
-      <AuthProvider translations={translations} initialLocale="pt-BR">
-        <App />
-      </AuthProvider>
+      <NotificationsProvider>
+        <AuthProvider translations={translations} initialLocale="pt-BR">
+          <App />
+        </AuthProvider>
+      </NotificationsProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

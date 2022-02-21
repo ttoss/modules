@@ -1,5 +1,5 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { FormField, Input } from '@ttoss/ui';
+import { Input } from '@ttoss/ui';
 import { useIntl } from '@ttoss/i18n';
 
 import { AuthCard } from '../AuthCard/AuthCard';
@@ -8,9 +8,10 @@ import type { OnSignUp, OnSignUpInput } from '../types';
 
 export type AuthSignUpProps = {
   onSignUp: OnSignUp;
+  onReturnToSignIn: () => void;
 };
 
-const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
+const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
   const { formatMessage } = useIntl();
 
   const schema = yup.object().shape({
@@ -46,26 +47,23 @@ const AuthSignUp = ({ onSignUp }: AuthSignUpProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
-        title={formatMessage({ id: 'auth.signUp.title' })}
-        buttonLabel={formatMessage({ id: 'auth.signUp.buttonLabel' })}
+        buttonLabel="Criar Conta"
+        title="Cadastrar"
+        links={[
+          {
+            label: 'Já tem uma conta? Faça o login',
+            onClick: onReturnToSignIn,
+          },
+        ]}
       >
-        <FormField
-          label={formatMessage({
-            id: 'auth.signUp.field.email.label',
-            defaultMessage: 'e-mail',
-          })}
-        >
-          <Input id="email" {...register('email')} />
-        </FormField>
+        <Input placeholder="Email" id="email" {...register('email')} />
 
-        <FormField
-          label={formatMessage({
-            id: 'auth.signUp.field.password.label',
-            defaultMessage: 'senha',
-          })}
-        >
-          <Input id="password" {...register('password')} type="password" />
-        </FormField>
+        <Input
+          placeholder="Senha"
+          id="password"
+          {...register('password')}
+          type="password"
+        />
       </AuthCard>
     </form>
   );

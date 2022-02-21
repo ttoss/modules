@@ -6,7 +6,6 @@ test('render AuthCard with logo', () => {
   const children = 'children';
   const logo = 'logo';
   const buttonLabel = 'button label';
-  const title = 'title';
   const link1 = 'link1';
   const link2 = 'link2';
 
@@ -16,7 +15,6 @@ test('render AuthCard with logo', () => {
     <LogoProvider logo={logo}>
       <AuthCard
         {...{
-          title,
           buttonLabel,
           links: [
             {
@@ -37,7 +35,6 @@ test('render AuthCard with logo', () => {
 
   expect(screen.getByText(logo)).toBeInTheDocument();
   expect(screen.getByText(children)).toBeInTheDocument();
-  expect(screen.getByText(title)).toBeInTheDocument();
   expect(screen.getByText(link1)).toBeInTheDocument();
   expect(screen.getByText(link2)).toBeInTheDocument();
 });

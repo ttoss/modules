@@ -30,8 +30,8 @@ test('should call Amplify Auth.signIn', async () => {
   /**
    * Act
    */
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   /**
@@ -57,8 +57,8 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign Up screen
    */
-  userEvent.type(screen.getByLabelText('e-mail'), email);
-  userEvent.type(screen.getByLabelText('senha'), password);
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -74,10 +74,38 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
    */
   const code = '123456';
 
-  userEvent.type(screen.getByLabelText('Confirmation Code'), code);
+  userEvent.type(screen.getByPlaceholderText('Email'), code);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
     expect(confirmSignUp).toHaveBeenCalledWith(email, code);
+  });
+});
+
+test('should render logo', () => {
+  const logo = <p>logo</p>;
+
+  render(<Auth logo={logo} />);
+
+  expect(screen.getByText('logo')).toBeInTheDocument();
+});
+
+test('loading bar should render', async () => {
+  signIn.mockResolvedValue({});
+
+  render(<Auth />);
+
+  expect(screen.queryByRole('progressbar')).toBeNull();
+
+  userEvent.type(screen.getByPlaceholderText('Email'), email);
+  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.click(screen.getByRole('button'));
+
+  await waitFor(() => {
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    expect(screen.queryByRole('progressbar')).toBeNull();
   });
 });

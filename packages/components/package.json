@@ -1,0 +1,44 @@
+{
+  "name": "@ttoss/components",
+  "version": "1.9.1",
+  "description": "React components.",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "React",
+    "components"
+  ],
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "jest",
+    "dev": "yarn workspace @docs/storybook run dev"
+  },
+  "dependencies": {
+    "@ttoss/ui": "^1.9.1"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@ttoss/config": "^1.9.1",
+    "@ttoss/test-utils": "^1.9.1"
+  },
+  "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
+}

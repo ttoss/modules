@@ -3,10 +3,13 @@ import { Auth as AmplifyAuth } from 'aws-amplify';
 import * as React from 'react';
 import { assign, createMachine } from 'xstate';
 
+import { LogoProvider, LogoContextProps } from '../AuthCard/AuthCard';
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
+
+import { useNotifications } from '@ttoss/notifications';
 
 import type { OnConfirmSignUp, OnSignIn, OnSignUp } from '../types';
 
@@ -32,7 +35,8 @@ type AuthEvent =
   | { type: 'SIGN_UP' }
   | { type: 'SIGN_UP_CONFIRM'; email: string }
   | { type: 'SIGN_UP_CONFIRMED'; email: string }
-  | { type: 'SIGN_UP_RESEND_CONFIRMATION'; email: string };
+  | { type: 'SIGN_UP_RESEND_CONFIRMATION'; email: string }
+  | { type: 'RETURN_TO_SIGN_IN' };
 
 type AuthContext = { email?: string };
 
@@ -55,6 +59,7 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
             actions: ['assignEmail'],
             target: 'signUpConfirm',
           },
+          RETURN_TO_SIGN_IN: { target: 'signIn' },
         },
       },
       signUpConfirm: {
@@ -76,19 +81,20 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
   }
 );
 
-export const Auth = () => {
+const AuthWithoutLogo = () => {
   const { isAuthenticated } = useAuth();
 
   const [state, send] = useMachine(authMachine);
 
   // const { toast, setLoading } = useNotifications();
 
+  const { setLoading } = useNotifications();
+
   const onSignIn = React.useCallback<OnSignIn>(
     async ({ email, password }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.signIn(email, password);
-
         // toast('Signed In');
       } catch (error) {
         switch ((error as any).code) {
@@ -100,7 +106,7 @@ export const Auth = () => {
           // toast(JSON.stringify(error, null, 2));
         }
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
@@ -109,7 +115,7 @@ export const Auth = () => {
   const onSignUp = React.useCallback<OnSignUp>(
     async ({ email, password }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.signUp({
           username: email,
           password,
@@ -120,7 +126,7 @@ export const Auth = () => {
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
@@ -129,25 +135,31 @@ export const Auth = () => {
   const onConfirmSignUp = React.useCallback<OnConfirmSignUp>(
     async ({ email, code }) => {
       try {
-        // setLoading(true);
+        setLoading(true);
         await AmplifyAuth.confirmSignUp(email, code);
         // toast('Confirmed Signed In');
         send({ type: 'SIGN_UP_CONFIRMED', email });
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     },
     [send]
   );
+
+  const onReturnToSignIn = React.useCallback(() => {
+    send({ type: 'RETURN_TO_SIGN_IN' });
+  }, [send]);
 
   if (isAuthenticated) {
     return null;
   }
 
   if (state.matches('signUp')) {
-    return <AuthSignUp onSignUp={onSignUp} />;
+    return (
+      <AuthSignUp onSignUp={onSignUp} onReturnToSignIn={onReturnToSignIn} />
+    );
   }
 
   if (state.matches('signUpConfirm')) {
@@ -168,4 +180,20 @@ export const Auth = () => {
   );
 };
 
-export default Auth;
+const withLogo = <T extends Record<string, unknown>>(
+  Component: React.ComponentType<T>
+) => {
+  const WithLogo = ({ logo, ...componentProps }: T & LogoContextProps) => {
+    return (
+      <LogoProvider logo={logo}>
+        <Component {...(componentProps as T)} />
+      </LogoProvider>
+    );
+  };
+
+  WithLogo.displayName = 'WithLogo';
+
+  return WithLogo;
+};
+
+export const Auth = withLogo(AuthWithoutLogo);

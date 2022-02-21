@@ -6,7 +6,10 @@ export type { ButtonProps };
 
 const Button = (props: ButtonProps) => {
   return (
-    <ButtonUi {...props} sx={{ cursor: 'pointer', padding: 2, ...props.sx }} />
+    <ButtonUi
+      {...props}
+      sx={{ cursor: 'pointer', fontFamily: 'body', ...props.sx }}
+    />
   );
 };
 

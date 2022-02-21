@@ -1,7 +1,8 @@
 import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
+import { useNotifications } from '@ttoss/notifications';
 import * as React from 'react';
 
-type LogoContextProps = { logo?: React.ReactNode };
+export type LogoContextProps = { logo?: React.ReactNode };
 
 const LogoContext = React.createContext<LogoContextProps>({});
 
@@ -32,23 +33,40 @@ export const AuthCard = ({
 }: AuthCardProps) => {
   const { logo } = React.useContext(LogoContext);
 
+  const { isLoading } = useNotifications();
+
   return (
-    <Card variant="primary" sx={{ maxWidth: '500px' }}>
+    <Card sx={{ maxWidth: '564px' }}>
       <Flex sx={{ flexDirection: 'column', gap: 3 }}>
         {logo && (
           <Flex sx={{ width: '100%', justifyContent: 'center' }}>{logo}</Flex>
         )}
-        <Text variant="title">{title}</Text>
+        <Text
+          variant="title"
+          sx={{ alignSelf: 'center', marginY: 4, fontSize: 5 }}
+        >
+          {title}
+        </Text>
         {children}
-        <Button type="submit" aria-label="submit-login">
-          {buttonLabel}
-        </Button>
+        <Flex sx={{ justifyContent: 'space-between', marginTop: 3 }}>
+          <Button
+            type="submit"
+            aria-label="submit-login"
+            variant="cta"
+            disabled={isLoading}
+            sx={{ width: '100%' }}
+          >
+            {buttonLabel}
+          </Button>
+        </Flex>
+
         <Flex
           sx={{
             justifyContent: 'space-between',
             flexDirection: 'column',
-            gap: 2,
-            marginTop: 3,
+            gap: 3,
+            marginTop: 4,
+            color: 'text',
           }}
         >
           {links.map((link) => {

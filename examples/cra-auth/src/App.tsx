@@ -1,4 +1,5 @@
 import { Auth, useAuth, AuthContainer, useTranslation } from '@ttoss/auth';
+import { Box } from '@ttoss/ui';
 
 const Language = () => {
   const { changeLanguage, locale } = useTranslation();
@@ -9,6 +10,12 @@ const Language = () => {
       <button onClick={() => changeLanguage('pt-BR')}>pt-BR</button>
       <button onClick={() => changeLanguage('en-US')}>en-US</button>
     </div>
+  );
+};
+
+const Logo = () => {
+  return (
+    <Box sx={{ width: 100, height: 100, backgroundColor: 'primary' }}>Logo</Box>
   );
 };
 
@@ -29,7 +36,7 @@ const App = () => {
   if (!isAuthenticated) {
     return (
       <AuthContainer>
-        <Auth />
+        <Auth logo={<Logo />} />
         <Language />
       </AuthContainer>
     );
