@@ -1,3 +1,4 @@
+import localePtBR from '../lang/pt-BR.json';
 export {
   default as AuthProvider,
   useAuth,
@@ -7,5 +8,7 @@ export {
 
 export { Auth } from './Auth/Auth';
 export { AuthContainer } from './AuthContainer/AuthContainer';
+
+export { localePtBR };
 
 export * from './types';
