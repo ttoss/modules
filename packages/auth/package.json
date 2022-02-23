@@ -26,7 +26,8 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest"
+    "test": "jest",
+    "extract": "formatjs extract 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file lang/pt-BR.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
   },
   "keywords": [
     "React",

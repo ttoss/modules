@@ -1,2 +1,1 @@
 export { getTemplate } from './cloudformation';
-

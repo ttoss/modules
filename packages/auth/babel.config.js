@@ -1,4 +1,13 @@
 module.exports = {
+  plugins: [
+    [
+      'formatjs',
+      {
+        idInterpolationPattern: '[sha512:contenthash:base64:6]',
+        ast: true,
+      },
+    ],
+  ],
   presets: [
     /**
      * `loose: true` to avoid the Storybook warning:

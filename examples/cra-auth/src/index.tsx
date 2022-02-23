@@ -9,6 +9,8 @@ import { ThemeProvider } from '@ttoss/ui';
 import { Amplify } from 'aws-amplify';
 import { NotificationsProvider } from '@ttoss/notifications';
 
+import { translations } from './locale';
+
 Amplify.configure({
   Auth: {
     region: 'us-east-1',
@@ -45,7 +47,7 @@ ReactDOM.render(
       }}
     >
       <NotificationsProvider>
-        <AuthProvider>
+        <AuthProvider translations={translations} initialLocale="pt-BR">
           <App />
         </AuthProvider>
       </NotificationsProvider>

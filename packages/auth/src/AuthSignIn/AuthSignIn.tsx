@@ -1,5 +1,7 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
-import { Input } from '@ttoss/ui';
+import { FormField, Input } from '@ttoss/ui';
+
+import { useIntl } from '@ttoss/i18n';
 
 import { AuthCard } from '../AuthCard/AuthCard';
 
@@ -13,19 +15,49 @@ export type AuthSignInProps = {
 };
 
 const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
+  const { formatMessage } = useIntl();
+
   const schema = yup.object().shape({
     email: yup
       .string()
-      .required('Custom required message')
-      .email('Custom email message'),
+      .required(
+        formatMessage({
+          description: 'AuthSignIn - email is required',
+          defaultMessage: 'O campo de e-mail é obrigatório',
+        })
+      )
+      .email(
+        formatMessage({
+          defaultMessage: 'Deve-se inserir um e-mail válido',
+          description: 'AuthSignIn - email should be valid',
+        })
+      ),
     password: yup
       .string()
-      .required()
-      .min(4, 'Custom min length message')
+      .required(
+        formatMessage({
+          defaultMessage: 'O campo de senha é obrigatório',
+          description: 'AuthSignIn - password is required',
+        })
+      )
+      .min(
+        4,
+        formatMessage(
+          {
+            defaultMessage: 'Mínimo de {value} caracteres',
+            description: 'AuthSignIn min value required to password',
+          },
+          { value: 4 }
+        )
+      )
       .trim(),
   });
 
-  const { register, handleSubmit } = useForm<OnSignInInput>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<OnSignInInput>({
     defaultValues,
     resolver: yupResolver(schema),
   });
@@ -35,24 +67,47 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
-        title="Login"
-        buttonLabel="Login"
+        title={formatMessage({
+          description: 'AuthSignUp - title: Login',
+          defaultMessage: 'Login',
+        })}
+        buttonLabel={formatMessage({
+          description: 'AuthSignIn - button label: Login',
+          defaultMessage: 'Login',
+        })}
         links={[
           {
             onClick: onSignUp,
-            label: 'Esqueceu a senha?',
+            label: formatMessage({
+              description: 'AuthSignIn - title: Register',
+              defaultMessage: 'Esqueceu a senha?',
+            }),
           },
           {
             onClick: onSignUp,
-            label: 'Não tem uma conta? Cadastre-se',
+            label: formatMessage({
+              description: 'AuthSignIn - link: Create account',
+              defaultMessage: 'Não tem uma conta? Cadastre-se',
+            }),
           },
         ]}
       >
-        <Input placeholder="Email" {...register('email')} />
+        <FormField error={errors?.email?.message}>
+          <Input
+            placeholder={formatMessage({
+              description: 'AuthSignIn - Input placeholder email',
+              defaultMessage: 'Email',
+            })}
+            {...register('email')}
+          />
+        </FormField>
 
         <Input
-          placeholder="Senha"
           id="password"
+          placeholder={formatMessage({
+            description: 'AuthSignIn - Input placeholder password',
+            defaultMessage: 'Senha',
+          })}
           {...register('password')}
           type="password"
         />
