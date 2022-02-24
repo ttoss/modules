@@ -2,9 +2,13 @@ import { Button, Flex, Text } from '@ttoss/ui';
 
 export type InstallPwaUiProps = {
   onInstall: React.MouseEventHandler<HTMLButtonElement>;
+  onCloseUserDoNotWantInstall: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-export const InstallPwaUi = ({ onInstall }: InstallPwaUiProps) => {
+export const InstallPwaUi = ({
+  onInstall,
+  onCloseUserDoNotWantInstall,
+}: InstallPwaUiProps) => {
   return (
     <Flex
       sx={{
@@ -29,6 +33,7 @@ export const InstallPwaUi = ({ onInstall }: InstallPwaUiProps) => {
       >
         <Text>Deseja instalar o nosso aplicativo?</Text>
         <Button onClick={onInstall}>Instalar</Button>
+        <Button onClick={onCloseUserDoNotWantInstall}>Fechar</Button>
       </Flex>
     </Flex>
   );
