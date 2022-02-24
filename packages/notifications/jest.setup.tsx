@@ -4,6 +4,8 @@ import React from 'react';
 
 import { NotificationsProvider } from './src';
 
+import 'react-toastify/dist/ReactToastify.css';
+
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
     <ThemeProvider>
