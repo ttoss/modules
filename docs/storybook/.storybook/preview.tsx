@@ -39,7 +39,7 @@ export const decorators = [
         ]}
       >
         <AuthProvider>
-          <NotificationsProvider position="top-left">
+          <NotificationsProvider position="top-right">
             <Story />
           </NotificationsProvider>
         </AuthProvider>
