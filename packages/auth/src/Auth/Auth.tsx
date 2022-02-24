@@ -84,7 +84,7 @@ const authMachine = createMachine<AuthContext, AuthEvent, AuthState>(
 const AuthWithoutLogo = () => {
   const { isAuthenticated } = useAuth();
 
-  const [state, send] = useMachine(authMachine);
+  const [state, send] = useMachine(authMachine as any);
 
   // const { toast, setLoading } = useNotifications();
 
@@ -100,7 +100,7 @@ const AuthWithoutLogo = () => {
         switch ((error as any).code) {
           case 'UserNotConfirmedException':
             await AmplifyAuth.resendSignUp(email);
-            send({ type: 'SIGN_UP_RESEND_CONFIRMATION', email });
+            send({ type: 'SIGN_UP_RESEND_CONFIRMATION', email } as any);
             break;
           default:
           // toast(JSON.stringify(error, null, 2));
@@ -122,7 +122,7 @@ const AuthWithoutLogo = () => {
           attributes: { email },
         });
         // toast('Signed Up');
-        send({ type: 'SIGN_UP_CONFIRM', email });
+        send({ type: 'SIGN_UP_CONFIRM', email } as any);
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
@@ -138,7 +138,7 @@ const AuthWithoutLogo = () => {
         setLoading(true);
         await AmplifyAuth.confirmSignUp(email, code);
         // toast('Confirmed Signed In');
-        send({ type: 'SIGN_UP_CONFIRMED', email });
+        send({ type: 'SIGN_UP_CONFIRMED', email } as any);
       } catch (error) {
         // toast(JSON.stringify(error, null, 2));
       } finally {
@@ -166,7 +166,7 @@ const AuthWithoutLogo = () => {
     return (
       <AuthConfirmSignUp
         onConfirmSignUp={onConfirmSignUp}
-        email={state.context.email}
+        email={(state.context as any).email}
       />
     );
   }
@@ -175,7 +175,7 @@ const AuthWithoutLogo = () => {
     <AuthSignIn
       onSignIn={onSignIn}
       onSignUp={() => send('SIGN_UP')}
-      defaultValues={{ email: state.context.email }}
+      defaultValues={{ email: (state.context as any).email }}
     />
   );
 };
