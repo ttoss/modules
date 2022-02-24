@@ -2,8 +2,6 @@ import { act, renderHook, render, screen, userEvent } from '@ttoss/test-utils';
 
 import { useNotifications, TOAST_TYPES } from '.';
 
-jest.useFakeTimers();
-
 test('should set loading', () => {
   const { result } = renderHook(() => useNotifications());
 
