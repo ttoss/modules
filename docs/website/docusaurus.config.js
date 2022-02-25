@@ -63,6 +63,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             },
             { to: '/blog', label: 'Blog', position: 'left' },
             {
+              href: 'https://storybook.modules.ttoss.dev/',
+              position: 'left',
+              label: 'Storybook',
+            },
+            {
               href: 'https://github.com/ttoss/modules',
               label: 'GitHub',
               position: 'right',
