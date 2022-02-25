@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { ThemeProvider } from '@ttoss/ui';
-import { Provider } from '@ttoss/i18n';
+import { I18nProvider } from '@ttoss/i18n';
 
 const translations = {
   'en-US': {
@@ -22,7 +22,7 @@ const translations = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider initialLocale="en-US" translations={translations}>
+    <I18nProvider initialLocale="en-US" translations={translations}>
       <ThemeProvider
         theme={{
           text: {
@@ -47,7 +47,7 @@ ReactDOM.render(
       >
         <App />
       </ThemeProvider>
-    </Provider>
+    </I18nProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
