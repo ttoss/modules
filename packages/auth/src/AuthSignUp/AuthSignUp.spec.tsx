@@ -5,6 +5,11 @@ import AuthSignUp from './AuthSignUp';
 const onSignUp = jest.fn();
 
 const onReturnToSignIn = jest.fn();
+jest.mock('@ttoss/i18n', () => ({
+  useIntl: jest.fn().mockReturnValue({
+    formatMessage: jest.fn(),
+  }),
+}));
 
 const user = {
   email: 'user@example.com',
@@ -22,12 +27,12 @@ test('Should not call the onSubmit function if click on the Signup button withou
 });
 
 test('Should call the onSubmit function if click on the Signup button with filling in the fields ', async () => {
-  const { getByPlaceholderText, getByRole } = render(
+  const { getByRole, getByLabelText } = render(
     <AuthSignUp {...{ onSignUp, onReturnToSignIn }} />
   );
 
-  const emailInput = getByPlaceholderText('Email');
-  const password = getByPlaceholderText('Senha');
+  const emailInput = getByLabelText('email');
+  const password = getByLabelText('password');
   const buttonSubmit = getByRole('button');
 
   await act(async () => {

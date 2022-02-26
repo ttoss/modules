@@ -94,6 +94,7 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
       >
         <FormField error={errors?.email?.message}>
           <Input
+            aria-label="email"
             placeholder={formatMessage({
               description: 'AuthSignIn - Input placeholder email',
               defaultMessage: 'Email',
@@ -103,6 +104,7 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
         </FormField>
 
         <Input
+          aria-label="password"
           id="password"
           placeholder={formatMessage({
             description: 'AuthSignIn - Input placeholder password',

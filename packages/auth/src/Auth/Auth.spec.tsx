@@ -1,6 +1,5 @@
 import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
 import * as awsAmplify from 'aws-amplify';
-
 import { Auth } from './Auth';
 
 jest.mock('aws-amplify');
@@ -19,6 +18,11 @@ const password = 'somepassword';
 
 beforeEach(() => {
   jest.resetAllMocks();
+  jest.mock('@ttoss/i18n', () => ({
+    useIntl: jest.fn().mockReturnValue({
+      formatMessage: jest.fn(),
+    }),
+  }));
 });
 
 test('should call Amplify Auth.signIn', async () => {
@@ -30,8 +34,8 @@ test('should call Amplify Auth.signIn', async () => {
   /**
    * Act
    */
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   /**
@@ -41,6 +45,16 @@ test('should call Amplify Auth.signIn', async () => {
     expect(signIn).toHaveBeenCalledWith(email, password);
   });
 });
+
+jest.resetAllMocks();
+
+// TODO: Find an way to change formatMessage return just here, this value 'Não tem uma conta? Cadastre-se' and in the other places go back to normal way
+
+jest.mock('@ttoss/i18n', () => ({
+  useIntl: jest.fn().mockReturnValue({
+    formatMessage: jest.fn().mockReturnValue('Não tem uma conta? Cadastre-se'),
+  }),
+}));
 
 test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   render(<Auth />);
@@ -54,11 +68,19 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
     expect(signIn).not.toHaveBeenCalled();
   });
 
+  jest.resetAllMocks();
+
+  jest.mock('@ttoss/i18n', () => ({
+    useIntl: jest.fn().mockReturnValue({
+      formatMessage: jest.fn(),
+    }),
+  }));
+
   /**
    * Sign Up screen
    */
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -74,7 +96,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
    */
   const code = '123456';
 
-  userEvent.type(screen.getByPlaceholderText('Email'), code);
+  userEvent.type(screen.getByLabelText('email'), code);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -97,8 +119,8 @@ test('loading bar should render', async () => {
 
   expect(screen.queryByRole('progressbar')).toBeNull();
 
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
