@@ -16,15 +16,6 @@ const email = 'some@email.com';
 
 const password = 'somepassword';
 
-beforeEach(() => {
-  jest.resetAllMocks();
-  jest.mock('@ttoss/i18n', () => ({
-    useIntl: jest.fn().mockReturnValue({
-      formatMessage: jest.fn(),
-    }),
-  }));
-});
-
 test('should call Amplify Auth.signIn', async () => {
   /**
    * Arrange
@@ -45,16 +36,6 @@ test('should call Amplify Auth.signIn', async () => {
     expect(signIn).toHaveBeenCalledWith(email, password);
   });
 });
-
-jest.resetAllMocks();
-
-// TODO: Find an way to change formatMessage return just here, this value 'Não tem uma conta? Cadastre-se' and in the other places go back to normal way
-
-jest.mock('@ttoss/i18n', () => ({
-  useIntl: jest.fn().mockReturnValue({
-    formatMessage: jest.fn().mockReturnValue('Não tem uma conta? Cadastre-se'),
-  }),
-}));
 
 test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   render(<Auth />);

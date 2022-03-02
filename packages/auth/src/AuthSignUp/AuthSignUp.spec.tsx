@@ -5,11 +5,6 @@ import AuthSignUp from './AuthSignUp';
 const onSignUp = jest.fn();
 
 const onReturnToSignIn = jest.fn();
-jest.mock('@ttoss/i18n', () => ({
-  useIntl: jest.fn().mockReturnValue({
-    formatMessage: jest.fn(),
-  }),
-}));
 
 const user = {
   email: 'user@example.com',

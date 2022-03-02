@@ -6,12 +6,6 @@ const onSignIn = jest.fn();
 
 const onSignUp = jest.fn();
 
-jest.mock('@ttoss/i18n', () => ({
-  useIntl: jest.fn().mockReturnValue({
-    formatMessage: jest.fn(),
-  }),
-}));
-
 const user = {
   email: 'user@example.com',
   password: 'password',
