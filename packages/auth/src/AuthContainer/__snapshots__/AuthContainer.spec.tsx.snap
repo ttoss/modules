@@ -35,6 +35,9 @@ exports[`default background 1`] = `
   <div
     class="emotion-0"
   />
+  <div
+    class="Toastify"
+  />
 </div>
 `;
 
@@ -73,6 +76,9 @@ exports[`default background on mobile 1`] = `
   <div
     class="emotion-0"
   />
+  <div
+    class="Toastify"
+  />
 </div>
 `;
 
@@ -106,6 +112,9 @@ exports[`image background 1`] = `
 <div>
   <div
     class="emotion-0"
+  />
+  <div
+    class="Toastify"
   />
 </div>
 `;

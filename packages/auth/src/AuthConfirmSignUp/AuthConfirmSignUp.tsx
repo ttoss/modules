@@ -64,6 +64,7 @@ const AuthConfirmSignUp = ({
         <FormField error={errors?.password?.message}>
           <Input
             id="email"
+            aria-label="email"
             placeholder={formatMessage({
               description: 'AuthConfirmSignUp - Input placeholder email',
               defaultMessage: 'Email',

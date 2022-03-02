@@ -51,3 +51,35 @@ const Component = () => {
   );
 };
 ```
+
+### Toast
+
+This modules provides a global toast that you can use on every part of your App this was.
+
+```tsx
+import { useNotifications, TOAST_TYPES } from '@ttoss/notifications';
+
+const Component = () => {
+  const { toast } = useNotifications();
+
+  return (
+    <div>
+      <button
+        onClick={() =>
+          toast('Toast content', {
+            type: TOAST_TYPES.SUCCESS,
+          })
+        }
+      >
+        Toast Success
+      </button>
+    </div>
+  );
+};
+```
+
+:::info
+
+[Examples](./examples)
+
+:::

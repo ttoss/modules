@@ -1,0 +1,74 @@
+---
+title: Examples
+sidebar_position: 2
+---
+
+import CodeBlock from '@theme/CodeBlock';
+
+import {
+  NotificationsProvider,
+  useNotifications,
+  TOAST_TYPES,
+} from '@ttoss/notifications';
+
+import { Button, ThemeProvider } from '@ttoss/ui';
+
+export const theme = {
+  buttons: {
+    success: { color: 'white', backgroundColor: 'green' },
+    warning: { color: 'white', backgroundColor: 'orange' },
+  },
+};
+
+export const Wrapper = ({ children }) => (
+  <ThemeProvider theme={theme}>
+    <NotificationsProvider>{children}</NotificationsProvider>
+  </ThemeProvider>
+);
+
+export const ToastButton = ({ type, children, variant }) => {
+  const { toast } = useNotifications();
+  return (
+    <Wrapper>
+      <div className="padding-vert--md">
+        <Button
+          sx={{ width: 200 }}
+          variant={variant}
+          onClick={() => toast('Toast ' + type, { type })}
+        >
+          {children}
+        </Button>
+      </div>
+    </Wrapper>
+  );
+};
+
+Below we can find examples of the types of toast available
+
+Type: `default`
+
+<ToastButton type={TOAST_TYPES.DEFAULT} variant="muted">
+  Toast DEFAULT
+</ToastButton>
+
+Type: `info`
+
+<ToastButton type={TOAST_TYPES.INFO}>Toast INFO</ToastButton>
+
+Type: `success`
+
+<ToastButton type={TOAST_TYPES.SUCCESS} variant="success">
+  Toast SUCCESS
+</ToastButton>
+
+Type: `warning`
+
+<ToastButton type={TOAST_TYPES.WARNING} variant="warning">
+  Toast WARNING
+</ToastButton>
+
+Type: `error`
+
+<ToastButton type={TOAST_TYPES.ERROR} variant="danger">
+  Toast ERROR
+</ToastButton>

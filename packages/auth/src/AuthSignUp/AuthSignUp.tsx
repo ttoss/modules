@@ -83,6 +83,7 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
       >
         <FormField error={errors?.email?.message}>
           <Input
+            aria-label="email"
             placeholder={formatMessage({
               description: 'AuthSignUp - Input placeholder email',
               defaultMessage: 'Email',
@@ -94,6 +95,7 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
 
         <FormField error={errors?.password?.message}>
           <Input
+            aria-label="password"
             placeholder={formatMessage({
               description: 'AuthSignUp - Input placeholder password',
               defaultMessage: 'Senha',

@@ -1,4 +1,4 @@
-import { NotificationsProvider } from '@ttoss/notifications';
+import { NotificationsProvider } from '@ttoss/notifications/src';
 import { ThemeProvider } from '@ttoss/ui';
 import AuthProvider from '@ttoss/auth/src/AuthProvider/AuthProvider';
 
@@ -39,7 +39,7 @@ export const decorators = [
         ]}
       >
         <AuthProvider>
-          <NotificationsProvider>
+          <NotificationsProvider position="top-right">
             <Story />
           </NotificationsProvider>
         </AuthProvider>

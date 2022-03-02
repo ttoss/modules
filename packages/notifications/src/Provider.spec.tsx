@@ -1,6 +1,6 @@
 import { act, renderHook, render, screen, userEvent } from '@ttoss/test-utils';
 
-import { useNotifications } from './';
+import { useNotifications, TOAST_TYPES } from '.';
 
 test('should set loading', () => {
   const { result } = renderHook(() => useNotifications());
@@ -18,6 +18,42 @@ test('should set loading', () => {
   });
 
   expect(result.current.isLoading).toBe(false);
+});
+
+test('should render toast alert', () => {
+  const toastContent = 'Toast test';
+
+  const Component = () => {
+    const { toast } = useNotifications();
+
+    return (
+      <div>
+        {Object.values(TOAST_TYPES).map((toastType) => {
+          return (
+            <button
+              key={toastType}
+              onClick={() => toast(`${toastContent} - ${toastType}`)}
+            >
+              toast - {toastType}
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
+  render(<Component />);
+
+  Object.values(TOAST_TYPES).forEach((toastType) => {
+    act(() => {
+      userEvent.click(screen.getByText(`toast - ${toastType}`));
+      jest.advanceTimersByTime(100);
+    });
+
+    expect(
+      screen.getByText(`${toastContent} - ${toastType}`)
+    ).toBeInTheDocument();
+  });
 });
 
 test('should render progress bar', () => {

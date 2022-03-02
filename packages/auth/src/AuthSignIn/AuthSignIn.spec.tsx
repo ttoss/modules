@@ -23,12 +23,12 @@ describe('AuthSignIn', () => {
   });
 
   test('Should call the onSubmit function if click on the login button with filling in the fields ', async () => {
-    const { getByPlaceholderText, getByRole } = render(
+    const { getByRole, getByLabelText } = render(
       <AuthSignIn onSignIn={onSignIn} onSignUp={onSignUp} />
     );
 
-    const emailInput = getByPlaceholderText('Email');
-    const password = getByPlaceholderText('Senha');
+    const emailInput = getByLabelText('email');
+    const password = getByLabelText('password');
     const buttonSubmit = getByRole('button');
 
     await act(async () => {

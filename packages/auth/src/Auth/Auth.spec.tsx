@@ -1,6 +1,5 @@
 import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
 import * as awsAmplify from 'aws-amplify';
-
 import { Auth } from './Auth';
 
 jest.mock('aws-amplify');
@@ -17,10 +16,6 @@ const email = 'some@email.com';
 
 const password = 'somepassword';
 
-beforeEach(() => {
-  jest.resetAllMocks();
-});
-
 test('should call Amplify Auth.signIn', async () => {
   /**
    * Arrange
@@ -30,8 +25,8 @@ test('should call Amplify Auth.signIn', async () => {
   /**
    * Act
    */
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   /**
@@ -54,11 +49,19 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
     expect(signIn).not.toHaveBeenCalled();
   });
 
+  jest.resetAllMocks();
+
+  jest.mock('@ttoss/i18n', () => ({
+    useIntl: jest.fn().mockReturnValue({
+      formatMessage: jest.fn(),
+    }),
+  }));
+
   /**
    * Sign Up screen
    */
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -74,7 +77,7 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
    */
   const code = '123456';
 
-  userEvent.type(screen.getByPlaceholderText('Email'), code);
+  userEvent.type(screen.getByLabelText('email'), code);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
@@ -97,8 +100,8 @@ test('loading bar should render', async () => {
 
   expect(screen.queryByRole('progressbar')).toBeNull();
 
-  userEvent.type(screen.getByPlaceholderText('Email'), email);
-  userEvent.type(screen.getByPlaceholderText('Senha'), password);
+  userEvent.type(screen.getByLabelText('email'), email);
+  userEvent.type(screen.getByLabelText('password'), password);
   userEvent.click(screen.getByRole('button'));
 
   await waitFor(() => {
