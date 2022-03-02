@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/ttoss/modules/compare/v1.9.2...v1.9.3) (2022-03-02)
+
+### Features
+
+- update the README.md for adequate use of Modules ([#63](https://github.com/ttoss/modules/issues/63)) ([6a95975](https://github.com/ttoss/modules/commit/6a959754c3c72767c770b3b0f03c72f8697fed35))
+
 ## [1.9.2](https://github.com/ttoss/modules/compare/v1.9.1...v1.9.2) (2022-03-02)
 
 ### Features
