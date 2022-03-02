@@ -1,10 +1,6 @@
-# Skip deploy for nom production environments.
-skipDeploy: true
-
 environments:
   Production:
     aliases:
       - modules.ttoss.dev
     cloudfront: true
-    skipDeploy: false
     stackName: TtossModulesDocsWebsite
