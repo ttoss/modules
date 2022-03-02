@@ -1,5 +1,30 @@
 # ttoss Modules
 
+## Getting Started
+
+The necessary steps to run Modules are below:
+
+You need to have Yarn installed. For the best way to have it, visit this [link](https://classic.yarnpkg.com/en/docs/getting-started). After this:
+
+Clone the repo
+
+```bash
+git clone https://github.com/ttoss/modules
+```
+
+On the root, run:
+
+```bash
+yarn
+yarn build
+```
+
+Go to _docs/storybook_ and run:
+
+```bash
+yarn dev
+```
+
 ## Examples
 
 Application examples that use the modules for testing and documentation purposes.
