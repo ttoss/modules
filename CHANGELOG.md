@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/ttoss/modules/compare/v1.9.1...v1.9.2) (2022-03-02)
+
+### Features
+
+- add Storybook link ([#61](https://github.com/ttoss/modules/issues/61)) ([8f3ceec](https://github.com/ttoss/modules/commit/8f3ceec143a4828ef596beb36e409bb56c4db55b))
+
 ## [1.9.1](https://github.com/ttoss/modules/compare/v1.9.0...v1.9.1) (2022-02-20)
 
 ### Bug Fixes
