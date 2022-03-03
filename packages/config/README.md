@@ -26,7 +26,7 @@ module.exports = babelConfig();
 
 ### Jest
 
-```js title="jest.config.js"
+```ts title="jest.config.ts"
 import { jestConfig } from '@ttoss/config';
 
 const config = jestConfig({
@@ -42,18 +42,16 @@ export default config;
 
 ### Tsup
 
-```js title="tsup.config.js"
+```ts title="tsup.config.ts"
 import { tsupConfig } from '@ttoss/config';
 
 export const tsup = tsupConfig();
 ```
 
-## 📘 Types
+### TypeScript
 
-```ts
-const babelConfig: () => any;
-
-const jestConfig: () => any;
-
-const tsupConfig: () => any;
+```json title="tsconfig.json"
+{
+  "extends": "@ttoss/config/tsconfig.json"
+}
 ```

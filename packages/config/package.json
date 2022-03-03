@@ -11,7 +11,8 @@
   "module": "dist/esm/index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "tsconfig.json"
   ],
   "keywords": [],
   "author": "ttoss",
@@ -31,7 +32,10 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@emotion/jest": "^11.7.1",
+    "@formatjs/ts-transformer": "^3.9.1",
+    "babel-plugin-formatjs": "^10.3.18",
     "deepmerge": "^4.2.2",
+    "identity-obj-proxy": "^3.0.0",
     "tsup": "^5.11.11"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01",
