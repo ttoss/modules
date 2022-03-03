@@ -1,5 +1,6 @@
 ---
 hide_title: true
+title: Getting Started
 sidebar_position: 2.0
 ---
 
