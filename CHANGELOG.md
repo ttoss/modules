@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/ttoss/modules/compare/v1.9.3...v1.9.4) (2022-03-03)
+
+### Features
+
+- add Getting Started Tab on Core Menu ([#65](https://github.com/ttoss/modules/issues/65)) ([9de9e88](https://github.com/ttoss/modules/commit/9de9e88b6702644869bc5cf3abc7508bd2d67d44))
+
 ## [1.9.3](https://github.com/ttoss/modules/compare/v1.9.2...v1.9.3) (2022-03-02)
 
 ### Features
