@@ -123,7 +123,7 @@ const Providers: React.FC = ({ children }) => {
   }
 
   return (
-    <GoogleMapsProvider apiKey={apiKey} libraries={['places']}>
+    <GoogleMapsProvider apiKey={apiKey} libraries={['places']} language="pt-BR">
       {children}
     </GoogleMapsProvider>
   );
@@ -224,6 +224,7 @@ export type GoogleMaps = typeof google.maps;
 const GoogleMapsProvider: React.FC<{
   apiKey: string;
   libraries?: Libraries[] | undefined;
+  language?: string;
 }>;
 
 const useGoogleMaps: () =>

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ttoss/modules/compare/v1.9.6...v1.10.0) (2022-03-05)
+
+### Features
+
+- add language to google maps ([3bb79e5](https://github.com/ttoss/modules/commit/3bb79e5ac967ac456b0531a2ea2b9e21a15ddfcf))
+
+## [1.9.6](https://github.com/ttoss/modules/compare/v1.9.5...v1.9.6) (2022-03-04)
+
+**Note:** Version bump only for package ttoss-modules-monorepo
+
+## [1.9.5](https://github.com/ttoss/modules/compare/v1.9.4...v1.9.5) (2022-03-04)
+
+**Note:** Version bump only for package ttoss-modules-monorepo
+
 ## [1.9.4](https://github.com/ttoss/modules/compare/v1.9.3...v1.9.4) (2022-03-03)
 
 ### Features

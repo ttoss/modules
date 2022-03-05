@@ -28,10 +28,24 @@ type Libraries = 'places' | 'visualization' | 'drawing' | 'geometry';
 export const GoogleMapsProvider: React.FC<{
   apiKey: string;
   libraries?: Libraries[];
-}> = ({ children, apiKey, libraries }) => {
-  const src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=${libraries?.join(
-    ','
-  )}`;
+  /**
+   * https://developers.google.com/maps/faq#languagesupport
+   */
+  language?: string;
+}> = ({ children, apiKey, libraries, language }) => {
+  const src = (() => {
+    let srcTemp = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`;
+
+    if (libraries) {
+      srcTemp = srcTemp + `&libraries=${libraries.join(',')}`;
+    }
+
+    if (language) {
+      srcTemp = srcTemp + `&language=${language}`;
+    }
+
+    return srcTemp;
+  })();
 
   const { status } = useScript(src);
 
