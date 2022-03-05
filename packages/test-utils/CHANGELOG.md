@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/ttoss/modules/compare/v1.10.0...v1.11.0) (2022-03-05)
+
+### Features
+
+- add typescript to config ([#66](https://github.com/ttoss/modules/issues/66)) ([e6b26d0](https://github.com/ttoss/modules/commit/e6b26d09fb01677159cfe56c64a780063d5d583f))
+
 # [1.10.0](https://github.com/ttoss/modules/compare/v1.9.6...v1.10.0) (2022-03-05)
 
 **Note:** Version bump only for package @ttoss/test-utils
