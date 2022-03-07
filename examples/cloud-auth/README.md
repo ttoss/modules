@@ -1,6 +1,6 @@
 # Cloud-auth
 
-Cloud-auth is the way that we use to load a pre-defined Amazon Cognito template in a project. Instead of make the same template for each new project, @ttoss/auth provides a package with a predefined template that we can import.
+Cloud-auth is the way that we use to load a pre-defined Amazon Cognito template in a project. Instead of making the same template for each new project, @ttoss/auth provides a package with a predefined template that we can import.
 
 ## Getting Started
 
@@ -12,15 +12,15 @@ On the root of the project folder, run:
 yarn add @ttoss/auth
 ```
 
-
 ## Usage
 
 Go to the Auth folder of the project:
+
 ```bash
 cd *project-name*/packages/cloud/auth
 ```
 
-The template's name is `getTemplate`. To use it, create a new file called *cloudformation.ts* and import the template. After the import, export it again.
+The template's name is `getTemplate`. To use it, create a new file called _cloudformation.ts_ and import the template. After the import, export it again.
 
 To deploy the template, run:
 
@@ -38,3 +38,4 @@ const template = getTemplate();
 export default template;
 ```
 
+In this folder, an imaginary project is made to explain better how cloud-auth is used.
