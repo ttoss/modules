@@ -1,6 +1,6 @@
 # Cloud-auth
 
-Cloud-auth is the way that we use to load a pre-defined Amazon Cognito template in a project. Instead of make the same template for each new project, @ttoss/auth provides a package with a predefined template that we can import.
+Cloud-auth is the way that we use to load a pre-defined Amazon Cognito template in a project. Instead of making the same template for each new project, @ttoss/auth provides a package with a predefined template that we can import.
 
 ## Getting Started
 
