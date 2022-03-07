@@ -20,10 +20,21 @@ Go to the Auth folder of the project:
 cd *project-name*/packages/cloud/auth
 ```
 
-The template's name is `GetTemplate`. To use it, create a new file called *cloudformation.ts* and import the template. After the import, export it again.
+The template's name is `getTemplate`. To use it, create a new file called *cloudformation.ts* and import the template. After the import, export it again.
 
 To deploy the template, run:
 
 ```bash
 carlin deploy -e Staging
 ```
+
+## Example
+
+```bash
+import { getTemplate } from "@ttoss/auth";
+
+const template = getTemplate();
+
+export default template;
+```
+
