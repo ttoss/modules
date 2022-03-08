@@ -1,1 +1,1 @@
-yarn run "deploy" --stream -- --destroy
+yarn run "destroy"

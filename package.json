@@ -16,6 +16,7 @@
     "build": "lerna run build && lerna run build:after",
     "test": "lerna run test --parallel",
     "deploy": "lerna run deploy --parallel",
+    "destroy": "lerna run deploy --parallel -- --destroy",
     "lint": "lerna run lint -- --fix",
     "remove-all-node-modules": "npx lerna exec -- rm -rf node_modules && rm -rf node_modules && rm -f yarn.lock",
     "reinstall": "yarn run remove-all-node-modules && yarn",

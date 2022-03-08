@@ -1,5 +1,5 @@
-yarn run "build" --stream
-yarn run "test" --stream
+yarn run "build"
+yarn run "test"
 
 echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
 
@@ -8,4 +8,4 @@ echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
 yarn lerna publish --yes --no-verify-access --no-private
 
 export CARLIN_ENVIRONMENT=Production
-yarn run "deploy" --stream
+yarn run "deploy"
