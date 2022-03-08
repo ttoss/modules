@@ -38,4 +38,4 @@ const template = getTemplate();
 export default template;
 ```
 
-In this folder, an imaginary project is made to explain better how cloud-auth is used.
+In this folder, an imaginary project named _project1_ is made to explain better how auth-cloud is used.

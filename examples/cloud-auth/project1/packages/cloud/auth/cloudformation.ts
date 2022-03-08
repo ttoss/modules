@@ -1,4 +1,4 @@
-import { getTemplate } from '@ttoss/auth/cloud';
+import { getTemplate } from '../../../../../../packages/auth/cloud';
 
 const template = getTemplate();
 
