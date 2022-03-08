@@ -1,12 +1,6 @@
 export const getTemplate = () => template;
 
 const template = {
-  Parameters: {
-    Environment: {
-      Type: 'String',
-      AllowedValues: ['Staging', 'Production'],
-    },
-  },
   Resources: {
     CognitoUserPool: {
       Type: 'AWS::Cognito::UserPool',
