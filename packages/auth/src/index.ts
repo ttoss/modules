@@ -2,8 +2,7 @@ import localePtBR from '../lang/pt-BR.json';
 export {
   default as AuthProvider,
   useAuth,
-  useIntl,
-  useTranslation,
+  useI18n,
 } from './AuthProvider/AuthProvider';
 
 export { Auth } from './Auth/Auth';

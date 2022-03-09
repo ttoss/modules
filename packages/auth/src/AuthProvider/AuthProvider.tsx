@@ -1,14 +1,7 @@
 import { Auth, Hub } from 'aws-amplify';
 import * as React from 'react';
 
-import {
-  I18nProvider,
-  I18nProviderProps,
-  useIntl,
-  useTranslation,
-} from '@ttoss/i18n';
-
-import { defaultTranslations } from '../locale/locale';
+import { I18nProvider, I18nProviderProps, useI18n } from '@ttoss/i18n';
 
 type User = {
   id: string;
@@ -50,6 +43,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
 
   const [tokens, setTokens] = React.useState<Tokens>(null);
 
+  // console.log('AuthProvider::initialLocale::', initialLocale);
+
   React.useEffect(() => {
     const updateUser = () => {
       Auth.currentAuthenticatedUser()
@@ -87,7 +82,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
   return (
     <I18nProvider
       initialLocale={initialLocale || 'pt-BR'}
-      translations={{ ...defaultTranslations, ...translations }}
+      translations={translations}
     >
       <AuthContext.Provider value={{ signOut, isAuthenticated, user, tokens }}>
         {children}
@@ -100,4 +95,4 @@ export const useAuth = () => React.useContext(AuthContext);
 
 export default AuthProvider;
 
-export { useIntl, useTranslation };
+export { useI18n };

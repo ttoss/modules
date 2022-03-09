@@ -1,6 +1,6 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
 import { FormField, Input } from '@ttoss/ui';
-import { useIntl } from '@ttoss/i18n';
+import { useI18n } from '@ttoss/i18n';
 
 import { AuthCard } from '../AuthCard/AuthCard';
 
@@ -12,19 +12,19 @@ export type AuthSignUpProps = {
 };
 
 const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
-  const { formatMessage } = useIntl();
+  const { intl } = useI18n();
 
   const schema = yup.object().shape({
     email: yup
       .string()
       .required(
-        formatMessage({
+        intl.formatMessage({
           description: 'AuthSignUp - email is required',
           defaultMessage: 'O campo de e-mail é obrigatório',
         })
       )
       .email(
-        formatMessage({
+        intl.formatMessage({
           defaultMessage: 'Deve-se inserir um e-mail válido',
           description: 'AuthSignUp - email should be valid',
         })
@@ -32,14 +32,14 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
     password: yup
       .string()
       .required(
-        formatMessage({
+        intl.formatMessage({
           defaultMessage: 'O campo de senha é obrigatório',
           description: 'AuthSignUp - password is required',
         })
       )
       .min(
         4,
-        formatMessage(
+        intl.formatMessage(
           {
             defaultMessage: 'Mínimo de {value} caracteres',
             description: 'AuthSignUp min value required to password',
@@ -63,17 +63,17 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
-        buttonLabel={formatMessage({
+        buttonLabel={intl.formatMessage({
           description: 'AuthSignUp - button label: Create account',
           defaultMessage: 'Criar Conta',
         })}
-        title={formatMessage({
+        title={intl.formatMessage({
           description: 'AuthSignUp - title: Register',
           defaultMessage: 'Cadastrar',
         })}
         links={[
           {
-            label: formatMessage({
+            label: intl.formatMessage({
               description: 'AuthSignUp - link: Create account',
               defaultMessage: 'Já tem uma conta? Faça o login',
             }),
@@ -84,7 +84,7 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
         <FormField error={errors?.email?.message}>
           <Input
             aria-label="email"
-            placeholder={formatMessage({
+            placeholder={intl.formatMessage({
               description: 'AuthSignUp - Input placeholder email',
               defaultMessage: 'Email',
             })}
@@ -96,7 +96,7 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
         <FormField error={errors?.password?.message}>
           <Input
             aria-label="password"
-            placeholder={formatMessage({
+            placeholder={intl.formatMessage({
               description: 'AuthSignUp - Input placeholder password',
               defaultMessage: 'Senha',
             })}

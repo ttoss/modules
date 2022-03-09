@@ -1,7 +1,7 @@
 import { useForm, yup, yupResolver } from '@ttoss/form';
 import { FormField, Input } from '@ttoss/ui';
 
-import { useIntl } from '@ttoss/i18n';
+import { useI18n } from '@ttoss/i18n';
 
 import { AuthCard } from '../AuthCard/AuthCard';
 
@@ -15,19 +15,19 @@ export type AuthSignInProps = {
 };
 
 const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
-  const { formatMessage } = useIntl();
+  const { intl } = useI18n();
 
   const schema = yup.object().shape({
     email: yup
       .string()
       .required(
-        formatMessage({
+        intl.formatMessage({
           description: 'AuthSignIn - email is required',
           defaultMessage: 'O campo de e-mail é obrigatório',
         })
       )
       .email(
-        formatMessage({
+        intl.formatMessage({
           defaultMessage: 'Deve-se inserir um e-mail válido',
           description: 'AuthSignIn - email should be valid',
         })
@@ -35,14 +35,14 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
     password: yup
       .string()
       .required(
-        formatMessage({
+        intl.formatMessage({
           defaultMessage: 'O campo de senha é obrigatório',
           description: 'AuthSignIn - password is required',
         })
       )
       .min(
         4,
-        formatMessage(
+        intl.formatMessage(
           {
             defaultMessage: 'Mínimo de {value} caracteres',
             description: 'AuthSignIn min value required to password',
@@ -67,25 +67,25 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
   return (
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
-        title={formatMessage({
+        title={intl.formatMessage({
           description: 'AuthSignUp - title: Login',
           defaultMessage: 'Login',
         })}
-        buttonLabel={formatMessage({
+        buttonLabel={intl.formatMessage({
           description: 'AuthSignIn - button label: Login',
           defaultMessage: 'Login',
         })}
         links={[
           {
             onClick: onSignUp,
-            label: formatMessage({
+            label: intl.formatMessage({
               description: 'AuthSignIn - title: Register',
               defaultMessage: 'Esqueceu a senha?',
             }),
           },
           {
             onClick: onSignUp,
-            label: formatMessage({
+            label: intl.formatMessage({
               description: 'AuthSignIn - link: Create account',
               defaultMessage: 'Não tem uma conta? Cadastre-se',
             }),
@@ -95,7 +95,7 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
         <FormField error={errors?.email?.message}>
           <Input
             aria-label="email"
-            placeholder={formatMessage({
+            placeholder={intl.formatMessage({
               description: 'AuthSignIn - Input placeholder email',
               defaultMessage: 'Email',
             })}
@@ -106,7 +106,7 @@ const AuthSignIn = ({ onSignIn, onSignUp, defaultValues }: AuthSignInProps) => {
         <Input
           aria-label="password"
           id="password"
-          placeholder={formatMessage({
+          placeholder={intl.formatMessage({
             description: 'AuthSignIn - Input placeholder password',
             defaultMessage: 'Senha',
           })}
