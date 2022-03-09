@@ -1,0 +1,170 @@
+{
+  "/3m+ZB": [
+    {
+      "type": 0,
+      "value": "Insert a valid email"
+    }
+  ],
+  "9yle96": [
+    {
+      "type": 0,
+      "value": "Password is required"
+    }
+  ],
+  "BONq80": [
+    {
+      "type": 0,
+      "value": "Login"
+    }
+  ],
+  "CMUNt+": [
+    {
+      "type": 0,
+      "value": "Create Account"
+    }
+  ],
+  "CVisdw": [
+    {
+      "type": 0,
+      "value": "Min of"
+    },
+    {
+      "type": 1,
+      "value": "value"
+    },
+    {
+      "type": 0,
+      "value": " characters"
+    }
+  ],
+  "KK3rZR": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "KybwlN": [
+    {
+      "type": 0,
+      "value": "Do you have an account? Do a login"
+    }
+  ],
+  "Lm2vnB": [
+    {
+      "type": 0,
+      "value": "Insert a valid email"
+    }
+  ],
+  "MSlyLG": [
+    {
+      "type": 0,
+      "value": "Register"
+    }
+  ],
+  "Mg5vkI": [
+    {
+      "type": 0,
+      "value": "Login"
+    }
+  ],
+  "N4162m": [
+    {
+      "type": 0,
+      "value": "Email is required"
+    }
+  ],
+  "UQIZ1r": [
+    {
+      "type": 0,
+      "value": "Email is required"
+    }
+  ],
+  "WIUWtT": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "XazOiV": [
+    {
+      "type": 0,
+      "value": "Confirm"
+    }
+  ],
+  "Z2YIdD": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "bDeG8p": [
+    {
+      "type": 0,
+      "value": "Email is required"
+    }
+  ],
+  "jKorl/": [
+    {
+      "type": 0,
+      "value": "Password is required"
+    }
+  ],
+  "pV/cpS": [
+    {
+      "type": 0,
+      "value": "Don't you have an account? Register"
+    }
+  ],
+  "pzQ9cj": [
+    {
+      "type": 0,
+      "value": "Password"
+    }
+  ],
+  "qllVGT": [
+    {
+      "type": 0,
+      "value": "Min of "
+    },
+    {
+      "type": 1,
+      "value": "value"
+    },
+    {
+      "type": 0,
+      "value": " characters"
+    }
+  ],
+  "qz93F9": [
+    {
+      "type": 0,
+      "value": "Email"
+    }
+  ],
+  "xACmCh": [
+    {
+      "type": 0,
+      "value": "Forgot the password"
+    }
+  ],
+  "xPhjeJ": [
+    {
+      "type": 0,
+      "value": "Min of "
+    },
+    {
+      "type": 1,
+      "value": "value"
+    },
+    {
+      "type": 0,
+      "value": " characters"
+    }
+  ],
+  "xskxNO": [
+    {
+      "type": 0,
+      "value": "Confirmation"
+    }
+  ]
+}

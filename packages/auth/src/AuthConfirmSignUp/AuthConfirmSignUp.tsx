@@ -2,7 +2,7 @@ import { FormField, Input } from '@ttoss/ui';
 import { useForm, yup, yupResolver } from '@ttoss/form';
 
 import { AuthCard } from '../AuthCard/AuthCard';
-import { useIntl } from '@ttoss/i18n';
+import { useI18n } from '@ttoss/i18n';
 
 import type { OnConfirmSignUp } from '../types';
 
@@ -13,7 +13,7 @@ const AuthConfirmSignUp = ({
   email: string;
   onConfirmSignUp: OnConfirmSignUp;
 }) => {
-  const { formatMessage } = useIntl();
+  const { intl } = useI18n();
 
   const schema = yup
     .object()
@@ -21,14 +21,14 @@ const AuthConfirmSignUp = ({
       code: yup
         .string()
         .required(
-          formatMessage({
+          intl.formatMessage({
             description: 'AuthConfirmSignUp - email is required',
             defaultMessage: 'O campo de e-mail é obrigatório',
           })
         )
         .max(
           6,
-          formatMessage(
+          intl.formatMessage(
             {
               defaultMessage: 'Mínimo de {value} caracteres',
               description: 'AuthConfirmSignUp min value required to email',
@@ -52,11 +52,11 @@ const AuthConfirmSignUp = ({
       onSubmit={handleSubmit(({ code }) => onConfirmSignUp({ code, email }))}
     >
       <AuthCard
-        buttonLabel={formatMessage({
+        buttonLabel={intl.formatMessage({
           description: 'AuthConfirmSignUp - buttonLabel: Confirm',
           defaultMessage: 'Confirmar',
         })}
-        title={formatMessage({
+        title={intl.formatMessage({
           description: 'AuthConfirmSignUp - title: Confirmation',
           defaultMessage: 'Confirmação',
         })}
@@ -65,7 +65,7 @@ const AuthConfirmSignUp = ({
           <Input
             id="email"
             aria-label="email"
-            placeholder={formatMessage({
+            placeholder={intl.formatMessage({
               description: 'AuthConfirmSignUp - Input placeholder email',
               defaultMessage: 'Email',
             })}

@@ -8,21 +8,22 @@ import {
 } from './TranslationsContext';
 
 export type I18nProviderProps = {
-  initialLocale: string;
-  translations: AvailableLanguages;
+  initialLocale?: string;
+  translations?: AvailableLanguages;
 };
 
-const ProviderApp: React.FC<{ initialLocale?: string }> = ({
+const ProviderApp: React.FC<I18nProviderProps> = ({
   children,
   initialLocale,
+  translations,
 }) => {
-  const { selectedLanguage, locale } = useTranslation();
+  const { locale } = useTranslation();
 
   return (
     <IntlProvider
       defaultLocale={initialLocale}
       locale={locale}
-      messages={selectedLanguage}
+      messages={translations?.[locale]}
     >
       <>{children}</>
     </IntlProvider>
@@ -34,16 +35,9 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
   initialLocale,
   translations,
 }) => {
-  if (!translations) {
-    return null;
-  }
-
   return (
-    <TranslationProvider
-      initialLocale={initialLocale}
-      translations={translations}
-    >
-      <ProviderApp initialLocale={initialLocale}>
+    <TranslationProvider initialLocale={initialLocale}>
+      <ProviderApp initialLocale={initialLocale} translations={translations}>
         <>{children}</>
       </ProviderApp>
     </TranslationProvider>
