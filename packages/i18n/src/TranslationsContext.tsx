@@ -41,6 +41,10 @@ export const TranslationProvider: React.FC<TranslationProviderProps> = ({
     [setLocale, locale]
   );
 
+  React.useEffect(() => {
+    changeLanguage(initialLocale);
+  }, [changeLanguage, initialLocale]);
+
   return (
     <TranslationsContext.Provider
       value={{
