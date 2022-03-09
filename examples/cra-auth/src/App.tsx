@@ -1,14 +1,14 @@
-import { Auth, useAuth, AuthContainer, useTranslation } from '@ttoss/auth';
+import { Auth, useAuth, AuthContainer, useI18n } from '@ttoss/auth';
 import { Box } from '@ttoss/ui';
 
 const Language = () => {
-  const { changeLanguage, locale } = useTranslation();
+  const { setLocale, locale } = useI18n();
 
   return (
     <div>
       <p>Selected locale: {locale}</p>
-      <button onClick={() => changeLanguage('pt-BR')}>pt-BR</button>
-      <button onClick={() => changeLanguage('en-US')}>en-US</button>
+      <button onClick={() => setLocale('pt-BR')}>pt-BR</button>
+      <button onClick={() => setLocale('en-US')}>en-US</button>
     </div>
   );
 };
