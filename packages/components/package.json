@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/components",
-  "version": "1.11.2",
+  "version": "1.11.3",
   "description": "React components.",
   "license": "UNLICENSED",
   "publishConfig": {
@@ -31,14 +31,14 @@
     "dev": "yarn workspace @docs/storybook run dev"
   },
   "dependencies": {
-    "@ttoss/ui": "^1.11.2"
+    "@ttoss/ui": "^1.11.3"
   },
   "peerDependencies": {
     "react": ">=17.0.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.11.2",
-    "@ttoss/test-utils": "^1.11.2"
+    "@ttoss/config": "^1.11.3",
+    "@ttoss/test-utils": "^1.11.3"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

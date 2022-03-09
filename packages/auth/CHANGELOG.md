@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/ttoss/modules/compare/v1.11.2...v1.11.3) (2022-03-09)
+
+**Note:** Version bump only for package @ttoss/auth
+
 ## [1.11.2](https://github.com/ttoss/modules/compare/v1.11.1...v1.11.2) (2022-03-08)
 
 **Note:** Version bump only for package @ttoss/auth
