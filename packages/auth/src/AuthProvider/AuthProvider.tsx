@@ -1,8 +1,6 @@
 import { Auth, Hub } from 'aws-amplify';
 import * as React from 'react';
 
-import { I18nProvider, I18nProviderProps, useI18n } from '@ttoss/i18n';
-
 type User = {
   id: string;
   email: string;
@@ -29,16 +27,7 @@ const AuthContext = React.createContext<{
   tokens: null,
 });
 
-type AuthProviderProps = {
-  translations?: I18nProviderProps['translations'];
-  initialLocale?: I18nProviderProps['initialLocale'];
-};
-
-const AuthProvider: React.FC<AuthProviderProps> = ({
-  children,
-  initialLocale,
-  translations,
-}) => {
+const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = React.useState<User>(null);
 
   const [tokens, setTokens] = React.useState<Tokens>(null);
@@ -80,19 +69,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({
   const isAuthenticated = !!user;
 
   return (
-    <I18nProvider
-      initialLocale={initialLocale || 'pt-BR'}
-      translations={translations}
-    >
-      <AuthContext.Provider value={{ signOut, isAuthenticated, user, tokens }}>
-        {children}
-      </AuthContext.Provider>
-    </I18nProvider>
+    <AuthContext.Provider value={{ signOut, isAuthenticated, user, tokens }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => React.useContext(AuthContext);
 
 export default AuthProvider;
-
-export { useI18n };

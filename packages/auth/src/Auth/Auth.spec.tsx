@@ -43,19 +43,11 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
   /**
    * Sign In screen
    */
-  userEvent.click(screen.getByText('Não tem uma conta? Cadastre-se'));
+  userEvent.click(screen.getByText("Don't have an account? Sign up"));
 
   await waitFor(() => {
     expect(signIn).not.toHaveBeenCalled();
   });
-
-  jest.resetAllMocks();
-
-  jest.mock('@ttoss/i18n', () => ({
-    useIntl: jest.fn().mockReturnValue({
-      formatMessage: jest.fn(),
-    }),
-  }));
 
   /**
    * Sign Up screen

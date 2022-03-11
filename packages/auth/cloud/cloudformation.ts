@@ -1,4 +1,4 @@
-export const getTemplate = () => template;
+import { PASSWORD_MINIMUM_LENGTH } from './config';
 
 const template = {
   Resources: {
@@ -8,7 +8,7 @@ const template = {
         AutoVerifiedAttributes: ['email'],
         Policies: {
           PasswordPolicy: {
-            MinimumLength: 8,
+            MinimumLength: PASSWORD_MINIMUM_LENGTH,
             RequireLowercase: false,
             RequireNumbers: false,
             RequireSymbols: false,
@@ -58,3 +58,5 @@ const template = {
     },
   },
 };
+
+export const getTemplate = () => template;
