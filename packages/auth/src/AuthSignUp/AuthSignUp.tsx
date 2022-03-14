@@ -2,6 +2,8 @@ import { useForm, yup, yupResolver } from '@ttoss/form';
 import { FormField, Input } from '@ttoss/ui';
 import { useI18n } from '@ttoss/i18n';
 
+import { PASSWORD_MINIMUM_LENGTH } from '../../cloud/config';
+
 import { AuthCard } from '../AuthCard/AuthCard';
 
 import type { OnSignUp, OnSignUpInput } from '../types';
@@ -19,32 +21,32 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
       .string()
       .required(
         intl.formatMessage({
-          description: 'AuthSignUp - email is required',
-          defaultMessage: 'O campo de e-mail é obrigatório',
+          description: 'Email is a required field.',
+          defaultMessage: 'Email field is required',
         })
       )
       .email(
         intl.formatMessage({
-          defaultMessage: 'Deve-se inserir um e-mail válido',
-          description: 'AuthSignUp - email should be valid',
+          description: 'Invalid email.',
+          defaultMessage: 'Invalid email',
         })
       ),
     password: yup
       .string()
       .required(
         intl.formatMessage({
-          defaultMessage: 'O campo de senha é obrigatório',
-          description: 'AuthSignUp - password is required',
+          description: 'Password is required.',
+          defaultMessage: 'Password field is required',
         })
       )
       .min(
-        4,
+        PASSWORD_MINIMUM_LENGTH,
         intl.formatMessage(
           {
-            defaultMessage: 'Mínimo de {value} caracteres',
-            description: 'AuthSignUp min value required to password',
+            description: 'Password must be at least {value} characters long.',
+            defaultMessage: 'Password requires {value} characters',
           },
-          { value: 4 }
+          { value: PASSWORD_MINIMUM_LENGTH }
         )
       )
       .trim(),
@@ -64,18 +66,18 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
     <form onSubmit={handleSubmit(onSubmitForm)}>
       <AuthCard
         buttonLabel={intl.formatMessage({
-          description: 'AuthSignUp - button label: Create account',
-          defaultMessage: 'Criar Conta',
+          description: 'Create account.',
+          defaultMessage: 'Create account',
         })}
         title={intl.formatMessage({
-          description: 'AuthSignUp - title: Register',
-          defaultMessage: 'Cadastrar',
+          description: 'Title on sign up.',
+          defaultMessage: 'Register',
         })}
         links={[
           {
             label: intl.formatMessage({
-              description: 'AuthSignUp - link: Create account',
-              defaultMessage: 'Já tem uma conta? Faça o login',
+              description: 'Link to sign in on sign up.',
+              defaultMessage: 'Do you already have an account? Sign in',
             }),
             onClick: onReturnToSignIn,
           },
@@ -85,7 +87,7 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
           <Input
             aria-label="email"
             placeholder={intl.formatMessage({
-              description: 'AuthSignUp - Input placeholder email',
+              description: 'Email placeholder text.',
               defaultMessage: 'Email',
             })}
             id="email"
@@ -97,8 +99,8 @@ const AuthSignUp = ({ onSignUp, onReturnToSignIn }: AuthSignUpProps) => {
           <Input
             aria-label="password"
             placeholder={intl.formatMessage({
-              description: 'AuthSignUp - Input placeholder password',
-              defaultMessage: 'Senha',
+              description: 'Password placeholder text.',
+              defaultMessage: 'Password',
             })}
             id="password"
             {...register('password')}

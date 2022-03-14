@@ -1,45 +1,59 @@
 import React from 'react';
 
 import { IntlProvider } from 'react-intl';
-import {
-  useTranslation,
-  AvailableLanguages,
-  TranslationProvider,
-} from './TranslationsContext';
+
+export type MessagesType = any;
+
+// eslint-disable-next-line no-unused-vars
+export type LoadLocaleData = (locale: string) => Promise<MessagesType>;
 
 export type I18nProviderProps = {
-  initialLocale?: string;
-  translations?: AvailableLanguages;
+  locale?: string;
+  loadLocaleData?: LoadLocaleData;
 };
 
-const ProviderApp: React.FC<I18nProviderProps> = ({
-  children,
-  initialLocale,
-  translations,
-}) => {
-  const { locale } = useTranslation();
+/**
+ * `DEFAULT_LOCALE` must be `en` because is the default of the other modules.
+ */
+export const DEFAULT_LOCALE = 'en';
 
-  return (
-    <IntlProvider
-      defaultLocale={initialLocale}
-      locale={locale}
-      messages={translations?.[locale]}
-    >
-      <>{children}</>
-    </IntlProvider>
-  );
+type I18nConfigContextProps = Omit<I18nProviderProps, 'LoadLocaleData'> & {
+  defaultLocale: string;
+  // eslint-disable-next-line no-unused-vars
+  setLocale: (language: string) => void;
 };
+
+export const I18nConfigContext = React.createContext<I18nConfigContextProps>({
+  defaultLocale: DEFAULT_LOCALE,
+  setLocale: () => null,
+});
 
 export const I18nProvider: React.FC<I18nProviderProps> = ({
   children,
-  initialLocale,
-  translations,
+  locale: initialLocale,
+  loadLocaleData,
 }) => {
+  const [locale, setLocale] = React.useState(initialLocale || DEFAULT_LOCALE);
+
+  const [messages, setMessages] = React.useState<MessagesType>();
+
+  React.useEffect(() => {
+    if (loadLocaleData) {
+      loadLocaleData(locale).then(setMessages);
+    }
+  }, [loadLocaleData, locale]);
+
   return (
-    <TranslationProvider initialLocale={initialLocale}>
-      <ProviderApp initialLocale={initialLocale} translations={translations}>
+    <I18nConfigContext.Provider
+      value={{ defaultLocale: DEFAULT_LOCALE, locale, setLocale }}
+    >
+      <IntlProvider
+        defaultLocale={DEFAULT_LOCALE}
+        locale={locale}
+        messages={messages}
+      >
         <>{children}</>
-      </ProviderApp>
-    </TranslationProvider>
+      </IntlProvider>
+    </I18nConfigContext.Provider>
   );
 };

@@ -22,16 +22,16 @@ const AuthConfirmSignUp = ({
         .string()
         .required(
           intl.formatMessage({
-            description: 'AuthConfirmSignUp - email is required',
-            defaultMessage: 'O campo de e-mail é obrigatório',
+            description: 'Required field.',
+            defaultMessage: 'Required field',
           })
         )
         .max(
           6,
           intl.formatMessage(
             {
-              defaultMessage: 'Mínimo de {value} caracteres',
-              description: 'AuthConfirmSignUp min value required to email',
+              description: 'Minimum {value} characters.',
+              defaultMessage: 'Minimum {value} characters',
             },
             { value: 6 }
           )
@@ -53,12 +53,12 @@ const AuthConfirmSignUp = ({
     >
       <AuthCard
         buttonLabel={intl.formatMessage({
-          description: 'AuthConfirmSignUp - buttonLabel: Confirm',
-          defaultMessage: 'Confirmar',
+          description: 'Confirm',
+          defaultMessage: 'Confirm',
         })}
         title={intl.formatMessage({
-          description: 'AuthConfirmSignUp - title: Confirmation',
-          defaultMessage: 'Confirmação',
+          description: 'Confirmation',
+          defaultMessage: 'Confirmation',
         })}
       >
         <FormField error={errors?.password?.message}>
@@ -66,7 +66,7 @@ const AuthConfirmSignUp = ({
             id="email"
             aria-label="email"
             placeholder={intl.formatMessage({
-              description: 'AuthConfirmSignUp - Input placeholder email',
+              description: 'Email',
               defaultMessage: 'Email',
             })}
             {...register('code')}
