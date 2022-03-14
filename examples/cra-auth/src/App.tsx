@@ -1,4 +1,5 @@
-import { Auth, useAuth, AuthContainer, useI18n } from '@ttoss/auth';
+import { Auth, useAuth, AuthContainer } from '@ttoss/auth';
+import { useI18n } from '@ttoss/i18n';
 import { Box } from '@ttoss/ui';
 
 const Language = () => {

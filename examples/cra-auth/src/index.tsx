@@ -5,11 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { AuthProvider } from '@ttoss/auth';
+import { I18nProvider } from '@ttoss/i18n';
+import { NotificationsProvider } from '@ttoss/notifications';
 import { ThemeProvider } from '@ttoss/ui';
 import { Amplify } from 'aws-amplify';
-import { NotificationsProvider } from '@ttoss/notifications';
-
-import { translations } from './locale';
 
 Amplify.configure({
   Auth: {
@@ -21,37 +20,39 @@ Amplify.configure({
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider
-      theme={{
-        colors: {
-          transparent: '#ffffff00',
-          primary: '#127547',
-          secondary: '#457F8D',
-          text: '#393A3A',
-          background: '#F7F9F8',
-          accent: '#00C7FE',
-          highlight: '#0067D2',
-          muted: '#B9B9B9',
-          primaryVariant: '#008774',
-          secondaryVariant: '#7AB4C3',
-          alert: '#FF655B',
-          success: '#66AA00',
-          caution: '#FC6C00',
-          neutral: '#888888',
-          eucalipto: '#E79E49',
-          pinus: '#EBC36D',
-          cedroAustraliano: '#9F4F2A',
-          mognoAfricano: '#C18771',
-          teca: '#C19358',
-        },
-      }}
-    >
-      <NotificationsProvider>
-        <AuthProvider translations={translations} initialLocale="pt-BR">
-          <App />
-        </AuthProvider>
-      </NotificationsProvider>
-    </ThemeProvider>
+    <I18nProvider>
+      <ThemeProvider
+        theme={{
+          colors: {
+            transparent: '#ffffff00',
+            primary: '#127547',
+            secondary: '#457F8D',
+            text: '#393A3A',
+            background: '#F7F9F8',
+            accent: '#00C7FE',
+            highlight: '#0067D2',
+            muted: '#B9B9B9',
+            primaryVariant: '#008774',
+            secondaryVariant: '#7AB4C3',
+            alert: '#FF655B',
+            success: '#66AA00',
+            caution: '#FC6C00',
+            neutral: '#888888',
+            eucalipto: '#E79E49',
+            pinus: '#EBC36D',
+            cedroAustraliano: '#9F4F2A',
+            mognoAfricano: '#C18771',
+            teca: '#C19358',
+          },
+        }}
+      >
+        <NotificationsProvider>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </NotificationsProvider>
+      </ThemeProvider>
+    </I18nProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

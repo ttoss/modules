@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/i18n",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "license": "UNLICENSED",
   "publishConfig": {
     "access": "public"
@@ -10,7 +10,8 @@
   "module": "dist/esm/index.js",
   "files": [
     "dist",
-    "src"
+    "src",
+    "bin"
   ],
   "keywords": [
     "React",
@@ -30,9 +31,9 @@
     "i18n:compile:en": "formatjs compile i18n/lang/en.json --ast --out-file i18n/compiled-lang/en.json",
     "i18n:compile:ptBR": "formatjs compile i18n/lang/pt-BR.json --ast --out-file i18n/compiled-lang/pt-BR.json",
     "i18n:compile": "yarn run i18n:compile:en && yarn run i18n:compile:ptBR",
-    "build": "tsup",
     "pretest": "yarn run i18n:extract && yarn run i18n:compile",
     "test": "jest",
+    "build": "tsup",
     "dev": "yarn workspace @ttoss/storybook run dev"
   },
   "peerDependencies": {
@@ -40,10 +41,14 @@
   },
   "devDependencies": {
     "@formatjs/cli": "^4.8.2",
-    "@ttoss/config": "^1.11.3",
-    "@ttoss/test-utils": "^1.11.3"
+    "@ttoss/config": "^1.11.4",
+    "@ttoss/test-utils": "^1.11.4"
   },
   "dependencies": {
+    "glob": "^7.2.0",
     "react-intl": "^5.24.4"
+  },
+  "bin": {
+    "ttoss-i18n": "./bin/cli.js"
   }
 }

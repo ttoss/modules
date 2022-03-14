@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/auth",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "ttoss authentication module for React apps.",
   "main": "./dist/src/index.js",
   "typings": "./dist/src/index.d.ts",
@@ -22,13 +22,13 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "i18n"
   ],
   "scripts": {
+    "prebuild": "ttoss-i18n --no-compile",
     "build": "tsup",
-    "test": "jest",
-    "compile": "formatjs compile",
-    "extract": "formatjs extract 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file lang/pt-BR.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
+    "test": "jest"
   },
   "keywords": [
     "React",
@@ -44,20 +44,22 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
-    "@ttoss/config": "^1.11.3",
-    "@ttoss/form": "^1.11.3",
+    "@ttoss/form": "^1.11.4",
     "@xstate/react": "^1.6.3",
     "xstate": "^4.28.1"
   },
   "peerDependencies": {
-    "@ttoss/notifications": "^1.8.2",
-    "@ttoss/ui": "^1.8.2",
+    "@ttoss/i18n": "1.x.x",
+    "@ttoss/notifications": "1.x.x",
+    "@ttoss/ui": "1.x.x",
     "aws-amplify": "4.x.x",
-    "react": ">=17.0.2"
+    "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/notifications": "^1.11.3",
-    "@ttoss/ui": "^1.11.3",
+    "@ttoss/config": "^1.11.4",
+    "@ttoss/i18n": "^1.11.4",
+    "@ttoss/notifications": "^1.11.4",
+    "@ttoss/ui": "^1.11.4",
     "aws-amplify": "4.x.x"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
