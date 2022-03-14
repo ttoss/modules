@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/i18n",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "license": "UNLICENSED",
   "publishConfig": {
     "access": "public"
@@ -41,8 +41,8 @@
   },
   "devDependencies": {
     "@formatjs/cli": "^4.8.2",
-    "@ttoss/config": "^1.11.3",
-    "@ttoss/test-utils": "^1.11.3"
+    "@ttoss/config": "^1.11.4",
+    "@ttoss/test-utils": "^1.11.4"
   },
   "dependencies": {
     "glob": "^7.2.0",
