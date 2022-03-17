@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^6.4.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -19,12 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build:after": "craco build",
-    "start": "react-scripts start",
-    "test": "echo craco test",
-    "eject": "craco eject",
-    "compile": "formatjs compile lang/pt-BR.json --ast --out-file src/lang/pt-BR.json",
-    "extract": "formatjs extract 'src/**/*.ts*' --ignore='**/*.d.ts' --out-file lang/pt-BR.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'"
+    "build:after": "react-scripts build",
+    "start": "react-scripts start"
   },
   "browserslist": {
     "production": [
