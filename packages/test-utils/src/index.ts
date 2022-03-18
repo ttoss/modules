@@ -60,6 +60,7 @@ export const setOptions = (options: RenderOptions) => {
  * Storybook
  */
 export { default as initStoryshots } from '@storybook/addon-storyshots';
+
 /**
  * This package needs `@storybook/client-api` package.
  */
@@ -68,3 +69,9 @@ export {
   setGlobalConfig as setStorybookGlobalConfig,
   composeStory,
 } from '@storybook/testing-react';
+
+/**
+ * Faker
+ */
+import faker from 'faker';
+export { faker };

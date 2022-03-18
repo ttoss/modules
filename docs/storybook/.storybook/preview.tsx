@@ -1,6 +1,7 @@
-import { NotificationsProvider } from '@ttoss/notifications/src';
+import { AuthProvider } from '@ttoss/auth';
+import { I18nProvider } from '@ttoss/i18n';
+import { NotificationsProvider } from '@ttoss/notifications';
 import { ThemeProvider } from '@ttoss/ui';
-import AuthProvider from '@ttoss/auth/src/AuthProvider/AuthProvider';
 
 import { useLocaleData } from 'storybook-addon-locale';
 
@@ -38,18 +39,20 @@ export const decorators = [
     const { locale } = useLocaleData(context);
 
     return (
-      <ThemeProvider
-        theme={theme}
-        fonts={[
-          'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap',
-        ]}
-      >
-        <AuthProvider locale={locale}>
-          <NotificationsProvider position="top-right">
-            <Story />
-          </NotificationsProvider>
-        </AuthProvider>
-      </ThemeProvider>
+      <I18nProvider>
+        <ThemeProvider
+          theme={theme}
+          fonts={[
+            'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap',
+          ]}
+        >
+          <AuthProvider>
+            <NotificationsProvider position="top-right">
+              <Story />
+            </NotificationsProvider>
+          </AuthProvider>
+        </ThemeProvider>
+      </I18nProvider>
     );
   },
 ];
