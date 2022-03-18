@@ -33,7 +33,7 @@ $ yarn add -DW @ttoss/config
 Install the following packages on the root of your monorepo:
 
 ```shell
-yarn add -DW eslint prettier
+yarn add -DW eslint @rushstack/eslint-patch prettier
 ```
 
 Create `.prettierrc.js`:
@@ -43,6 +43,18 @@ const { prettierConfig } = require('@ttoss/config');
 
 module.exports = prettierConfig();
 ```
+
+Create `.eslintrc.js`:
+
+```js title=".eslintrc.js"
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+module.exports = {
+  extends: '@ttoss/eslint-config',
+};
+```
+
+You need `require('@rushstack/eslint-patch/modern-module-resolution');` because ESLint doesn't support plugins as dependency in shareable ESLint configuration, as you can see on [this issue](https://github.com/eslint/eslint/issues/3458). To overcome this, you can use the [`@rushstack/eslint-patch` package](https://www.npmjs.com/package/@rushstack/eslint-patch), a patch that improves how ESLint loads plugins when working in a monorepo
 
 ### Husky, commitlint, and lint-staged
 
