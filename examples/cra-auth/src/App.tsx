@@ -1,6 +1,6 @@
-import { Auth, useAuth, AuthContainer } from '@ttoss/auth';
-import { useI18n } from '@ttoss/i18n';
+import { Auth, AuthContainer, useAuth } from '@ttoss/auth';
 import { Box } from '@ttoss/ui';
+import { useI18n } from '@ttoss/i18n';
 
 const Language = () => {
   const { setLocale, locale } = useI18n();

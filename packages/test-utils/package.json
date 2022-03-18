@@ -32,7 +32,7 @@
   "scripts": {
     "build": "tsup",
     "postbuild": "./scripts/post-build.sh",
-    "test": "jest && yarn workspace @examples/test-react-storybook test"
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/jest": "^11.7.1",

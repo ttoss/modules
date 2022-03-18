@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { Amplify } from 'aws-amplify';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
 import { AuthProvider } from '@ttoss/auth';
 import { I18nProvider } from '@ttoss/i18n';
 import { NotificationsProvider } from '@ttoss/notifications';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@ttoss/ui';
-import { Amplify } from 'aws-amplify';
+
+import reportWebVitals from './reportWebVitals';
 
 Amplify.configure({
   Auth: {
