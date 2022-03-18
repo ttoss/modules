@@ -22,6 +22,28 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./faker": {
+      "import": "./dist/esm/faker.js",
+      "require": "./dist/faker.js",
+      "types": "./dist/faker.d.ts"
+    },
+    "./relay": {
+      "import": "./dist/esm/relay.js",
+      "require": "./dist/relay.js",
+      "types": "./dist/relay.d.ts"
+    },
+    "./storybook": {
+      "import": "./dist/esm/storybook.js",
+      "require": "./dist/storybook.js",
+      "types": "./dist/storybook.d.ts"
+    }
+  },
   "files": [
     "dist",
     "src",
@@ -43,7 +65,10 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
-    "faker": "5.5.3"
+    "@types/faker": "^5.5.9",
+    "@types/relay-test-utils": "^6.0.5",
+    "faker": "5.5.3",
+    "relay-test-utils": "^13.2.0"
   },
   "peerDependencies": {
     "@storybook/client-api": ">=6.0.0",
@@ -52,8 +77,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.11.7",
-    "@types/faker": "^5.5.9"
+    "@ttoss/config": "^1.11.7"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }
