@@ -1,6 +1,7 @@
+import * as React from 'react';
+
 import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
 import { useNotifications } from '@ttoss/notifications';
-import * as React from 'react';
 
 export type LogoContextProps = { logo?: React.ReactNode };
 

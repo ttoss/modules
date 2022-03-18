@@ -1,4 +1,4 @@
-import { render, renderHook, initStoryshots } from './';
+import { render, renderHook, initStoryshots, faker } from './';
 
 test('methods should exist', () => {
   expect(render).toBeDefined();
@@ -8,4 +8,8 @@ test('methods should exist', () => {
 
 test('should define window.matchMedia', () => {
   expect(window.matchMedia).toBeDefined();
+});
+
+test('faker should exist', () => {
+  expect(faker).toBeDefined();
 });

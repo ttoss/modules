@@ -42,16 +42,18 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^13.5.0",
+    "faker": "5.5.3"
   },
   "peerDependencies": {
-    "@storybook/client-api": "^6.4.14",
-    "@storybook/react": "^6.4.14",
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "@storybook/client-api": ">=6.0.0",
+    "@storybook/react": ">=6.0.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.11.5"
+    "@ttoss/config": "^1.11.5",
+    "@types/faker": "^5.5.9"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

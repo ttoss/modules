@@ -1,0 +1,36 @@
+{
+  "name": "@ttoss/eslint-config",
+  "version": "1.11.4",
+  "description": "Eslint config.",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "ttoss",
+  "contributors": [
+    {
+      "email": "pedro@arantespp.com",
+      "name": "Pedro Arantes",
+      "url": "https://arantespp.com/contact"
+    }
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-formatjs": "^3.0.0",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-react": "^7.29.4"
+  }
+}

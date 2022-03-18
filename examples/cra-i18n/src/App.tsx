@@ -1,5 +1,5 @@
-import { useI18n, defineMessages } from '@ttoss/i18n';
 import { Box, Text } from '@ttoss/ui';
+import { defineMessages, useI18n } from '@ttoss/i18n';
 
 const Language = () => {
   const { setLocale, locale } = useI18n();

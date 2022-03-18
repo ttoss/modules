@@ -1,9 +1,7 @@
+import App from './App';
+import { I18nProvider } from '@ttoss/i18n';
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import App from './App';
-
-import { I18nProvider } from '@ttoss/i18n';
 import { ThemeProvider } from '@ttoss/ui';
 
 ReactDOM.render(

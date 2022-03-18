@@ -9,5 +9,17 @@
     "start": "yarn run storybook",
     "dev": "yarn run storybook",
     "deploy": "carlin deploy static-app"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.7",
+    "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-interactions": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.9",
+    "babel-loader": "^8.2.3",
+    "storybook-addon-locale": "^0.3.6"
+  },
+  "dependencies": {}
 }
