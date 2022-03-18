@@ -1,4 +1,8 @@
 {
+  "version": "1.11.6",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "stream": true,
   "command": {
     "publish": {
       "allowBranch": "main",
@@ -8,9 +12,5 @@
     "version": {
       "forcePublish": true
     }
-  },
-  "npmClient": "yarn",
-  "useWorkspaces": true,
-  "version": "1.11.6",
-  "stream": true
+  }
 }

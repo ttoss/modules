@@ -1,6 +1,6 @@
 # @ttoss/config
 
-<strong>@ttoss/config</strong> is a very opinionated configuration library for monorepo repositories, packages, and applications. It contains a set of default configuration methods that you can use to configure your projects.
+<strong>@ttoss/config</strong> is a very opinionated configuration library for monorepo repositories, packages, and applications. It contains a set of <a href="/docs/core/config/default-configs">default configurations</a> that you can use on your projects.
 
 Each configuration is customizable and you can extend them with your own. For example, you can use the default `.prettierrc.js` file in your monorepo:
 
@@ -28,7 +28,7 @@ $ yarn add -DW @ttoss/config
 
 ## Monorepo
 
-### Eslint and Prettier
+### ESLint and Prettier
 
 Install the following packages on the root of your monorepo:
 
@@ -58,7 +58,7 @@ You need `require('@rushstack/eslint-patch/modern-module-resolution');` because 
 
 ### Husky, commitlint, and lint-staged
 
-This group of packages will only work if you have already installed [Eslint and Prettier](#eslint-and-prettier).
+This group of packages will only work if you have already installed [ESLint and Prettier](#eslint-and-prettier).
 
 Install the following packages on the root of your monorepo:
 
@@ -90,6 +90,50 @@ yarn run prepare
 yarn husky add .husky/commit-msg "yarn commitlint --edit"
 yarn husky add .husky/pre-commit "yarn lint-staged"
 ```
+
+### Lerna and Yarn Workspaces
+
+Although this package doesn't export any configuration for [Lerna](https://github.com/lerna/lerna) or [Yarn Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/), it's still useful to have them installed.
+
+Install [Lerna](https://github.com/lerna/lerna) on the root of your monorepo:
+
+```shell
+yarn add -DW lerna
+```
+
+And add `lerna.json` config file:
+
+```json title="lerna.json"
+{
+  "version": "0.0.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "stream": true,
+  "command": {
+    "publish": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "message": "chore: publish new version"
+    },
+    "version": {
+      "forcePublish": true
+    }
+  }
+}
+```
+
+Finally, add the following in a `package.json` file to configure [Yarn Workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/):
+
+```json title="package.json"
+{
+  "private": true,
+  "workspaces": ["workspace-a", "workspace-b"]
+}
+```
+
+### Turborepo
+
+Coming soon...
 
 ## Packages and Applications
 
@@ -123,7 +167,7 @@ export default config;
 
 Configure the `test` script on `package.json`:
 
-```json title="package.json'
+```json title="package.json"
 "scripts: {
   test: 'jest',
 }
@@ -149,7 +193,7 @@ export const tsup = tsupConfig();
 
 Configure the `build` script on `package.json`:
 
-```json title="package.json'
+```json title="package.json"
 "scripts: {
   build: 'tsup',
 }

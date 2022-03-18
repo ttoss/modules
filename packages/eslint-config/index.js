@@ -1,11 +1,6 @@
 /**
- * - TypeScript: https://github.com/typescript-eslint/typescript-eslint
- * - Jest: https://github.com/jest-community/eslint-plugin-jest
- * - Prettier: https://github.com/prettier/eslint-config-prettier
- * - Format.JS: https://formatjs.io/docs/tooling/linter
- * - React: https://github.com/yannickcr/eslint-plugin-react
- * - React Hooks: https://www.npmjs.com/package/eslint-plugin-react-hooks
- * - jsx-a11y: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
+ * See http://localhost:3000/docs/core/config/default-configs#eslint
+ * for more details about plugins and extensions.
  */
 module.exports = {
   parser: '@typescript-eslint/parser',

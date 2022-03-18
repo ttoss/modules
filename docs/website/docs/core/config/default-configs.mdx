@@ -1,0 +1,73 @@
+---
+hide_title: true
+title: Default Configs
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import {
+  babelConfig,
+  commitlintConfig,
+  jestConfig,
+  lintstagedConfig,
+  prettierConfig,
+  tsupConfig,
+} from '@ttoss/config';
+const eslintConfig = require('@ttoss/eslint-config');
+
+## Babel
+
+[Configuration docs.](https://babeljs.io/docs/en/options)
+
+<CodeBlock language="json">{JSON.stringify(babelConfig(), null, 2)}</CodeBlock>
+
+## Commitlint
+
+[Configuration docs.](https://commitlint.js.org/#/reference-configuration)
+
+<CodeBlock language="json">
+  {JSON.stringify(commitlintConfig(), null, 2)}
+</CodeBlock>
+
+## ESLint
+
+[Configuration docs.](https://eslint.org/docs/user-guide/configuring/)
+
+Extension and plugins' rules:
+
+- [TypeScript](https://github.com/typescript-eslint/typescript-eslint)
+- [Jest](https://github.com/jest-community/eslint-plugin-jest)
+- [Prettier](https://github.com/prettier/eslint-config-prettier)
+- [Format.JS](https://formatjs.io/docs/tooling/linter)
+- [React](https://github.com/yannickcr/eslint-plugin-react)
+- [React hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [jsx-a11y](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y)
+
+<CodeBlock language="json">{JSON.stringify(eslintConfig, null, 2)}</CodeBlock>
+
+## Jest
+
+[Configuration docs.](https://jestjs.io/docs/configuration)
+
+<CodeBlock language="json">{JSON.stringify(jestConfig(), null, 2)}</CodeBlock>
+
+## lint-staged
+
+[Configuration docs.](https://github.com/okonet/lint-staged)
+
+<CodeBlock language="json">
+  {JSON.stringify(lintstagedConfig(), null, 2)}
+</CodeBlock>
+
+## Prettier
+
+[Configuration docs.](https://prettier.io/docs/en/options.html)
+
+<CodeBlock language="json">
+  {JSON.stringify(prettierConfig(), null, 2)}
+</CodeBlock>
+
+## Tsup
+
+[Configuration docs.](https://tsup.egoist.sh/)
+
+<CodeBlock language="json">{JSON.stringify(tsupConfig(), null, 2)}</CodeBlock>
