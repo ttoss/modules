@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/form",
-  "version": "1.11.6",
+  "version": "1.11.7",
   "description": "Forms utilities.",
   "publishConfig": {
     "access": "public"
@@ -27,7 +27,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "@ttoss/config": "^1.11.6",
+    "@ttoss/config": "^1.11.7",
     "react-hook-form": "^7.25.1",
     "yup": "^0.32.11"
   },

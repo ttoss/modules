@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/eslint-config",
-  "version": "1.11.6",
+  "version": "1.11.7",
   "description": "Eslint config.",
   "license": "UNLICENSED",
   "publishConfig": {
