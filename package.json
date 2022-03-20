@@ -13,6 +13,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "lerna": "lerna",
+    "remove-dist": "lerna exec -- rm -rf dist",
+    "prebuild": "yarn run remove-dist",
     "build": "lerna run build && lerna run build:after",
     "test": "lerna run test",
     "deploy": "lerna run deploy",

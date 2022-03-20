@@ -1,8 +1,7 @@
 import { NextPage } from 'next';
-import { UserCard } from '../components/UserCard/UserCard';
 
 const Home: NextPage = () => {
-  return <UserCard />;
+  return <span>oi</span>;
 };
 
 export default Home;

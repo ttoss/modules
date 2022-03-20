@@ -1,3 +1,4 @@
+import { Card, Text } from '@ttoss/ui';
 import { UserCard_user$key } from './__generated__/UserCard_user.graphql';
 import { graphql } from 'babel-plugin-relay/macro';
 import { useFragment } from 'react-relay';
@@ -16,5 +17,9 @@ export const UserCard = ({
     fragmentRef
   );
 
-  return <span>{user.name}</span>;
+  return (
+    <Card>
+      <Text>{user.name}</Text>
+    </Card>
+  );
 };

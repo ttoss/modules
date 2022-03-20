@@ -3,13 +3,19 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "relay": "relay-compiler",
+    "prebuild": "yarn run relay",
+    "prebuild:after": "yarn run prebuild",
+    "build:after": "next build",
+    "predev": "yarn run prebuild",
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "prestorybook": "yarn run prebuild",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "relay": "relay-compiler"
+    "pretest": "yarn run prebuild",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.1.0",
