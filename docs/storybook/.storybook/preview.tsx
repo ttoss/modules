@@ -3,7 +3,8 @@ import { I18nProvider } from '@ttoss/i18n';
 import { NotificationsProvider } from '@ttoss/notifications';
 import { ThemeProvider } from '@ttoss/ui';
 
-import { useLocaleData } from 'storybook-addon-locale';
+// import { useLocaleData } from 'storybook-addon-locale';
+import { DecoratorFn } from '@storybook/react';
 
 import { themes } from '../themes';
 
@@ -32,11 +33,9 @@ export const globalTypes = {
   },
 };
 
-export const decorators = [
+export const decorators: DecoratorFn[] = [
   (Story, context) => {
     const theme = themes[context.globals.theme];
-
-    const { locale } = useLocaleData(context);
 
     return (
       <I18nProvider>
