@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ttoss/modules/compare/v1.11.7...v1.12.0) (2022-03-20)
+
+### Features
+
+- add next examples ([#78](https://github.com/ttoss/modules/issues/78)) ([64f1f86](https://github.com/ttoss/modules/commit/64f1f861875876c034885dd5314dd6b99d6157eb))
+
 ## [1.11.7](https://github.com/ttoss/modules/compare/v1.11.6...v1.11.7) (2022-03-18)
 
 **Note:** Version bump only for package @ttoss/i18n
