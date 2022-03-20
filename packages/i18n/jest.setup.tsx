@@ -1,7 +1,6 @@
-import { setOptions } from '@ttoss/test-utils';
 import * as React from 'react';
-
 import { I18nProvider, LoadLocaleData } from './src';
+import { setOptions } from '@ttoss/test-utils';
 
 const loadLocaleData: LoadLocaleData = (locale) => {
   switch (locale) {

@@ -150,3 +150,5 @@ package-lock.json
 .vscode/
 .carlin
 compiled-lang/
+
+__generated__/
