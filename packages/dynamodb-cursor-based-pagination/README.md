@@ -35,13 +35,13 @@ Why do we need the second requirement? First we need to understand what cursor i
 ## Installation
 
 ```
-npm install -S dynamodb-cursor-based-pagination
+npm install -S @ttoss/dynamodb-cursor-based-pagination
 ```
 
 or
 
 ```
-yarn add dynamodb-cursor-based-pagination
+yarn add @ttoss/dynamodb-cursor-based-pagination
 ```
 
 You also need install `aws-sdk` in your project because it is a peer dependency of this project.
@@ -107,32 +107,9 @@ type paginate<T = any> = ({
 }>;
 ```
 
-### Credentials
-
-You must have AWS credentials in your environment to use this package. The only permission needed is [dynamodb:Query](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/api-permissions-reference.html).
-
-If you don't have credentials in your environment, you may want provide them passing a [Credentials object](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Credentials.html) to `credentials`:
-
-```ts
-import { Credentials } from 'aws-sdk';
-import { paginate } from 'dynamodb-cursor-based-pagination';
-
-const credentials = new Credentials({
-  accessKeyId: ...,
-  secretAccessKey: ...,
-  sessionToken: ...
-})
-
-paginate({
-  credentials,
-  ...
-})
-...
-```
-
 ### DynamoDB Table Parameters
 
-The parameters `region`, `tableName`, `hashKeyName`, `hashKeyValue`, `rangeKeyName`, `indexName` are used to identify your DynamoDB table and the partition.
+The parameters `region`, `tableName`, `hashKeyValue` are used to identify your DynamoDB table and the partition.
 
 ### Cursor Parameters
 
@@ -187,19 +164,3 @@ Let's check [some examples](examples/README.md) to understand better [these requ
 ## Test
 
 Before real use, you can test an example with DynamoDB Local for emulate a server and Jest for unit testing. For further details, see the README.md on Test folder.
-
-
-
-## Author
-
-- [Pedro Arantes](https://twitter.com/arantespp)
-
-## License
-
-[MIT](./LICENSE)
-
----
-
-Bootstrapped with [tsdx](https://github.com/formium/tsdx)
-
-Made with ❤️
