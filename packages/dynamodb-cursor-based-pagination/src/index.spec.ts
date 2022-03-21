@@ -9,8 +9,6 @@ let child: any;
 
 const port = 8000;
 
-const n = 15;
-
 const NUMBER_OF_ITENS_TO_POPULATE_TABLE = 100;
 
 jest.setTimeout(30000);
@@ -27,7 +25,7 @@ beforeAll(async () => {
 
 
   /**
-   * Preparando os clients
+   * Clients setup
    */
    dynamoDBClient = new DynamoDBClient({
     endpoint: `http://127.0.0.1:${port}`,

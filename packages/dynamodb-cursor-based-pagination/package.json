@@ -55,7 +55,6 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.8.0",
     "@types/faker": "^5.1.4",
-    "aws-sdk": "^2.1096.0",
     "dotenv": "^8.2.0",
     "faker": "^5.1.0",
     "husky": "^4.3.0",

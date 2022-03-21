@@ -160,7 +160,3 @@ paginate({
 ## Examples
 
 Let's check [some examples](examples/README.md) to understand better [these requirements and the design](#table-design).
-
-## Test
-
-Before real use, you can test an example with DynamoDB Local for emulate a server and Jest for unit testing. For further details, see the README.md on Test folder.
