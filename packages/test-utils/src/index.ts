@@ -1,8 +1,8 @@
-import '@testing-library/jest-dom';
-import './assignWindowProperties';
 import * as React from 'react';
 import { RenderOptions, render } from '@testing-library/react';
 import { createSerializer, matchers } from '@emotion/jest';
+import './assignWindowProperties';
+import '@testing-library/jest-dom';
 /**
  * https://react-hooks-testing-library.com/installation#being-specific
  */

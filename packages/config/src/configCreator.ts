@@ -4,5 +4,13 @@ const overwriteMerge = (_: any, sourceArray: any) => sourceArray;
 
 export const configCreator =
   <T extends Record<string, any>>(defaultConfig: T = {} as T) =>
-  (config: T = {} as T) =>
-    deepmerge<T>(defaultConfig, config, { arrayMerge: overwriteMerge });
+  (
+    config: T = {} as T,
+    deepmergeConfig?: { arrayMerge: 'append' | 'overwrite' }
+  ) =>
+    deepmerge<T>(defaultConfig, config, {
+      arrayMerge:
+        deepmergeConfig?.arrayMerge === 'overwrite'
+          ? overwriteMerge
+          : undefined,
+    });

@@ -1,6 +1,6 @@
 # @ttoss/config
 
-<strong>@ttoss/config</strong> is a very opinionated configuration library for monorepo repositories, packages, and applications. It contains a set of <a href="/docs/core/config/default-configs">default configurations</a> that you can use on your projects.
+<strong>@ttoss/config</strong> is an opinionated configuration library for monorepo repositories, packages, and applications. It contains a set of <a href="/docs/core/config/default-configs">default configurations</a> that you can use on your projects.
 
 Each configuration is customizable and you can extend them with your own. For example, you can use the default `.prettierrc.js` file in your monorepo:
 
@@ -18,6 +18,31 @@ const { prettierConfig } = require('@ttoss/config');
 module.exports = prettierConfig({
   printWidth: 120,
 });
+```
+
+You can also pass a second argument to every configuration to handle array's append or overwrite items.
+
+```js title="babel.config.js"
+const { babelConfig } = require('@ttoss/config');
+
+// Append plugins (default)
+const appendConfig = babelConfig(
+  {
+    plugins: ['@babel/plugin-proposal-class-properties'],
+  },
+  {
+    arrayMerge: 'append',
+  }
+);
+
+const overwriteConfig = babelConfig(
+  {
+    plugins: ['@babel/plugin-proposal-class-properties'],
+  },
+  {
+    arrayMerge: 'overwrite',
+  }
+);
 ```
 
 ## Install
