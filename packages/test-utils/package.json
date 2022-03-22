@@ -21,27 +21,36 @@
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/index.mjs",
+  "module": "dist/esm/index.js",
   "exports": {
     ".": {
-      "import": "./dist/src/index.js",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
     },
     "./faker": {
       "import": "./dist/esm/faker.js",
-      "require": "./dist/faker.js",
-      "types": "./dist/faker.d.ts"
+      "require": "./dist/faker.js"
     },
     "./relay": {
       "import": "./dist/esm/relay.js",
-      "require": "./dist/relay.js",
-      "types": "./dist/relay.d.ts"
+      "require": "./dist/relay.js"
     },
     "./storybook": {
       "import": "./dist/esm/storybook.js",
-      "require": "./dist/storybook.js",
-      "types": "./dist/storybook.d.ts"
+      "require": "./dist/storybook.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "faker": [
+        "./dist/faker.d.ts"
+      ],
+      ".": [
+        "./dist/index.d.ts"
+      ],
+      "relay": [
+        "./dist/relay.d.ts"
+      ]
     }
   },
   "files": [
@@ -62,7 +71,7 @@
     "@storybook/testing-react": "^1.2.3",
     "@testing-library/dom": "^8.11.3",
     "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^13.0.0-alpha.6",
     "@testing-library/react-hooks": "^7.0.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/faker": "^5.5.9",

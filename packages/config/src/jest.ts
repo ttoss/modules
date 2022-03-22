@@ -198,4 +198,4 @@ export const defaultConfig: Config.InitialOptions = {
   // watchman: true,
 };
 
-export const jestConfig = configCreator<any>(defaultConfig);
+export const jestConfig = configCreator<Config.InitialOptions>(defaultConfig);

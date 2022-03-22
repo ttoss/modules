@@ -29,6 +29,10 @@
   "keywords": [
     "monorepo"
   ],
+  "dependencies": {
+    "react": "^18.0.0-rc.3",
+    "react-dom": "^18.0.0-rc.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
     "@rushstack/eslint-patch": "^1.1.1",
