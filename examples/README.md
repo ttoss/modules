@@ -18,7 +18,7 @@ Some rules to create an example:
 
 - Storybook and Relay's pagination:
 
-  - [examples/next-examples/src/components/UserList/UserList.stories.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UserList/UserList.stories.tsx)
+  - [examples/next-examples/src/components/UsersList/UsersList.stories.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UsersList/UsersList.stories.tsx)
 
 - Testing Relay's fragment:
 
