@@ -31,7 +31,7 @@ const UserCardQuery = () => {
   return <UserCard fragmentRef={data.user} />;
 };
 
-const environment = createMockEnvironment();
+export const environment = createMockEnvironment();
 
 export type UserCardMockProps = {
   user: Omit<UserCard_user$data, ' $fragmentType'>;
