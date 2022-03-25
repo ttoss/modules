@@ -1,11 +1,10 @@
-import { useMachine } from '@xstate/react';
-import { Auth as AmplifyAuth } from 'aws-amplify';
 import * as React from 'react';
+import { Auth as AmplifyAuth } from 'aws-amplify';
+import { LogoContextProps, LogoProvider } from '../AuthCard/AuthCard';
 import { assign, createMachine } from 'xstate';
-
-import { LogoProvider, LogoContextProps } from '../AuthCard/AuthCard';
-import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import { useAuth } from '../AuthProvider/AuthProvider';
+import { useMachine } from '@xstate/react';
+import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
 
@@ -109,7 +108,7 @@ const AuthWithoutLogo = () => {
         setLoading(false);
       }
     },
-    [send]
+    [send, setLoading]
   );
 
   const onSignUp = React.useCallback<OnSignUp>(
@@ -129,7 +128,7 @@ const AuthWithoutLogo = () => {
         setLoading(false);
       }
     },
-    [send]
+    [send, setLoading]
   );
 
   const onConfirmSignUp = React.useCallback<OnConfirmSignUp>(
@@ -145,7 +144,7 @@ const AuthWithoutLogo = () => {
         setLoading(false);
       }
     },
-    [send]
+    [send, setLoading]
   );
 
   const onReturnToSignIn = React.useCallback(() => {

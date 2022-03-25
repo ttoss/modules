@@ -1,6 +1,6 @@
-import { render, screen } from '@ttoss/test-utils';
 import { UserCardMock } from './UserCard.mock';
 import { faker } from '@ttoss/test-utils/dist/faker';
+import { render, screen } from '@ttoss/test-utils';
 
 it('should display user name', async () => {
   const username = 'John Doe';

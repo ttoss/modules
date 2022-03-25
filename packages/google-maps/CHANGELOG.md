@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ttoss/modules/compare/v1.12.1...v1.12.2) (2022-03-25)
+
+**Note:** Version bump only for package @ttoss/google-maps
+
+## [1.12.1](https://github.com/ttoss/modules/compare/v1.12.0...v1.12.1) (2022-03-22)
+
+### Bug Fixes
+
+- update configs ([#79](https://github.com/ttoss/modules/issues/79)) ([f88b557](https://github.com/ttoss/modules/commit/f88b557f0e6370f2e520ac34b505734bace34f52))
+
 # [1.12.0](https://github.com/ttoss/modules/compare/v1.11.7...v1.12.0) (2022-03-20)
 
 **Note:** Version bump only for package @ttoss/google-maps

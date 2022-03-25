@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import { UserCardMock, UserCardMockProps } from './UserCard.mock';
 import { UserCard } from './UserCard';
+import { UserCardMock, UserCardMockProps } from './UserCard.mock';
 
 export default {
   title: 'UserCard',

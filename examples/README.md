@@ -12,10 +12,14 @@ Some rules to create an example:
 
 ## List of examples:
 
-- Mocking Relay's fragment:
-
-  - [examples/next-examples/src/components/UserCard/UserCard.spec.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UserCard/UserCard.spec.tsx)
-
 - Storybook and Relay's fragment:
 
   - [examples/next-examples/src/components/UserCard/UserCard.stories.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UserCard/UserCard.stories.tsx)
+
+- Storybook and Relay's pagination:
+
+  - [examples/next-examples/src/components/UsersList/UsersList.stories.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UsersList/UsersList.stories.tsx)
+
+- Testing Relay's fragment:
+
+  - [examples/next-examples/src/components/UserCard/UserCard.spec.tsx](https://github.com/ttoss/modules/blob/main/examples/next-examples/src/components/UserCard/UserCard.spec.tsx)

@@ -5,8 +5,22 @@ test('should return default config', () => {
 });
 
 test('should update plugin', () => {
-  expect(babelConfig({ plugins: ['relay'] })).toEqual({
+  expect(
+    babelConfig(
+      { plugins: ['relay'] },
+      {
+        arrayMerge: 'overwrite',
+      }
+    )
+  ).toEqual({
     ...defaultConfig,
     plugins: ['relay'],
+  });
+});
+
+test('should append plugin', () => {
+  expect(babelConfig({ plugins: ['relay'] })).toEqual({
+    ...defaultConfig,
+    plugins: [...defaultConfig.plugins, 'relay'],
   });
 });
