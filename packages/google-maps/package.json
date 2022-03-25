@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/google-maps",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "author": "ttoss",
   "contributors": [
     {
@@ -31,7 +31,7 @@
     "build": "tsup"
   },
   "dependencies": {
-    "@ttoss/hooks": "^1.12.1",
+    "@ttoss/hooks": "^1.12.2",
     "@types/google.maps": "^3.47.3"
   },
   "peerDependencies": {
