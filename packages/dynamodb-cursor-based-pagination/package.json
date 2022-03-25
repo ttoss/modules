@@ -1,9 +1,9 @@
 {
-  "name": "dynamodb-cursor-based-pagination",
+  "name": "@ttoss/dynamodb-cursor-based-pagination",
   "version": "0.4.3",
-  "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "module": "dist/esm/index.js",
   "files": [
     "dist",
     "src"
@@ -12,58 +12,23 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "populate-table": "npx ts-node -T -O '{\"module\": \"commonjs\"}' test/populateTable.ts",
-    "paginate": "npx ts-node -T -O '{\"module\": \"commonjs\"}' examples/paginate.ts"
+    "pretest": "docker-compose up -d",
+    "test": "jest",
+    "posttest": "docker-compose down",
+    "build": "tsup"
+  },
+  "author": "ttoss",
+  "contributors": [
+    "Pedro Arantes <arantespp@gmail.com> (https://arantespp.com)"
+  ],
+  "dependencies": {
+    "@aws-sdk/lib-dynamodb": "^3.56.0"
   },
   "peerDependencies": {
-    "aws-sdk": "^2.796.0"
+    "@aws-sdk/lib-dynamodb": "3.x.x"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "np": {
-    "anyBranch": false,
-    "branch": "main"
-  },
-  "author": "Pedro Arantes <arantespp@gmail.com> (https://twitter.com/arantespp)",
-  "module": "dist/dynamodb-cursor-based-pagination.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/dynamodb-cursor-based-pagination.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/dynamodb-cursor-based-pagination.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.8.0",
-    "@types/faker": "^5.1.4",
-    "dotenv": "^8.2.0",
-    "faker": "^5.1.0",
-    "husky": "^4.3.0",
-    "np": "^7.0.0",
-    "size-limit": "^4.8.0",
-    "ts-node": "^9.0.0",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.0.3",
-    "typescript": "^4.1.2",
-    "yargs": "^16.1.1"
+    "@aws-sdk/client-dynamodb": "^3.56.0",
+    "@shelf/jest-dynamodb": "^2.2.3"
   }
 }

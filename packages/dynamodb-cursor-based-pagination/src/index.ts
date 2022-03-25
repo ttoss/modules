@@ -1,26 +1,13 @@
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { DynamoDBDocumentClient, QueryCommand, QueryCommandInput } from '@aws-sdk/lib-dynamodb';
-  
-type Sort = 'ASC' | 'DESC';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import {
+  DynamoDBDocumentClient,
+  QueryCommand,
+  QueryCommandInput,
+} from '@aws-sdk/lib-dynamodb';
 
-export const paginate = async <T = any>({
-  dynamoDBClient,
-  tableName,
-  hashKey,
-  hashKeyValue,
-  rangeKey,
-  index,
-  projectionExpression,
-  filterExpression,
-  filterAttributeNames,
-  filterAttributeValues,
-  beginsWith = '',
-  sort = 'DESC',
-  after,
-  first,
-  before,
-  last,
-}: {
+export type Sort = 'ASC' | 'DESC';
+
+export type PaginateConfig = {
   dynamoDBClient: DynamoDBClient;
   tableName: string;
   hashKey: string;
@@ -37,7 +24,26 @@ export const paginate = async <T = any>({
   before?: string;
   first?: number;
   last?: number;
-}) => {
+};
+
+export const paginate = async <T extends Record<string, unknown>>({
+  dynamoDBClient,
+  tableName,
+  hashKey,
+  hashKeyValue,
+  rangeKey,
+  index,
+  projectionExpression,
+  filterExpression,
+  filterAttributeNames,
+  filterAttributeValues,
+  beginsWith = '',
+  sort = 'DESC',
+  after,
+  first,
+  before,
+  last,
+}: PaginateConfig) => {
   const documentClient = DynamoDBDocumentClient.from(dynamoDBClient);
 
   const {
@@ -119,13 +125,8 @@ export const paginate = async <T = any>({
 
     const response = await documentClient.send(new QueryCommand(queryParams));
 
-    const {
-      Items,
-      LastEvaluatedKey,
-      ConsumedCapacity,
-      Count,
-      ScannedCount,
-    } = response;
+    const { Items, LastEvaluatedKey, ConsumedCapacity, Count, ScannedCount } =
+      response;
 
     return {
       items: Items as T[],
@@ -136,13 +137,8 @@ export const paginate = async <T = any>({
     };
   };
 
-  const {
-    items,
-    lastEvaluatedKey,
-    consumedCapacity,
-    count,
-    scannedCount,
-  } = await queryDynamoDB<T>();
+  const { items, lastEvaluatedKey, consumedCapacity, count, scannedCount } =
+    await queryDynamoDB<T>();
 
   /**
    * Used to remove beginsWith from cursor.
@@ -150,8 +146,8 @@ export const paginate = async <T = any>({
   const replacerRegex = new RegExp(`^${beginsWith}`);
 
   const edges = items
-    .filter(node => String((node as any)[rangeKey]).startsWith(beginsWith))
-    .map(node => ({
+    .filter((node) => String((node as any)[rangeKey]).startsWith(beginsWith))
+    .map((node) => ({
       cursor: String((node as any)[rangeKey]).replace(replacerRegex, ''),
       node,
     }))
