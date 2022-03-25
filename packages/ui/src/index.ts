@@ -13,6 +13,7 @@ export { useTheme } from './theme/useTheme';
 export { default as Box, BoxProps } from './components/Box/Box';
 export { default as Button, ButtonProps } from './components/Button/Button';
 export { default as Card, CardProps } from './components/Card/Card';
+export { Divider, DividerProps } from './components/Divider/Divider';
 export { default as Flex, FlexProps } from './components/Flex/Flex';
 export {
   default as FormField,
