@@ -1,7 +1,8 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@ttoss/ui';
+import '@examples/msw-api';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider>
       <Component {...pageProps} />
@@ -9,4 +10,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default MyApp;
+export default App;
