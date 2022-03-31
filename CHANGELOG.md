@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/ttoss/modules/compare/v1.12.2...v1.13.0) (2022-03-31)
+
+### Features
+
+- add msw api example ([#81](https://github.com/ttoss/modules/issues/81)) ([030bbda](https://github.com/ttoss/modules/commit/030bbdacba21b3ee9ea4e1fec147cf2137bf7854))
+
 ## [1.12.2](https://github.com/ttoss/modules/compare/v1.12.1...v1.12.2) (2022-03-25)
 
 **Note:** Version bump only for package ttoss-modules-monorepo
