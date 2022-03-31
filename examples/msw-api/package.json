@@ -1,0 +1,13 @@
+{
+  "name": "@examples/msw-api",
+  "version": "0.0.0",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {},
+  "keywords": [],
+  "author": "ttoss",
+  "devDependencies": {
+    "msw": "^0.39.2"
+  }
+}

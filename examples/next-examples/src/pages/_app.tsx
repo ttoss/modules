@@ -1,12 +1,16 @@
 import { AppProps } from 'next/app';
+import { RelayProvider } from '../providers/RelayProvider';
 import { ThemeProvider } from '@ttoss/ui';
+import '@examples/msw-api';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider>
-      <Component {...pageProps} />
+      <RelayProvider>
+        <Component {...pageProps} />
+      </RelayProvider>
     </ThemeProvider>
   );
 };
 
-export default MyApp;
+export default App;
