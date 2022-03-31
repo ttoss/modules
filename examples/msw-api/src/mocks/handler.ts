@@ -1,12 +1,23 @@
 import { graphql } from 'msw';
 
 export const handlers = [
-  graphql.query('users', (req, res, ctx) => {
+  graphql.query('UsersQuery', (_req, res, ctx) => {
     return res(
       ctx.data({
-        edges: [],
-        pageInfo: {
-          hasNextPage: false,
+        users: {
+          edges: [...new Array(10)].map((_, index) => {
+            return {
+              cursor: `cursor-${index}`,
+              node: {
+                id: `user-id-${index}`,
+                name: `user-name-${index}`,
+              },
+            };
+          }),
+          pageInfo: {
+            hasNextPage: false,
+            endCursor: '2',
+          },
         },
       })
     );

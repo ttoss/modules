@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "next": "^12.1.0",
+    "next": "^12.1.4",
     "react-relay": "^13.2.0"
   },
   "devDependencies": {
