@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Flex, Heading } from '@ttoss/ui';
 import { LazyLoadUsers, QueryLoaderUsers } from '../components/Users/Users';
 
-const RelayQueryLoaderVsLazyLoadQuery = () => {
+const RelayQueryLoaderVsLazyLoadQueryPage = () => {
   return (
     <>
       <Flex sx={{ flexDirection: 'column' }}>
@@ -18,4 +18,4 @@ const RelayQueryLoaderVsLazyLoadQuery = () => {
   );
 };
 
-export default RelayQueryLoaderVsLazyLoadQuery;
+export default RelayQueryLoaderVsLazyLoadQueryPage;
