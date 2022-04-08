@@ -16,13 +16,25 @@ export const UsersList = ({ fragmentRef }: UsersListPaginatorProps) => {
   >(
     graphql`
       fragment UsersList_query on Query
+      # @argumentDefinitions tells to the relay compiler that fragment will use
+      # the following arguments. We need this because it's the parent component
+      # that will declare them.
+      # Docs: https://relay.dev/docs/api-reference/graphql-and-directives/#argumentdefinitions
       @argumentDefinitions(
-        first: { type: "Int", defaultValue: 10 }
+        filters: { type: "UsersQueryFilters" }
+        first: { type: "Int" }
         after: { type: "String" }
+        last: { type: "Int" }
+        before: { type: "String" }
       )
       @refetchable(queryName: "UsersListQuery") {
-        users(first: $first, after: $after)
-          @connection(key: "UsersList_users") {
+        users(
+          filters: $filters
+          first: $first
+          after: $after
+          last: $last
+          before: $before
+        ) @connection(key: "UsersList_users") {
           edges {
             node {
               id

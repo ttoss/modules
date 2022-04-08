@@ -1,9 +1,9 @@
 # Env
 
-You should create a file `index.ts` in the root of your project with the following properties:
+You should create a file `config.json` in the root of your project with the following properties:
 
-```ts
-export const env = {
-  GOOGLE_MAPS_API_KEY: '<your-api-key>',
-};
+```json
+{
+  "GOOGLE_MAPS_API_KEY": "your-api-key"
+}
 ```

@@ -10,8 +10,24 @@ import { UsersQuery } from './__generated__/UsersQuery.graphql';
 import { graphql } from 'babel-plugin-relay/macro';
 
 const usersQuery = graphql`
-  query UsersQuery($first: Int!, $after: String) {
-    ...UsersList_query @arguments(first: $first, after: $after)
+  query UsersQuery(
+    $filters: UsersQueryFilters
+    $first: Int
+    $after: String
+    $last: Int
+    $before: String
+  ) {
+    # @arguments tells to the relay compiler that fragment will use these
+    # arguments.
+    # Docs: https://relay.dev/docs/api-reference/graphql-and-directives/#arguments
+    ...UsersList_query
+      @arguments(
+        filters: $filters
+        first: $first
+        after: $after
+        last: $last
+        before: $before
+      )
   }
 `;
 
@@ -25,19 +41,31 @@ const PreLoadedUsers = ({
   return <UsersList fragmentRef={fragmentRef} />;
 };
 
+const getQueryFiltersSomewhere = () => {
+  return {
+    filters: { name: 'John', age: 30 },
+    first: 10,
+  };
+};
+
 export const QueryLoaderUsers = () => {
   const [queryReference, loadQuery] = useQueryLoader<UsersQuery>(usersQuery);
 
   return (
     <>
-      <Button onClick={() => loadQuery({ first: 10 })}>Load Users</Button>
+      <Button onClick={() => loadQuery(getQueryFiltersSomewhere())}>
+        Load Users
+      </Button>
       {queryReference && <PreLoadedUsers queryReference={queryReference} />}
     </>
   );
 };
 
 export const LazyLoadUsers = () => {
-  const fragmentRef = useLazyLoadQuery<UsersQuery>(usersQuery, { first: 10 });
+  const fragmentRef = useLazyLoadQuery<UsersQuery>(
+    usersQuery,
+    getQueryFiltersSomewhere()
+  );
 
   return <UsersList fragmentRef={fragmentRef} />;
 };
