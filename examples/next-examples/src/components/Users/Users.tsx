@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Button } from '@ttoss/ui';
 import {
   PreloadedQuery,
@@ -9,7 +10,7 @@ import { UsersList } from '../UsersList/UsersList';
 import { UsersQuery } from './__generated__/UsersQuery.graphql';
 import { graphql } from 'babel-plugin-relay/macro';
 
-const usersQuery = graphql`
+export const usersQuery = graphql`
   query UsersQuery(
     $filters: UsersQueryFilters
     $first: Int
@@ -41,10 +42,17 @@ const PreLoadedUsers = ({
   return <UsersList fragmentRef={fragmentRef} />;
 };
 
-const getQueryFiltersSomewhere = () => {
+export const getQueryFiltersSomewhere = () => {
   return {
     filters: { name: 'John', age: 30 },
     first: 10,
+    /**
+     * We need to provide all the pagination arguments as null else tests will
+     * fail.
+     */
+    after: null,
+    last: null,
+    before: null,
   };
 };
 
@@ -53,10 +61,16 @@ export const QueryLoaderUsers = () => {
 
   return (
     <>
-      <Button onClick={() => loadQuery(getQueryFiltersSomewhere())}>
+      <Button
+        onClick={() => {
+          loadQuery(getQueryFiltersSomewhere());
+        }}
+      >
         Load Users
       </Button>
-      {queryReference && <PreLoadedUsers queryReference={queryReference} />}
+      <React.Suspense fallback="loading...">
+        {queryReference && <PreLoadedUsers queryReference={queryReference} />}
+      </React.Suspense>
     </>
   );
 };
