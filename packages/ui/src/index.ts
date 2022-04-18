@@ -28,3 +28,4 @@ export {
   LinearProgressProps,
 } from './components/LinearProgress/LinearProgress';
 export { default as Text, TextProps } from './components/Text/Text';
+export { default as Select, SelectProps } from './components/Select/Select';
