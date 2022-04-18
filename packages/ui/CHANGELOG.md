@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ttoss/modules/compare/v1.13.2...v1.14.0) (2022-04-18)
+
+### Features
+
+- adding and exporting Select component from ui ([#83](https://github.com/ttoss/modules/issues/83)) ([4833553](https://github.com/ttoss/modules/commit/4833553d1d033126ae88d363911b11c36641c0c3))
+
 ## [1.13.2](https://github.com/ttoss/modules/compare/v1.13.1...v1.13.2) (2022-04-14)
 
 **Note:** Version bump only for package @ttoss/ui
