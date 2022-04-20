@@ -53,15 +53,17 @@ $ yarn add -DW @ttoss/config
 
 ## Monorepo
 
+Add the configs of this section on the root of your monorepo. For configs for packages, you can check the section [Packages and Applications](#packages-and-applications). You can check [this monorepo template](https://github.com/ttoss/monorepo) if you want to see the final configuration after following the steps.
+
 ### ESLint and Prettier
 
 Install the following packages on the root of your monorepo:
 
 ```shell
-yarn add -DW eslint @rushstack/eslint-patch prettier
+yarn add -DW eslint @ttoss/eslint-config @rushstack/eslint-patch prettier
 ```
 
-Create `.prettierrc.js`:
+Create `.prettierrc.js` (`touch .prettierrc.js`) and add the following to it:
 
 ```js title=".prettierrc.js"
 const { prettierConfig } = require('@ttoss/config');
@@ -69,7 +71,7 @@ const { prettierConfig } = require('@ttoss/config');
 module.exports = prettierConfig();
 ```
 
-Create `.eslintrc.js`:
+Create `.eslintrc.js` (`touch .eslintrc.js`) and add the following to it:
 
 ```js title=".eslintrc.js"
 require('@rushstack/eslint-patch/modern-module-resolution');
@@ -91,7 +93,7 @@ Install the following packages on the root of your monorepo:
 yarn add -DW husky @commitlint/cli lint-staged
 ```
 
-Create `.commitlintrc.js`:
+Create `.commitlintrc.js` (`touch .commitlintrc.js`) and add the following to it:
 
 ```js title=".commitlintrc.js"
 const { commitlintConfig } = require('@ttoss/config');
@@ -99,7 +101,7 @@ const { commitlintConfig } = require('@ttoss/config');
 module.exports = commitlintConfig();
 ```
 
-Create `.lintstagedrc.js`:
+Create `.lintstagedrc.js` (`touch .lintstagedrc.js`) and add the following to it:
 
 ```js title=".lintstagedrc.js"
 const { lintstagedConfig } = require('@ttoss/config');
@@ -110,7 +112,7 @@ module.exports = lintstagedConfig();
 Finally, configure Husky:
 
 ```shell
-yarn set-script prepare "husky install"
+npm set-script prepare "husky install"
 yarn run prepare
 yarn husky add .husky/commit-msg "yarn commitlint --edit"
 yarn husky add .husky/pre-commit "yarn lint-staged"
@@ -126,7 +128,7 @@ Install [Lerna](https://github.com/lerna/lerna) on the root of your monorepo:
 yarn add -DW lerna
 ```
 
-And add `lerna.json` config file:
+And add `lerna.json` (`touch lerna.json`) config file:
 
 ```json title="lerna.json"
 {
@@ -152,7 +154,7 @@ Finally, add the following in a `package.json` file to configure [Yarn Workspace
 ```json title="package.json"
 {
   "private": true,
-  "workspaces": ["workspace-a", "workspace-b"]
+  "workspaces": ["packages/**/*"]
 }
 ```
 
@@ -162,9 +164,11 @@ Coming soon...
 
 ## Packages and Applications
 
+You can use configs below to your packages and applications folders.
+
 ### Babel
 
-Add `babel.config.js` to each package:
+Add `babel.config.js` (`touch babel.config.js`) on the package folder:
 
 ```js title="babel.config.js"
 const { babelConfig } = require('@ttoss/config');
@@ -174,13 +178,13 @@ module.exports = babelConfig();
 
 ### Jest
 
-Install [Jest](https://jestjs.io/) and its types on the root of your monorepo (or package):
+Install [Jest](https://jestjs.io/) and its types on the root of your monorepo:
 
 ```shell
 yarn add -DW jest @types/jest
 ```
 
-Create `jest.config.ts` for each package:
+Create `jest.config.ts` (`touch jest.config.ts`) on the package folder:
 
 ```ts title="jest.config.ts"
 import { jestConfig } from '@ttoss/config';
@@ -190,11 +194,11 @@ const config = jestConfig();
 export default config;
 ```
 
-Configure the `test` script on `package.json`:
+Configure the `test` script on `package.json` of your package:
 
 ```json title="package.json"
-"scripts: {
-  test: 'jest',
+"scripts": {
+  "test": "jest",
 }
 ```
 
@@ -202,13 +206,13 @@ Configure the `test` script on `package.json`:
 
 Use [tsup](https://tsup.egoist.sh/) to bundle your TypeScript package, if you need to.
 
-Install [tsup](https://tsup.egoist.sh/) on the root of your monorepo (or package):
+Install [tsup](https://tsup.egoist.sh/) on the root of your monorepo:
 
 ```shell
 yarn add -DW tsup
 ```
 
-Create `tsup.config.ts` for each package:
+Create `tsup.config.ts` (`touch tsup.config.ts`) on the package folder:
 
 ```ts title="tsup.config.ts"
 import { tsupConfig } from '@ttoss/config';
@@ -219,20 +223,20 @@ export const tsup = tsupConfig();
 Configure the `build` script on `package.json`:
 
 ```json title="package.json"
-"scripts: {
-  build: 'tsup',
+"scripts": {
+  "build": "tsup",
 }
 ```
 
 ### TypeScript
 
-Install [TypeScript](https://www.npmjs.com/package/typescript) on the root of your monorepo (or package):
+Install [TypeScript](https://www.npmjs.com/package/typescript) on the root of your monorepo:
 
 ```shell
 yarn add -DW typescript
 ```
 
-Extend default configuration for each `tsconfig.json` of the packages:
+Extend default configuration for each `tsconfig.json` (`touch tsconfig.json`) on the package folder:
 
 ```json title="tsconfig.json"
 {
