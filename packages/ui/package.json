@@ -34,11 +34,12 @@
   "dependencies": {
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@theme-ui/color": "^0.13.1",
-    "@theme-ui/components": "^0.13.1",
-    "@theme-ui/core": "^0.13.1",
-    "@theme-ui/match-media": "^0.13.1",
-    "@theme-ui/mdx": "^0.13.1"
+    "@mdx-js/react": "^1",
+    "@theme-ui/color": "^0.14.3",
+    "@theme-ui/components": "^0.14.3",
+    "@theme-ui/core": "^0.14.3",
+    "@theme-ui/match-media": "^0.14.3",
+    "@theme-ui/mdx": "^0.14.3"
   },
   "peerDependencies": {
     "react": ">=16.8.0"

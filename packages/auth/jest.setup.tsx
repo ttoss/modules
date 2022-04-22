@@ -1,7 +1,7 @@
-import { setOptions } from '@ttoss/test-utils';
-import { ThemeProvider } from '@ttoss/ui';
-import { NotificationsProvider } from '@ttoss/notifications';
 import { I18nProvider } from '@ttoss/i18n';
+import { NotificationsProvider } from '@ttoss/notifications';
+import { ThemeProvider } from '@ttoss/ui';
+import { setOptions } from '@ttoss/test-utils';
 import React from 'react';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
