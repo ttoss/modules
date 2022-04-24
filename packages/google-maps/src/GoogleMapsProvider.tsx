@@ -1,5 +1,5 @@
-import { useScript, ScriptStatus } from '@ttoss/hooks';
 import * as React from 'react';
+import { ScriptStatus, useScript } from '@ttoss/hooks';
 
 type Extends<T, U extends T> = U;
 
@@ -25,14 +25,20 @@ const GoogleMapsContext = React.createContext<
 
 type Libraries = 'places' | 'visualization' | 'drawing' | 'geometry';
 
-export const GoogleMapsProvider: React.FC<{
+export const GoogleMapsProvider = ({
+  children,
+  apiKey,
+  libraries,
+  language,
+}: {
+  children: React.ReactNode;
   apiKey: string;
   libraries?: Libraries[];
   /**
    * https://developers.google.com/maps/faq#languagesupport
    */
   language?: string;
-}> = ({ children, apiKey, libraries, language }) => {
+}) => {
   const src = (() => {
     let srcTemp = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`;
 

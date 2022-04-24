@@ -1,12 +1,28 @@
 import * as React from 'react';
-
+import { useCallbackRef } from 'use-callback-ref';
 import { useGoogleMaps } from './GoogleMapsProvider';
 
-export const useMap = (options: google.maps.MapOptions) => {
-  const ref = React.useRef<HTMLDivElement>(null);
+export const useMap = (options: google.maps.MapOptions = {}) => {
+  /**
+   * Read here for more details about the useCallbackRef hook:
+   * https://github.com/theKashey/use-callback-ref#usecallbackref---to-replace-reactuseref
+   */
+  const [, forceUpdate] = React.useState(0);
+
+  const ref = useCallbackRef<HTMLDivElement>(null, () =>
+    forceUpdate((n) => n + 1)
+  );
+
   const { googleMaps } = useGoogleMaps();
 
-  const [isMapInitialized, setIsMapInitialized] = React.useState(false);
+  const map = React.useMemo(() => {
+    if (googleMaps && ref.current) {
+      return new googleMaps.Map(ref.current, options);
+    }
+
+    return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [googleMaps, ref.current]);
 
   /**
    * To avoid re-initializing the map because shallow object comparison.
@@ -14,16 +30,24 @@ export const useMap = (options: google.maps.MapOptions) => {
    */
   const optionsStringify = JSON.stringify(options);
 
-  const map = React.useMemo(() => {
-    if (googleMaps && ref.current) {
+  /**
+   * Update options but not reinitialize the map.
+   */
+  React.useEffect(() => {
+    if (map) {
       const parsedOptions = JSON.parse(optionsStringify);
-      const googleMapsMap = new googleMaps.Map(ref.current, parsedOptions);
-      setIsMapInitialized(true);
-      return googleMapsMap;
+      map.setOptions(parsedOptions);
     }
+  }, [optionsStringify, map]);
 
-    return null;
-  }, [googleMaps, optionsStringify]);
-
-  return { map, ref, isMapInitialized };
+  return {
+    /**
+     * asss
+     */
+    map,
+    /**
+     * hhhh
+     */
+    ref,
+  };
 };
