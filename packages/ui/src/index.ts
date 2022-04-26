@@ -19,6 +19,7 @@ export {
   default as FormField,
   FormFieldProps,
 } from './components/FormField/FormField';
+export { Grid, GridProps } from './components/Grid/Grid';
 export { Heading, HeadingProps } from './components/Heading/Heading';
 export { default as Image, ImageProps } from './components/Image/Image';
 export { default as Input, InputProps } from './components/Input/Input';

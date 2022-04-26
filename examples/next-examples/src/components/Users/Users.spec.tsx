@@ -1,7 +1,7 @@
 import {
   MockPayloadGenerator,
   createMockEnvironment,
-} from '@ttoss/test-utils/dist/relay';
+} from '@ttoss/test-utils/relay';
 import {
   QueryLoaderUsers,
   getQueryFiltersSomewhere,
@@ -9,7 +9,7 @@ import {
 } from './Users';
 import { RelayEnvironmentProvider } from 'react-relay';
 import { act, render, screen, userEvent } from '@ttoss/test-utils';
-import { faker } from '@ttoss/test-utils/dist/faker';
+import { faker } from '@ttoss/test-utils/faker';
 
 test('check if users list render a single card', async () => {
   /**

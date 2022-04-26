@@ -38,7 +38,7 @@
     "@rushstack/eslint-patch": "^1.1.1",
     "eslint": "^8.7.0",
     "husky": "^7.0.4",
-    "jest": "^27.4.7",
+    "jest": "^28.0.1",
     "lerna": "^4.0.0",
     "lint-staged": "^12.3.1",
     "npm-check-updates": "^12.2.1",

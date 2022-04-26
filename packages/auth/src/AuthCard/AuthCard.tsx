@@ -3,14 +3,14 @@ import * as React from 'react';
 import { Button, Card, Flex, Link, Text } from '@ttoss/ui';
 import { useNotifications } from '@ttoss/notifications';
 
-export type LogoContextProps = { logo?: React.ReactNode };
+export type LogoContextProps = {
+  logo?: React.ReactNode;
+  children?: React.ReactNode;
+};
 
 const LogoContext = React.createContext<LogoContextProps>({});
 
-export const LogoProvider: React.FC<LogoContextProps> = ({
-  children,
-  ...values
-}) => {
+export const LogoProvider = ({ children, ...values }: LogoContextProps) => {
   return <LogoContext.Provider value={values}>{children}</LogoContext.Provider>;
 };
 

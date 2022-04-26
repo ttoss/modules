@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   MockPayloadGenerator,
   createMockEnvironment,
-} from '@ttoss/test-utils/dist/relay';
+} from '@ttoss/test-utils/relay';
 import { RelayEnvironmentProvider, useLazyLoadQuery } from 'react-relay';
 import { UsersList } from './UsersList';
 import { UsersListMockedQuery } from './__generated__/UsersListMockedQuery.graphql';

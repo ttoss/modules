@@ -1,65 +1,57 @@
 # @ttoss/test-utils
 
-This package provides a number of utilities and re-exports for testing using [Jest](https://jestjs.io/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro), and [Storybook](https://storybook.js.org/).
-
-## How to Configure Your Project
-
-You can configure your project following the instructions in the [Jest](https://jestjs.io/) documentation. Basically, you need to add jest to your project, `yarn add --dev jest` and run `npx jest --init`, which will create a configuration file in your project root. If you're working with React, you'll need to change the property `testEnvironment` to `jsdom`.
-
-```ts
-// jest.config.ts
-export default {
-  // ...
-  testEnvironment: 'jsdom',
-};
-```
-
-If you're working with TypeScript, you'll also need to install [Babel](https://jestjs.io/docs/getting-started#using-babel) and create a `babel.config.js` to handle the transpilation of the ES6 code, TypeScript, and JSX.
-
-```sh
-yarn add --dev babel-jest @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript
-```
-
-```js
-// babel.config.js
-module.exports = {
-  presets: [
-    ['@babel/preset-env', { targets: { node: 'current' } }],
-    /**
-     * Adding this line allows you to use JSX in your files without using
-     * `import React as 'react'`.
-     */
-    ['@babel/preset-react', { runtime: 'automatic' }],
-    '@babel/preset-typescript',
-  ],
-};
-```
+This package provides re-exports utilities for testing using [Jest](https://jestjs.io/).
 
 ## Installing the Package
 
+We suggest installing the package at the root of your project:
+
 ```sh
-yarn add --dev @ttoss/test-utils
+yarn add -DW @ttoss/test-utils
 ```
+
+## How to Configure Your Project
+
+You configure your project following the instructions in the [Jest](https://jestjs.io/) documentation. Add Jest to the root to your project:
+
+```sh
+yarn add -DW jest
+```
+
+If you're working with TypeScript, you'll also need to configure Babel to handle the transpilation of the ES6 code, TypeScript, and JSX.
+
+```sh
+yarn add --DW @ttoss/config
+```
+
+Add `babel.config.js` (`touch babel.config.js`) on the package folder:
+
+```js title="babel.config.js"
+const { babelConfig } = require('@ttoss/config');
+
+module.exports = babelConfig();
+```
+
+You can read more about [`@ttoss/config` here](../config#babel).
 
 ## Using the Package
 
-<!-- _You can see an example of the package on this [GitHub repository](https)._ -->
+### Matchers and Helpers
 
-### React
+`@ttoss/test-utils` add the following matchers to Jest:
 
-This package re-exports the following libraries:
+- [@testing-library/jest-dom](https://github.com/testing-library/jest-dom): [custom matchers](https://github.com/testing-library/jest-dom#custom-matchers) to test the state of the DOM.
+- [@emotion/jest](https://emotion.sh/docs/testing): [custom matchers](https://emotion.sh/docs/@emotion/jest#custom-matchers) to make more explicit assertions when testing libraries that use [emotion](https://emotion.sh/docs/introduction).
 
-- [@testing-library/jest-dom](https://github.com/testing-library/jest-dom): custom [Jest](https://jestjs.io/) matchers to test the state of the DOM.
-- Everything from [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/): APIs for working with React components.
-- `renderHook` from [@testing-library/render-hooks](https://react-hooks-testing-library.com/): a utility for testing custom hooks.
-- `userEvent` from [@testing-library/user-event](https://testing-library.com/docs/ecosystem-user-event/): fire events the same way the user does.
+If you use `jsdom`, you don't need to [install `jest-environment-jsdom`](https://jestjs.io/docs/upgrading-to-jest28#jsdom), because the library already includes it.
 
-#### render
+### React Testing Library
 
-`render` is a method that allows you to render a React component with provided options. Before using it, you need to setup your testing options.
+`@ttoss/test-utils` re-exports everything from [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/), like `act`, `screen`, and `render`.
 
-```tsx
-// jest.setup.ts
+If you want to set options to every test, you can use `setOptions` on Jest setup function. This way, all `render` calls will use the same default options, unless you override them.
+
+```tsx title=jest.setup.ts
 import { setOptions } from '@ttoss/test-utils';
 
 import AllProviders from './paht/to/AllProviders';
@@ -70,30 +62,47 @@ import AllProviders from './paht/to/AllProviders';
 setOptions({ wrapper: AllProviders });
 ```
 
-Add `jest.setup.ts` to your `jest.config.js` file.
+### User Interactions
 
-```ts
-export default {
-  // ...
-  setupFilesAfterEnv: ['./jest.setup.ts'],
-};
-```
+`@ttoss/test-utils` re-exports `userEvent` from [user event](https://testing-library.com/docs/user-event/intro) library.
 
-Finally, you write your tests like this:
+For example, you write your tests like this:
 
 ```tsx
 import { render, screen, userEvent } from '@ttoss/test-utils';
 
 import Component from './Component';
 
-test('test with render', () => {
+test('test with render', async () => {
+  const user = await userEvent.setup();
+
   render(<Component />);
 
-  userEvent.click(screen.getByText('Increment'));
+  await user.click(screen.getByText('Increment'));
 
   expect(screen.getByText(1)).toBeInTheDocument();
 });
 ```
+
+### Testing Hooks
+
+`@ttoss/test-utils` re-exports `renderHook` from [react-hooks-testing-library](https://react-hooks-testing-library.com/).
+
+Example:
+
+```tsx
+import { renderHook } from '@ttoss/test-utils';
+import useCounter from './useCounter';
+
+test('should use counter', () => {
+  const { result } = renderHook(() => useCounter());
+
+  expect(result.current.count).toBe(0);
+  expect(typeof result.current.increment).toBe('function');
+});
+```
+
+The `setOptions` also works for [`renderHook` options](https://react-hooks-testing-library.com/reference/api#renderhook-options).
 
 ### Storybook
 
@@ -104,15 +113,17 @@ You can use your Storybook stories in your unit tests or create Storyshoots test
 You can reuse the Storybook stories that you've already created in your unit tests. To do so, this packages uses the package [@storybook/testing-react](https://github.com/storybookjs/testing-react), that you can use this way:
 
 ```tsx
-import { customRender, screen, userEvent } from '@ttoss/test-utils';
+import { render, screen, userEvent } from '@ttoss/test-utils';
 import { composeStories } from '@ttoss/test-utils/storybook';
 
 import * as stories from './my.stories';
 
 const { Example } = composeStories(stories);
 
-test('check if Storybook Example story is working', () => {
-  customRender(<Example />);
+test('check if Storybook Example story is working', async () => {
+  const user = userEvent.setup();
+
+  render(<Example />);
 
   expect(screen.getByText('oi')).toBeInTheDocument();
   expect(screen.getByText(0)).toBeInTheDocument();
@@ -120,7 +131,7 @@ test('check if Storybook Example story is working', () => {
   expect(screen.getByText('StorybookDecorator')).toBeInTheDocument();
   expect(screen.getByText('JestSetupProvider')).toBeInTheDocument();
 
-  userEvent.click(screen.getByText('Increment'));
+  await user.click(screen.getByText('Increment'));
 
   expect(screen.getByText(1)).toBeInTheDocument();
 });
@@ -128,8 +139,7 @@ test('check if Storybook Example story is working', () => {
 
 If your Storybook configuration has global decorators/parameters/etc and you want to use them in your tests, you can use the `setGlobalConfig` function to pass them to your stories. In your `jest.setup.ts` file, you can use the `setGlobalConfig` this way:
 
-```tsx
-// jest.setup.ts
+```tsx title=jest.setup.ts
 import { setGlobalConfig } from '@ttoss/test-utils/storybook';
 
 /**
@@ -142,3 +152,32 @@ setGlobalConfig(globalStorybookConfig);
 ```
 
 #### Storyshoots
+
+... TODO
+
+### Relay
+
+It re-exports `createMockEnvironment` and `MockPayloadGenerator` from [Relay test utils.](https://relay.dev/docs/guides/testing-relay-components/)
+
+Example:
+
+```tsx
+import {
+  createMockEnvironment,
+  MockPayloadGenerator,
+} from '@ttoss/test-utils/relay';
+
+// ...
+```
+
+### Faker
+
+It exports `faker` functions from [faker](https://fakerjs.dev/). Example:
+
+```ts
+import { faker } from '@ttoss/test-utils/faker';
+
+const randomName = faker.name.findName();
+const randomEmail = faker.internet.email();
+const randomCard = faker.helpers.createCard();
+```
