@@ -1,3 +1,1 @@
-import faker from 'faker';
-
-export { faker };
+export { faker } from '@faker-js/faker';

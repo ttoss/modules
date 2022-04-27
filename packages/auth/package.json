@@ -60,7 +60,7 @@
     "@ttoss/i18n": "^1.14.3",
     "@ttoss/notifications": "^1.14.3",
     "@ttoss/ui": "^1.14.3",
-    "aws-amplify": "4.x.x"
+    "aws-amplify": "^4.3.20"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

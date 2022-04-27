@@ -10,6 +10,7 @@ export type LoadLocaleData = (locale: string) => Promise<MessagesType>;
 export type I18nProviderProps = {
   locale?: string;
   loadLocaleData?: LoadLocaleData;
+  children?: React.ReactNode;
 };
 
 /**
@@ -28,11 +29,11 @@ export const I18nConfigContext = React.createContext<I18nConfigContextProps>({
   setLocale: () => null,
 });
 
-export const I18nProvider: React.FC<I18nProviderProps> = ({
+export const I18nProvider = ({
   children,
   locale: initialLocale,
   loadLocaleData,
-}) => {
+}: I18nProviderProps) => {
   const [locale, setLocale] = React.useState(initialLocale || DEFAULT_LOCALE);
 
   const [messages, setMessages] = React.useState<MessagesType>();

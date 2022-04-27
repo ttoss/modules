@@ -1,5 +1,5 @@
 import { UserCardMock } from './UserCard.mock';
-import { faker } from '@ttoss/test-utils/dist/faker';
+import { faker } from '@ttoss/test-utils/faker';
 import { render, screen } from '@ttoss/test-utils';
 
 it('should display user name', async () => {

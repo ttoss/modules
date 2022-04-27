@@ -1,5 +1,5 @@
-import { Auth, Hub } from 'aws-amplify';
 import * as React from 'react';
+import { Auth, Hub } from 'aws-amplify';
 
 type User = {
   id: string;
@@ -27,7 +27,7 @@ const AuthContext = React.createContext<{
   tokens: null,
 });
 
-const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = React.useState<User>(null);
 
   const [tokens, setTokens] = React.useState<Tokens>(null);

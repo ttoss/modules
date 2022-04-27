@@ -1,9 +1,11 @@
-import { act, renderHook, render, screen, userEvent } from '@ttoss/test-utils';
-
-import { useNotifications, TOAST_TYPES } from '.';
+import { NotificationsProvider } from './Provider';
+import { TOAST_TYPES, useNotifications } from '.';
+import { act, render, renderHook, screen, userEvent } from '@ttoss/test-utils';
 
 test('should set loading', () => {
-  const { result } = renderHook(() => useNotifications());
+  const { result } = renderHook(() => useNotifications(), {
+    wrapper: NotificationsProvider,
+  });
 
   expect(result.current.isLoading).toBe(false);
 
@@ -20,59 +22,65 @@ test('should set loading', () => {
   expect(result.current.isLoading).toBe(false);
 });
 
-test('should render toast alert', () => {
-  const toastContent = 'Toast test';
+test.each(Object.values(TOAST_TYPES))(
+  'should render toast alert %#',
+  async (toastType) => {
+    const toastContent = 'Toast test';
 
-  const Component = () => {
-    const { toast } = useNotifications();
+    const user = userEvent.setup({ delay: null });
 
-    return (
-      <div>
-        {Object.values(TOAST_TYPES).map((toastType) => {
-          return (
-            <button
-              key={toastType}
-              onClick={() => toast(`${toastContent} - ${toastType}`)}
-            >
-              toast - {toastType}
-            </button>
-          );
-        })}
-      </div>
-    );
-  };
+    const Component = () => {
+      const { toast } = useNotifications();
 
-  render(<Component />);
+      return (
+        <div>
+          {Object.values(TOAST_TYPES).map((toastType) => {
+            return (
+              <button
+                key={toastType}
+                onClick={() => toast(`${toastContent} - ${toastType}`)}
+              >
+                toast - {toastType}
+              </button>
+            );
+          })}
+        </div>
+      );
+    };
 
-  Object.values(TOAST_TYPES).forEach((toastType) => {
-    act(() => {
-      userEvent.click(screen.getByText(`toast - ${toastType}`));
+    render(<Component />, { wrapper: NotificationsProvider });
+
+    await act(async () => {
+      await user.click(screen.getByText(`toast - ${toastType}`));
       jest.advanceTimersByTime(100);
     });
 
     expect(
       screen.getByText(`${toastContent} - ${toastType}`)
     ).toBeInTheDocument();
-  });
-});
+  }
+);
 
-test('should render progress bar', () => {
+test('should render progress bar', async () => {
+  const user = userEvent.setup({ delay: null });
+
   const Component = () => {
     const { setLoading } = useNotifications();
 
     return (
       <div>
+        <p>aaaaaaaa</p>
         <button onClick={() => setLoading(true)}>click</button>
       </div>
     );
   };
 
-  render(<Component />);
+  render(<Component />, { wrapper: NotificationsProvider });
 
   expect(screen.queryByRole('progressbar')).toBeNull();
 
-  act(() => {
-    userEvent.click(screen.getByText('click'));
+  await act(async () => {
+    await user.click(await screen.findByText('click'));
   });
 
   expect(screen.getByRole('progressbar')).toBeInTheDocument();

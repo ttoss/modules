@@ -1,5 +1,5 @@
-import { useForm, yup, yupResolver } from '@ttoss/form';
 import { FormField, Input } from '@ttoss/ui';
+import { useForm, yup, yupResolver } from '@ttoss/form';
 import { useI18n } from '@ttoss/i18n';
 
 import { PASSWORD_MINIMUM_LENGTH } from '../../cloud/config';

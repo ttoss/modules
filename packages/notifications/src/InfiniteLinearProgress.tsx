@@ -1,5 +1,5 @@
-import { LinearProgress } from '@ttoss/ui';
 import * as React from 'react';
+import { LinearProgress } from '@ttoss/ui';
 
 const MAX_PROGRESS = 100;
 

@@ -27,12 +27,14 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
-    "@ttoss/config": "^1.14.3",
-    "react-hook-form": "^7.25.1",
+    "react-hook-form": "^7.30.0",
     "yup": "^0.32.11"
   },
   "peerDependencies": {
     "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@ttoss/config": "^1.14.3"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"
 }

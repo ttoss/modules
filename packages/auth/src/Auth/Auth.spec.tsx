@@ -1,7 +1,7 @@
 import * as awsAmplify from 'aws-amplify';
 import { Auth } from './Auth';
 import { act } from 'react-dom/test-utils';
-import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
+import { render, screen, userEvent } from '@ttoss/test-utils';
 
 jest.mock('aws-amplify');
 
@@ -18,6 +18,8 @@ const email = 'some@email.com';
 const password = 'somepassword';
 
 test('should call Amplify Auth.signIn', async () => {
+  const user = userEvent.setup({ delay: null });
+
   /**
    * Arrange
    */
@@ -26,43 +28,45 @@ test('should call Amplify Auth.signIn', async () => {
   /**
    * Act
    */
-  userEvent.type(screen.getByLabelText('email'), email);
-  userEvent.type(screen.getByLabelText('password'), password);
-  userEvent.click(screen.getByRole('button'));
+  await act(async () => {
+    await user.type(screen.getByLabelText('email'), email);
+    await user.type(screen.getByLabelText('password'), password);
+    await user.click(screen.getByRole('button'));
+  });
 
   /**
    * Assert
    */
-  await waitFor(() => {
-    expect(signIn).toHaveBeenCalledWith(email, password);
-  });
+  expect(signIn).toHaveBeenCalledWith(email, password);
 });
 
 test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
+  const user = userEvent.setup({ delay: null });
+
   render(<Auth />);
 
   /**
    * Sign In screen
    */
-  userEvent.click(screen.getByText("Don't have an account? Sign up"));
-
-  await waitFor(() => {
-    expect(signIn).not.toHaveBeenCalled();
+  await act(async () => {
+    await user.click(screen.getByText("Don't have an account? Sign up"));
   });
+
+  expect(signIn).not.toHaveBeenCalled();
 
   /**
    * Sign Up screen
    */
-  userEvent.type(screen.getByLabelText('email'), email);
-  userEvent.type(screen.getByLabelText('password'), password);
-  userEvent.click(screen.getByRole('button'));
+  await act(async () => {
+    await user.type(screen.getByLabelText('email'), email);
+    await user.type(screen.getByLabelText('password'), password);
+    await user.click(screen.getByRole('button'));
+  });
 
-  await waitFor(() => {
-    expect(signUp).toHaveBeenCalledWith({
-      username: email,
-      password,
-      attributes: { email },
-    });
+  expect(signUp).toHaveBeenCalledWith({
+    username: email,
+    password,
+    attributes: { email },
   });
 
   /**
@@ -70,12 +74,12 @@ test('should call Amplify Auth.signUp and Auth.confirmSignUp', async () => {
    */
   const code = '123456';
 
-  userEvent.type(screen.getByLabelText('email'), code);
-  userEvent.click(screen.getByRole('button'));
-
-  await waitFor(() => {
-    expect(confirmSignUp).toHaveBeenCalledWith(email, code);
+  await act(async () => {
+    await user.type(screen.getByLabelText('email'), code);
+    await user.click(screen.getByRole('button'));
   });
+
+  expect(confirmSignUp).toHaveBeenCalledWith(email, code);
 });
 
 test('should render logo', () => {

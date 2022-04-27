@@ -4,12 +4,10 @@ import { LogoContextProps, LogoProvider } from '../AuthCard/AuthCard';
 import { assign, createMachine } from 'xstate';
 import { useAuth } from '../AuthProvider/AuthProvider';
 import { useMachine } from '@xstate/react';
+import { useNotifications } from '@ttoss/notifications';
 import AuthConfirmSignUp from '../AuthConfirmSignUp/AuthConfirmSignUp';
 import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import AuthSignUp from '../AuthSignUp/AuthSignUp';
-
-import { useNotifications } from '@ttoss/notifications';
-
 import type { OnConfirmSignUp, OnSignIn, OnSignUp } from '../types';
 
 type AuthState =

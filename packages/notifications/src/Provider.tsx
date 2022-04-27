@@ -1,6 +1,6 @@
-import { Flex, useTheme } from '@ttoss/ui';
 import * as React from 'react';
-import { ToastContainer, toast, ToastContainerProps } from 'react-toastify';
+import { Flex, useTheme } from '@ttoss/ui';
+import { ToastContainer, ToastContainerProps, toast } from 'react-toastify';
 
 import { InfiniteLinearProgress } from './InfiniteLinearProgress';
 
@@ -17,12 +17,14 @@ const NotificationsContext = React.createContext<{
   toast,
 });
 
-export type NotificationsProviderProps = ToastContainerProps;
+export type NotificationsProviderProps = ToastContainerProps & {
+  children: React.ReactNode;
+};
 
-export const NotificationsProvider: React.FC<NotificationsProviderProps> = ({
+export const NotificationsProvider = ({
   children,
   ...props
-}) => {
+}: NotificationsProviderProps) => {
   const [isLoading, setLoading] = React.useState(false);
 
   const { theme } = useTheme();

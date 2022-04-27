@@ -1,17 +1,11 @@
-import { setOptions } from '@ttoss/test-utils';
+import * as React from 'react';
 import { ThemeProvider } from '@ttoss/ui';
-import React from 'react';
-
-import { NotificationsProvider } from './src';
+import { setOptions } from '@ttoss/test-utils';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider>
-      <NotificationsProvider>{children}</NotificationsProvider>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 setOptions({ wrapper: Providers });

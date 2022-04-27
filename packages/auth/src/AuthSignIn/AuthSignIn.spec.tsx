@@ -6,39 +6,43 @@ const onSignIn = jest.fn();
 
 const onSignUp = jest.fn();
 
-const user = {
+const userForm = {
   email: 'user@example.com',
   password: 'password',
 };
 
-describe('AuthSignIn', () => {
-  test('Should not call the onSubmit function if click on the login button without filling in the fields ', () => {
-    const { getByRole } = render(
-      <AuthSignIn onSignIn={onSignIn} onSignUp={onSignUp} />
-    );
+test('Should not call the onSubmit function if click on the login button without filling in the fields', async () => {
+  const user = userEvent.setup({ delay: null });
 
-    userEvent.click(getByRole('button'));
+  const { getByRole } = render(
+    <AuthSignIn onSignIn={onSignIn} onSignUp={onSignUp} />
+  );
 
-    expect(onSignIn).toHaveBeenCalledTimes(0);
+  await act(async () => {
+    await user.click(getByRole('button'));
   });
 
-  test('Should call the onSubmit function if click on the login button with filling in the fields ', async () => {
-    const { getByRole, getByLabelText } = render(
-      <AuthSignIn onSignIn={onSignIn} onSignUp={onSignUp} />
-    );
+  expect(onSignIn).toHaveBeenCalledTimes(0);
+});
 
-    const emailInput = getByLabelText('email');
-    const password = getByLabelText('password');
-    const buttonSubmit = getByRole('button');
+test('Should call the onSubmit function if click on the login button with filling in the fields', async () => {
+  const user = userEvent.setup({ delay: null });
 
-    await act(async () => {
-      userEvent.type(emailInput, user.email);
+  const { getByRole, getByLabelText } = render(
+    <AuthSignIn onSignIn={onSignIn} onSignUp={onSignUp} />
+  );
 
-      userEvent.type(password, user.password);
+  const emailInput = getByLabelText('email');
+  const password = getByLabelText('password');
+  const buttonSubmit = getByRole('button');
 
-      userEvent.click(buttonSubmit);
-    });
+  await act(async () => {
+    await user.type(emailInput, userForm.email);
 
-    expect(onSignIn).toHaveBeenCalledWith(user);
+    await user.type(password, userForm.password);
+
+    await user.click(buttonSubmit);
   });
+
+  expect(onSignIn).toHaveBeenCalledWith(userForm);
 });
