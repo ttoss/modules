@@ -32,7 +32,7 @@ const { babelConfig } = require('@ttoss/config');
 module.exports = babelConfig();
 ```
 
-You can read more about [`@ttoss/config` here](../config#babel).
+You can read more about [`@ttoss/config` here](/docs/core/config#babel).
 
 ## Using the Package
 

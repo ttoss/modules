@@ -1,7 +1,7 @@
 import * as awsAmplify from 'aws-amplify';
 import { Auth } from './Auth';
 import { act } from 'react-dom/test-utils';
-import { render, screen, userEvent, waitFor } from '@ttoss/test-utils';
+import { render, screen, userEvent } from '@ttoss/test-utils';
 
 jest.mock('aws-amplify');
 
