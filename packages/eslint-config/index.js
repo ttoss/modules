@@ -7,8 +7,4 @@
  */
 require('@rushstack/eslint-patch/modern-module-resolution');
 
-/**
- * See http://localhost:3000/docs/core/config/default-configs#eslint
- * for more details about plugins and extensions.
- */
 module.exports = require('./config');
