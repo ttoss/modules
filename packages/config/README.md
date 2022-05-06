@@ -48,20 +48,21 @@ const overwriteConfig = babelConfig(
 ## Install
 
 ```shell
-$ yarn add -DW @ttoss/config
+$ yarn add -DW @ttoss/config @ttoss/eslint-config
 ```
+
+It already installs:
+
+- ESLint
+- Prettier
+- commitlint
+- lint-staged
 
 ## Monorepo
 
 Add the configs of this section on the root of your monorepo. For configs for packages, you can check the section [Packages and Applications](#packages-and-applications). You can check [this monorepo template](https://github.com/ttoss/monorepo) if you want to see the final configuration after following the steps.
 
 ### ESLint and Prettier
-
-Install the following packages on the root of your monorepo:
-
-```shell
-yarn add -DW eslint @ttoss/eslint-config
-```
 
 Create `.prettierrc.js` (`touch .prettierrc.js`) and add the following to it:
 
@@ -86,7 +87,7 @@ This group of packages will only work if you have already installed [ESLint and 
 Install the following packages on the root of your monorepo:
 
 ```shell
-yarn add -DW husky @commitlint/cli lint-staged
+yarn add -DW husky
 ```
 
 Create `.commitlintrc.js` (`touch .commitlintrc.js`) and add the following to it:
