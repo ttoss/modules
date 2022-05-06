@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/ttoss/modules/compare/v1.15.0...v1.15.1) (2022-05-06)
+
+### Bug Fixes
+
+- **@ttoss/eslint-config:** add config.js file to npm package ([1aca29b](https://github.com/ttoss/modules/commit/1aca29bb9ff1bf58b6f18d4ebe2280df09a1198f))
+
 # [1.15.0](https://github.com/ttoss/modules/compare/v1.14.4...v1.15.0) (2022-05-06)
 
 ### Bug Fixes
