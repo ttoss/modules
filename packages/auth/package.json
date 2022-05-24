@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/auth",
-  "version": "1.15.2",
+  "version": "1.16.0",
   "description": "ttoss authentication module for React apps.",
   "main": "./dist/src/index.js",
   "typings": "./dist/src/index.d.ts",
@@ -44,7 +44,7 @@
   ],
   "license": "UNLICENSED",
   "dependencies": {
-    "@ttoss/form": "^1.15.2",
+    "@ttoss/form": "^1.16.0",
     "@xstate/react": "^1.6.3",
     "xstate": "^4.28.1"
   },
@@ -56,10 +56,10 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.15.2",
-    "@ttoss/i18n": "^1.15.2",
-    "@ttoss/notifications": "^1.15.2",
-    "@ttoss/ui": "^1.15.2",
+    "@ttoss/config": "^1.16.0",
+    "@ttoss/i18n": "^1.16.0",
+    "@ttoss/notifications": "^1.16.0",
+    "@ttoss/ui": "^1.16.0",
     "aws-amplify": "^4.3.20"
   },
   "gitHead": "2a911f70d465d6bffdd6589a62d17701f1026f01"

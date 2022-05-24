@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ttoss/modules/compare/v1.15.2...v1.16.0) (2022-05-24)
+
+### Features
+
+- adding Spinner component ([#89](https://github.com/ttoss/modules/issues/89)) ([f599656](https://github.com/ttoss/modules/commit/f599656d45b57e94305e5fed9255bfe08bec18ce))
+
 ## [1.15.2](https://github.com/ttoss/modules/compare/v1.15.1...v1.15.2) (2022-05-06)
 
 **Note:** Version bump only for package ttoss-modules-monorepo
