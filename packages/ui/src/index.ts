@@ -36,3 +36,7 @@ export {
   default as Select,
   type SelectProps,
 } from './components/Select/Select';
+export {
+  default as Spinner,
+  type SpinnerProps,
+} from './components/Spinner/Spinner'
