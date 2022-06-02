@@ -1,6 +1,6 @@
 {
   "name": "@ttoss/test-utils",
-  "version": "1.16.0",
+  "version": "1.16.1",
   "description": "This package provides a number of utilities and re-exports for testing using Jest, React Testing Library, and Storybook.",
   "keywords": [
     "Jest",
@@ -88,7 +88,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
-    "@ttoss/config": "^1.16.0",
+    "@ttoss/config": "^1.16.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
