@@ -50,6 +50,9 @@
       ],
       "relay": [
         "./dist/relay.d.ts"
+      ],
+      "storybook": [
+        "./dist/storybook.d.ts"
       ]
     }
   },
