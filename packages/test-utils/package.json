@@ -58,9 +58,7 @@
   },
   "files": [
     "dist",
-    "src",
-    "storybook.d.ts",
-    "storybook.js"
+    "src"
   ],
   "license": "UNLICENSED",
   "scripts": {
