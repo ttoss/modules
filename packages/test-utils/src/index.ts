@@ -52,3 +52,5 @@ export { customRenderHook as renderHook };
 export const setOptions = (options: RenderOptions) => {
   options_ = options;
 };
+
+export * from './storybook';
